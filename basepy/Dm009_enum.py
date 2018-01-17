@@ -7,3 +7,5 @@ if __name__ == "__main__":
     en_seasons = enumerate(seasons)
     print(en_seasons)
     print(type(en_seasons))
+    list_en = list(enumerate(seasons, start=1))  # 小标从 1 开始
+    print(list_en)

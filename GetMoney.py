@@ -1,9 +1,10 @@
 #coding=utf-8
 
 # 取款机
+import tushare as ts
 
 if __name__ == '__main__':
-    import tushare as ts
+
     # myData = ts.get_hist_data('600848')  # 一次性获取全部日k线数据
     # myData = ts.get_hist_data('600848', start='2015-01-05', end='2015-01-09') # 设定时间
     # myData = ts.get_hist_data(code = 'hs300')

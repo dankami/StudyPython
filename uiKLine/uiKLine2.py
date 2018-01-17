@@ -477,28 +477,7 @@ class KLineWidget(KeyWraper):
             self.subSigColor[sig] = self.allSubColor[0]
             self.allSubColor.append(self.allSubColor.popleft())
 
-    #----------------------------------------------------------------------
-    def showSig(self,datas,main=True,clear=False):
-        """刷新信号图"""
-        if clear:
-            self.clearSig(main)
-            if datas and not main:
-                sigDatas = np.array(datas.values()[0])
-                self.listOpenInterest = sigDatas
-                self.datas['openInterest'] = sigDatas
-                self.plotOI(0,len(sigDatas))
-        if main:
-            for sig in datas:
-                self.addSig(sig,main)
-                self.sigData[sig] = datas[sig]
-                self.sigPlots[sig].setData(datas[sig], pen=self.sigColor[sig][0], name=sig)
-        else:
-            for sig in datas:
-                self.addSig(sig,main)
-                self.subSigData[sig] = datas[sig]
-                self.subSigPlots[sig].setData(datas[sig], pen=self.subSigColor[sig][0], name=sig)
 
-    #----------------------------------------------------------------------
     def plotMark(self):
         """显示开平仓信号"""
         # 检查是否有数据
@@ -717,48 +696,7 @@ class KLineWidget(KeyWraper):
         self.listSig = sig
         self.plotMark()
 
-    #----------------------------------------------------------------------
-    def onBar(self, bar, nWindow = 20):
-        """
-        新增K线数据,K线播放模式
-        nWindow : 最大数据窗口
-        """
-        # 是否需要更新K线
-        newBar = False if len(self.datas)>0 and bar.datetime==self.datas[-1].datetime else True
-        nrecords = len(self.datas) if newBar else len(self.datas)-1
-        bar.openInterest = np.random.randint(0,3) if bar.openInterest==np.inf or bar.openInterest==-np.inf else bar.openInterest
-        recordVol = (nrecords,bar.volume,0,0,bar.volume) if bar.close < bar.open else (nrecords,0,bar.volume,0,bar.volume)
-        if newBar and any(self.datas):
-            self.datas.resize(nrecords+1,refcheck=0)
-            self.listBar.resize(nrecords+1,refcheck=0)
-            self.listVol.resize(nrecords+1,refcheck=0)
-        elif any(self.datas):
-            self.listLow.pop()
-            self.listHigh.pop()
-            self.listOpenInterest.pop()
-        if any(self.datas):
-            self.datas[-1]   = (bar.datetime, bar.open, bar.close, bar.low, bar.high, bar.volume, bar.openInterest)
-            self.listBar[-1] = (nrecords, bar.open, bar.close, bar.low, bar.high)
-            self.listVol[-1] = recordVol
-        else:
-            self.datas     = np.rec.array([(datetime, bar.open, bar.close, bar.low, bar.high, bar.volume, bar.openInterest)],\
-                                        names=('datetime','open','close','low','high','volume','openInterest'))
-            self.listBar   = np.rec.array([(nrecords, bar.open, bar.close, bar.low, bar.high)],\
-                                     names=('datetime','open','close','low','high'))
-            self.listVol   = np.rec.array([recordVol],names=('datetime','open','close','low','high'))
-            self.resignData(self.datas)
-        self.axisTime.update_xdict({nrecords:bar.datetime})
-        self.listLow.append(bar.low)
-        self.listHigh.append(bar.high)
-        self.listOpenInterest.append(bar.openInterest)
-        xMax = nrecords+1
-        xMin = max(0,nrecords-nWindow)
-        if not newBar:
-            self.updateAll()
-        self.plotAll(False,xMin,xMax)
-        self.crosshair.signal.emit((None,None))
 
-    #----------------------------------------------------------------------
     def loadData(self, datas):
         """
         载入pandas.DataFrame数据

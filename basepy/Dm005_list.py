@@ -8,3 +8,6 @@ if __name__ == "__main__":
     print(list[1])
     print(list[-1])
     print(list[-2])
+    list2 = []
+    print(list2)
+    print(type(list2))

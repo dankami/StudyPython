@@ -7,4 +7,5 @@ if __name__ == "__main__":
     print(tuple[1])
     print(tuple[-1])
     print(tuple[-2])
+    print(type(tuple))
     # tuple[1] = 3 #报错
