@@ -14,10 +14,10 @@ from datetime import datetime
 from collections import deque
 
 # 自己的类
-from KeyWraper import KeyWraper
+from uiKeyWraper import KeyWraper
 from MyStringAxis import MyStringAxis
-from CustomViewBox import CustomViewBox
-from CandlestickItem import CandlestickItem
+from uiCustomViewBox import CustomViewBox
+from uiCandlestickItem import CandlestickItem
 
 ########################################################################
 class KLineWidget(KeyWraper):
@@ -114,38 +114,38 @@ class KLineWidget(KeyWraper):
         return plotItem
 
     # ----------------------------------------------------------------------
-    def initplotVol(self):
-        """初始化成交量子图"""
-        self.pwVol = self.makePI('PlotVol')
-        self.volume = CandlestickItem(self.m_listVol)
-        self.pwVol.addItem(self.volume)
-        self.pwVol.setMaximumHeight(150)
-        self.pwVol.setXLink('PlotOI')
-        self.pwVol.hideAxis('bottom')
-
-        self.m_layKL.nextRow()
-        self.m_layKL.addItem(self.pwVol)
-
-    # ----------------------------------------------------------------------
     def initplotKline(self):
         """初始化K线子图"""
-        self.pwKL = self.makePI('PlotKL')
-        self.candle = CandlestickItem(self.m_listBar)
-        self.pwKL.addItem(self.candle)
-        self.pwKL.setXLink('PlotOI')
-        self.pwKL.hideAxis('bottom')
+        self.m_pwKL = self.makePI('PlotKL')
+        self.m_candle = CandlestickItem(self.m_listBar)
+        self.m_pwKL.addItem(self.m_candle)
+        self.m_pwKL.setXLink('PlotOI')
+        self.m_pwKL.hideAxis('bottom')
 
         self.m_layKL.nextRow()
-        self.m_layKL.addItem(self.pwKL)
+        self.m_layKL.addItem(self.m_pwKL)
+
+    # ----------------------------------------------------------------------
+    def initplotVol(self):
+        """初始化成交量子图"""
+        self.m_pwVol = self.makePI('PlotVol')
+        self.m_volume = CandlestickItem(self.m_listVol)
+        self.m_pwVol.addItem(self.m_volume)
+        self.m_pwVol.setMaximumHeight(150)
+        self.m_pwVol.setXLink('PlotOI')
+        self.m_pwVol.hideAxis('bottom')
+
+        self.m_layKL.nextRow()
+        self.m_layKL.addItem(self.m_pwVol)
 
     # ----------------------------------------------------------------------
     def initplotOI(self):
         """初始化持仓量子图"""
-        self.pwOI = self.makePI('PlotOI')
-        self.curveOI = self.pwOI.plot()
+        self.m_pwOI = self.makePI('PlotOI')
+        self.m_curveOI = self.m_pwOI.plot()
 
         self.m_layKL.nextRow()
-        self.m_layKL.addItem(self.pwOI)
+        self.m_layKL.addItem(self.m_pwOI)
 
     # ----------------------------------------------------------------------
     #  画图相关
@@ -153,34 +153,34 @@ class KLineWidget(KeyWraper):
     def plotVol(self, _redraw=False, _xmin=0, _xmax=-1):
         """重画成交量子图"""
         if self.m_initCompleted:
-            self.volume.generatePicture(self.m_listVol[_xmin:_xmax], _redraw)  # 画成交量子图
+            self.m_volume.generatePicture(self.m_listVol[_xmin:_xmax], _redraw)  # 画成交量子图
 
     # ----------------------------------------------------------------------
     def plotKline(self, _redraw=False, _xmin=0, _xmax=-1):
         """重画K线子图"""
         if self.m_initCompleted:
-            self.candle.generatePicture(self.m_listBar[_xmin:_xmax], _redraw)  # 画K线
+            self.m_candle.generatePicture(self.m_listBar[_xmin:_xmax], _redraw)  # 画K线
             self.plotMark()  # 显示开平仓信号位置
 
     # ----------------------------------------------------------------------
     def plotOI(self, _xmin=0, _xmax=-1):
         """重画持仓量子图"""
         if self.m_initCompleted:
-            self.curveOI.setData(self.m_listOpenInterest[_xmin:_xmax] + [0], pen='w', name="OpenInterest")
+            self.m_curveOI.setData(self.m_listOpenInterest[_xmin:_xmax] + [0], pen='w', name="OpenInterest")
 
     # ----------------------------------------------------------------------
     def addSig(self, _sig, _main=True):
         """新增信号图"""
         if _main:
             if _sig in self.m_sigPlots:
-                self.pwKL.removeItem(self.m_sigPlots[_sig])
-            self.m_sigPlots[_sig] = self.pwKL.plot()
+                self.m_pwKL.removeItem(self.m_sigPlots[_sig])
+            self.m_sigPlots[_sig] = self.m_pwKL.plot()
             self.m_sigColor[_sig] = self.m_allColor[0]
             self.m_allColor.append(self.m_allColor.popleft())
         else:
             if _sig in self.m_subSigPlots:
-                self.pwOI.removeItem(self.m_subSigPlots[_sig])
-            self.m_subSigPlots[_sig] = self.pwOI.plot()
+                self.m_pwOI.removeItem(self.m_subSigPlots[_sig])
+            self.m_subSigPlots[_sig] = self.m_pwOI.plot()
             self.m_subSigColor[_sig] = self.m_allSubColor[0]
             self.m_allSubColor.append(self.m_allSubColor.popleft())
 
@@ -212,7 +212,7 @@ class KLineWidget(KeyWraper):
         if len(self.m_datas) == 0:
             return
         for arrow in self.m_arrows:
-            self.pwKL.removeItem(arrow)
+            self.m_pwKL.removeItem(arrow)
         # 画买卖信号
         for i in range(len(self.m_listSig)):
             # 无信号
@@ -224,7 +224,7 @@ class KLineWidget(KeyWraper):
             # 卖信号
             elif self.m_listSig[i] < 0:
                 arrow = pg.ArrowItem(pos=(i, self.m_datas[i]['high']), angle=-90, brush=(0, 255, 0))
-            self.pwKL.addItem(arrow)
+            self.m_pwKL.addItem(arrow)
             self.m_arrows.append(arrow)
 
     # ----------------------------------------------------------------------
@@ -233,8 +233,8 @@ class KLineWidget(KeyWraper):
         手动更新所有K线图形，K线播放模式下需要
         """
         datas = self.m_datas
-        self.volume.update()
-        self.candle.update()
+        self.m_volume.update()
+        self.m_candle.update()
 
         def update(view, low, high):
             vRange = view.viewRange()
@@ -248,8 +248,8 @@ class KLineWidget(KeyWraper):
             else:
                 view.setRange(yRange=(0, 1))
 
-        update(self.pwKL.getViewBox(), 'low', 'high')
-        update(self.pwVol.getViewBox(), 'volume', 'volume')
+        update(self.m_pwKL.getViewBox(), 'low', 'high')
+        update(self.m_pwVol.getViewBox(), 'volume', 'volume')
 
     # ----------------------------------------------------------------------
     def plotAll(self, _redraw=True, _xMin=0, _xMax=-1):
@@ -261,9 +261,9 @@ class KLineWidget(KeyWraper):
         _xMax = len(self.m_datas) if _xMax < 0 else _xMax
         self.m_countK = _xMax - _xMin
         self.m_index = int((_xMax + _xMin) / 2)
-        self.pwOI.setLimits(xMin=_xMin, xMax=_xMax)
-        self.pwKL.setLimits(xMin=_xMin, xMax=_xMax)
-        self.pwVol.setLimits(xMin=_xMin, xMax=_xMax)
+        self.m_pwKL.setLimits(xMin=_xMin, xMax=_xMax)
+        self.m_pwVol.setLimits(xMin=_xMin, xMax=_xMax)
+        self.m_pwOI.setLimits(xMin=_xMin, xMax=_xMax)
         self.plotKline(_redraw, _xMin, _xMax)  # K线图
         self.plotVol(_redraw, _xMin, _xMax)  # K线副图，成交量
         self.plotOI(0, len(self.m_datas))  # K线副图，持仓量
@@ -278,9 +278,9 @@ class KLineWidget(KeyWraper):
         minutes = int(self.m_countK / 2)
         xmin = max(0, self.m_index - minutes)
         xmax = xmin + 2 * minutes
-        self.pwOI.setRange(xRange=(xmin, xmax))
-        self.pwKL.setRange(xRange=(xmin, xmax))
-        self.pwVol.setRange(xRange=(xmin, xmax))
+        self.m_pwKL.setRange(xRange=(xmin, xmax))
+        self.m_pwVol.setRange(xRange=(xmin, xmax))
+        self.m_pwOI.setRange(xRange=(xmin, xmax))
 
     # ----------------------------------------------------------------------
     #  快捷键相关
@@ -295,7 +295,7 @@ class KLineWidget(KeyWraper):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     def onPre(self):
@@ -307,7 +307,7 @@ class KLineWidget(KeyWraper):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     def onDown(self):
@@ -316,10 +316,10 @@ class KLineWidget(KeyWraper):
         self.refresh()
         if len(self.m_datas) > 0:
             x = self.m_index - self.m_countK / 2 + 2 if int(
-                self.m_crosshair.xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.xAxis)
+                self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x][2]
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     def onUp(self):
@@ -328,39 +328,39 @@ class KLineWidget(KeyWraper):
         self.refresh()
         if len(self.m_datas) > 0:
             x = self.m_index - self.m_countK / 2 + 2 if int(
-                self.m_crosshair.xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.xAxis)
+                self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x]['close']
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     def onLeft(self):
         """向左移动"""
-        if len(self.m_datas) > 0 and int(self.m_crosshair.xAxis) > 2:
-            x = int(self.m_crosshair.xAxis) - 1
+        if len(self.m_datas) > 0 and int(self.m_crosshair.m_xAxis) > 2:
+            x = int(self.m_crosshair.m_xAxis) - 1
             y = self.m_datas[x]['close']
             if x <= self.m_index - self.m_countK / 2 + 2 and self.m_index > 1:
                 self.m_index -= 1
                 self.refresh()
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     def onRight(self):
         """向右移动"""
-        if len(self.m_datas) > 0 and int(self.m_crosshair.xAxis) < len(self.m_datas) - 1:
-            x = int(self.m_crosshair.xAxis) + 1
+        if len(self.m_datas) > 0 and int(self.m_crosshair.m_xAxis) < len(self.m_datas) - 1:
+            x = int(self.m_crosshair.m_xAxis) + 1
             y = self.m_datas[x]['close']
             if x >= self.m_index + int(self.m_countK / 2) - 2:
                 self.m_index += 1
                 self.refresh()
-            self.m_crosshair.signal.emit((x, y))
+            self.m_crosshair.m_signal.emit((x, y))
 
     # ----------------------------------------------------------------------
     # 界面回调相关
     # ----------------------------------------------------------------------
     def onPaint(self):
         """界面刷新回调"""
-        view = self.pwKL.getViewBox()
+        view = self.m_pwKL.getViewBox()
         vRange = view.viewRange()
         xmin = max(0, int(vRange[0][0]))
         xmax = max(0, int(vRange[0][1]))
@@ -369,7 +369,7 @@ class KLineWidget(KeyWraper):
     # ----------------------------------------------------------------------
     def resignData(self, _datas):
         """更新数据，用于Y坐标自适应"""
-        self.m_crosshair.datas = _datas
+        self.m_crosshair.m_datas = _datas
 
         def viewXRangeChanged(low, high, self):
             vRange = self.viewRange()
@@ -383,13 +383,13 @@ class KLineWidget(KeyWraper):
             else:
                 self.setRange(yRange=(0, 1))
 
-        view = self.pwKL.getViewBox()
+        view = self.m_pwKL.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged, 'low', 'high'))
 
-        view = self.pwVol.getViewBox()
+        view = self.m_pwVol.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged, 'volume', 'volume'))
 
-        view = self.pwOI.getViewBox()
+        view = self.m_pwOI.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged, 'openInterest', 'openInterest'))
 
     # ----------------------------------------------------------------------
@@ -414,12 +414,12 @@ class KLineWidget(KeyWraper):
         # 清空信号图
         if _main:
             for sig in self.m_sigPlots:
-                self.pwKL.removeItem(self.m_sigPlots[sig])
+                self.m_pwKL.removeItem(self.m_sigPlots[sig])
             self.m_sigData = {}
             self.m_sigPlots = {}
         else:
             for sig in self.m_subSigPlots:
-                self.pwOI.removeItem(self.m_subSigPlots[sig])
+                self.m_pwOI.removeItem(self.m_subSigPlots[sig])
             self.m_subSigData = {}
             self.m_subSigPlots = {}
 
@@ -471,7 +471,7 @@ class KLineWidget(KeyWraper):
         if not newBar:
             self.updateAll()
         self.plotAll(False, xMin, xMax)
-        self.m_crosshair.signal.emit((None, None))
+        self.m_crosshair.m_signal.emit((None, None))
 
     # ----------------------------------------------------------------------
     def loadData(self, _datas):

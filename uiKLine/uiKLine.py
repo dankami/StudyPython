@@ -586,7 +586,7 @@ class KLineWidget(KeyWraper):
             self.refresh()
             x = self.index
             y = self.datas[x]['close']
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
 
     #----------------------------------------------------------------------
     def onPre(self):
@@ -598,7 +598,7 @@ class KLineWidget(KeyWraper):
             self.refresh()
             x = self.index
             y = self.datas[x]['close']
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
 
     #----------------------------------------------------------------------
     def onDown(self):
@@ -606,10 +606,10 @@ class KLineWidget(KeyWraper):
         self.countK = min(len(self.datas),int(self.countK*1.2)+1)
         self.refresh()
         if len(self.datas)>0:
-            x = self.index-self.countK/2+2 if int(self.crosshair.xAxis)<self.index-self.countK/2+2 else int(self.crosshair.xAxis)
+            x = self.index-self.countK/2+2 if int(self.crosshair.m_xAxis) < self.index - self.countK / 2 + 2 else int(self.crosshair.m_xAxis)
             x = self.index+self.countK/2-2 if x>self.index+self.countK/2-2 else x
             y = self.datas[x][2]
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
 
     #----------------------------------------------------------------------
     def onUp(self):
@@ -617,32 +617,32 @@ class KLineWidget(KeyWraper):
         self.countK = max(3,int(self.countK/1.2)-1)
         self.refresh()
         if len(self.datas)>0:
-            x = self.index-self.countK/2+2 if int(self.crosshair.xAxis)<self.index-self.countK/2+2 else int(self.crosshair.xAxis)
+            x = self.index-self.countK/2+2 if int(self.crosshair.m_xAxis) < self.index - self.countK / 2 + 2 else int(self.crosshair.m_xAxis)
             x = self.index+self.countK/2-2 if x>self.index+self.countK/2-2 else x
             y = self.datas[x]['close']
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
 
     #----------------------------------------------------------------------
     def onLeft(self):
         """向左移动"""
-        if len(self.datas)>0 and int(self.crosshair.xAxis)>2:
-            x = int(self.crosshair.xAxis)-1
+        if len(self.datas)>0 and int(self.crosshair.m_xAxis)>2:
+            x = int(self.crosshair.m_xAxis) - 1
             y = self.datas[x]['close']
             if x <= self.index-self.countK/2+2 and self.index>1:
                 self.index -= 1
                 self.refresh()
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
 
     #----------------------------------------------------------------------
     def onRight(self):
         """向右移动"""
-        if len(self.datas)>0 and int(self.crosshair.xAxis)<len(self.datas)-1:
-            x = int(self.crosshair.xAxis)+1
+        if len(self.datas)>0 and int(self.crosshair.m_xAxis)<len(self.datas)-1:
+            x = int(self.crosshair.m_xAxis) + 1
             y = self.datas[x]['close']
             if x >= self.index+int(self.countK/2)-2:
                 self.index += 1
                 self.refresh()
-            self.crosshair.signal.emit((x,y))
+            self.crosshair.m_signal.emit((x, y))
     
     #----------------------------------------------------------------------
     # 界面回调相关
@@ -658,7 +658,7 @@ class KLineWidget(KeyWraper):
     #----------------------------------------------------------------------
     def resignData(self,datas):
         """更新数据，用于Y坐标自适应"""
-        self.crosshair.datas = datas
+        self.crosshair.m_datas = datas
         def viewXRangeChanged(low,high,self):
             vRange = self.viewRange()
             xmin = max(0,int(vRange[0][0]))
@@ -756,7 +756,7 @@ class KLineWidget(KeyWraper):
         if not newBar:
             self.updateAll()
         self.plotAll(False,xMin,xMax)
-        self.crosshair.signal.emit((None,None))
+        self.crosshair.m_signal.emit((None, None))
 
     #----------------------------------------------------------------------
     def loadData(self, datas):

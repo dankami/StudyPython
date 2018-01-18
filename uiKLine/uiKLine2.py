@@ -10,7 +10,7 @@ from PyQt4.QtGui import QApplication
 from PyQt4 import QtCore
 # 其他
 import pandas as pd
-from KLineWidget import KLineWidget
+from uiKLineWidget import KLineWidget
 
 # 字符串转换
 # ---------------------------------------------------------------------------------------

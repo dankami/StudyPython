@@ -2,127 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/KLine.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetMoney.py" afterPath="$PROJECT_DIR$/GetMoney.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basepy/Dm009_enum.py" afterPath="$PROJECT_DIR$/basepy/Dm009_enum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uiKLine/uiCrosshair.py" afterPath="$PROJECT_DIR$/uiKLine/uiCrosshair.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uiKLine/uiKLine.py" afterPath="$PROJECT_DIR$/uiKLine/uiKLine.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ChangeTypeUtil.py" afterPath="$PROJECT_DIR$/basepy/ChangeTypeUtil.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm001_HelloWorld.py" afterPath="$PROJECT_DIR$/basepy/Dm001_HelloWorld.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm002_XML.py" afterPath="$PROJECT_DIR$/basepy/Dm002_XML.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm003_Plist.py" afterPath="$PROJECT_DIR$/basepy/Dm003_Plist.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm004_File.py" afterPath="$PROJECT_DIR$/basepy/Dm004_File.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm005_list.py" afterPath="$PROJECT_DIR$/basepy/Dm005_list.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm006_Tuple.py" afterPath="$PROJECT_DIR$/basepy/Dm006_Tuple.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Dm007_dict.py" afterPath="$PROJECT_DIR$/basepy/Dm007_dict.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MoneyMachine.py" afterPath="$PROJECT_DIR$/basepy/MoneyMachine.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/MoneyMachine/000001.json" afterPath="$PROJECT_DIR$/basepy/res/MoneyMachine/000001.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/MoneyMachine/000001.xlsx" afterPath="$PROJECT_DIR$/basepy/res/MoneyMachine/000001.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/MoneyMachine/600848.json" afterPath="$PROJECT_DIR$/basepy/res/MoneyMachine/600848.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm02/com_gameloading_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm02/com_gameloading_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm02/com_gameloading_node_new.csd" afterPath="$PROJECT_DIR$/basepy/res/dm02/com_gameloading_node_new.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm02/movies.xml" afterPath="$PROJECT_DIR$/basepy/res/dm02/movies.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm03/example.plist" afterPath="$PROJECT_DIR$/basepy/res/dm03/example.plist" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm03/hall_res_1.plist" afterPath="$PROJECT_DIR$/basepy/res/dm03/hall_res_1.plist" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/activity/activity_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/activity/activity_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/activity/activity_node_bjl.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/activity/activity_node_bjl.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_draw.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_draw.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_rebate.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_rebate.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_record.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_record.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_record_item.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_record_item.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_save.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_save.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_t_record.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_t_record.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_t_record_Item.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_t_record_Item.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_trans.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_trans.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_node_transadv.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_node_transadv.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_password_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_password_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/bank/bank_trans_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/bank/bank_trans_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/ccui_touchlayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/ccui_touchlayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/com_awardItem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/com_awardItem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/com_gameloading_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/com_gameloading_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/com_getAward_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/com_getAward_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/common_broadcast_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/common_broadcast_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/common_keyboard_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/common_keyboard_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/common_setting.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/common_setting.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/common_webview_layer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/common_webview_layer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/masklayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/masklayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/other_device_info_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/other_device_info_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/pokercard_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/pokercard_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/share_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/share_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/share_screen_clipnode.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/share_screen_clipnode.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/common/tips_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/common/tips_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/email/hall_email_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/email/hall_email_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/email/hall_semail_good_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/email/hall_semail_good_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/email/hall_semail_item.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/email/hall_semail_item.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/email/hall_semail_showlayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/email/hall_semail_showlayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_add_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_add_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_apply_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_apply_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_applyitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_applyitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_delete_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_delete_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_friendinfo_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_friendinfo_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_friendlist_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_friendlist_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_friendlistitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_friendlistitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/friend/friend_send_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/friend/friend_send_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/game/game_select_room.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/game/game_select_room.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/game/game_start_btn.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/game/game_start_btn.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/guide/guidelayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/guide/guidelayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_bglayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_bglayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_bottom_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_bottom_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_common_touchlayer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_common_touchlayer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_displayicon_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_displayicon_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_gameicon_layer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_gameicon_layer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_gamestate_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_gamestate_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_invitationcodenode.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_invitationcodenode.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_paytypenode.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_paytypenode.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_salvation_layer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_salvation_layer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_scroll_notice_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_scroll_notice_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_select_head_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_select_head_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_service_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_service_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_setting_scene.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_setting_scene.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_shop_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_shop_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_top_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_top_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/hall_type_select_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/hall_type_select_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/head_icon_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/head_icon_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/new_com_head_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/new_com_head_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/room_icon_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/room_icon_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/title_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/title_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/user_personal_info_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/user_personal_info_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/hall/user_rename_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/hall/user_rename_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/danmaku_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/danmaku_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/knapsack_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/knapsack_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/knapsackitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/knapsackitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/phonecharge_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/phonecharge_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/phonechargeitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/phonechargeitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/knapsack/speaker_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/knapsack/speaker_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_account_login_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_account_login_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_aggrament_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_aggrament_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_bankpassword_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_bankpassword_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_binding_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_binding_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_bindingchange_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_bindingchange_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_bindingremove_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_bindingremove_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_changepassword_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_changepassword_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_findpassword_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_findpassword_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_layer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_layer.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_lockdevice_ndoe.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_lockdevice_ndoe.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_register_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_register_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/login/login_setpassword_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/login/login_setpassword_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/rank/rank_head_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/rank/rank_head_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/rank/rank_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/rank/rank_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/rebate/rebate_item_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/rebate/rebate_item_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/rebate/rebate_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/rebate/rebate_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/rebate/rebate_rule.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/rebate/rebate_rule.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/recharge/recharge_gif_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/recharge/recharge_gif_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/shop/shop_bigitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/shop/shop_bigitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/shop/shop_main_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/shop/shop_main_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/shop/shop_smallitem_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/shop/shop_smallitem_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/shop/shop_tips_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/shop/shop_tips_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/sign/sign_item.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/sign/sign_item.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/sign/sign_main_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/sign/sign_main_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/task/task_base_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/task/task_base_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/task/task_gift_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/task/task_gift_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/task/task_item_node.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/task/task_item_node.csd" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/dm04/game_csb/welcome/welcome_loading_layer.csd" afterPath="$PROJECT_DIR$/basepy/res/dm04/game_csb/welcome/welcome_loading_layer.csd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uiKLine/uiKLine2.py" afterPath="$PROJECT_DIR$/uiKLine/uiKLine2.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/uiKLine/CandlestickItem.py" afterPath="$PROJECT_DIR$/uiKLine/uiCandlestickItem.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/uiKLine/CustomViewBox.py" afterPath="$PROJECT_DIR$/uiKLine/uiCustomViewBox.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/uiKLine/KLineWidget.py" afterPath="$PROJECT_DIR$/uiKLine/uiKLineWidget.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/uiKLine/KeyWraper.py" afterPath="$PROJECT_DIR$/uiKLine/uiKeyWraper.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -133,138 +21,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="uiKLine2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="uiKLineWidget.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uiKLine/uiKLineWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="88" column="34" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+              <folding>
+                <element signature="e#715#1642#0" expanded="false" />
+                <element signature="e#1648#1720#0" expanded="false" />
+                <element signature="e#2936#3634#0" expanded="false" />
+                <element signature="e#3750#4058#0" expanded="false" />
+                <element signature="e#4172#4530#0" expanded="false" />
+                <element signature="e#4643#4819#0" expanded="false" />
+                <element signature="e#4825#4897#0" expanded="false" />
+                <element signature="e#5052#5194#0" expanded="false" />
+                <element signature="e#5334#5513#0" expanded="false" />
+                <element signature="e#5392#5507#0" expanded="false" />
+                <element signature="e#5635#5796#0" expanded="false" />
+                <element signature="e#5917#6535#0" expanded="false" />
+                <element signature="e#5959#6220#0" expanded="false" />
+                <element signature="e#6247#6529#0" expanded="false" />
+                <element signature="e#6673#7465#0" expanded="false" />
+                <element signature="e#6716#6982#0" expanded="false" />
+                <element signature="e#6790#6982#0" expanded="false" />
+                <element signature="e#7013#7218#0" expanded="false" />
+                <element signature="e#7048#7218#0" expanded="false" />
+                <element signature="e#7245#7465#0" expanded="false" />
+                <element signature="e#7280#7459#0" expanded="false" />
+                <element signature="e#7570#8277#0" expanded="false" />
+                <element signature="e#7807#8271#0" expanded="false" />
+                <element signature="e#8383#9106#0" expanded="false" />
+                <element signature="e#8383#8427#1" expanded="false" />
+                <element signature="e#8569#8987#0" expanded="false" />
+                <element signature="e#8789#8924#0" expanded="false" />
+                <element signature="e#9249#9839#0" expanded="false" />
+                <element signature="e#9249#9346#1" expanded="false" />
+                <element signature="e#9949#10285#0" expanded="false" />
+                <element signature="e#9949#9984#1" expanded="false" />
+                <element signature="e#10291#10363#0" expanded="false" />
+                <element signature="e#10483#10904#0" expanded="false" />
+                <element signature="e#10577#10898#0" expanded="false" />
+                <element signature="e#11006#11379#0" expanded="false" />
+                <element signature="e#11100#11373#0" expanded="false" />
+                <element signature="e#11482#12001#0" expanded="false" />
+                <element signature="e#11641#11995#0" expanded="false" />
+                <element signature="e#12102#12611#0" expanded="false" />
+                <element signature="e#12245#12605#0" expanded="false" />
+                <element signature="e#12714#13088#0" expanded="false" />
+                <element signature="e#12809#13082#0" expanded="false" />
+                <element signature="e#12983#13031#0" expanded="false" />
+                <element signature="e#13192#13570#0" expanded="false" />
+                <element signature="e#13307#13564#0" expanded="false" />
+                <element signature="e#13465#13513#0" expanded="false" />
+                <element signature="e#13570#13642#0" expanded="false" />
+                <element signature="e#13764#13982#0" expanded="false" />
+                <element signature="e#14226#14648#0" expanded="false" />
+                <element signature="e#14448#14585#0" expanded="false" />
+                <element signature="e#15043#15115#0" expanded="false" />
+                <element signature="e#15237#15530#0" expanded="false" />
+                <element signature="e#15653#16063#0" expanded="false" />
+                <element signature="e#15712#15865#0" expanded="false" />
+                <element signature="e#15892#16057#0" expanded="false" />
+                <element signature="e#16175#16241#0" expanded="false" />
+                <element signature="e#16368#18628#0" expanded="false" />
+                <element signature="e#16368#16430#1" expanded="false" />
+                <element signature="e#17016#17181#0" expanded="false" />
+                <element signature="e#17226#17322#0" expanded="false" />
+                <element signature="e#17365#17606#0" expanded="false" />
+                <element signature="e#17633#18208#0" expanded="false" />
+                <element signature="e#18747#20211#0" expanded="false" />
+                <element signature="e#18747#18852#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiCrosshair.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uiKLine/uiCrosshair.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-48">
+              <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding>
+                <element signature="e#25#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiKLine2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uiKLine/uiKLine2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="659" column="89" lean-forward="false" selection-start-line="659" selection-start-column="89" selection-end-line="659" selection-end-column="89" />
+            <state relative-caret-position="335">
+              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
               <folding>
                 <element signature="e#24#101#1" expanded="false" />
-                <element signature="e#423#430#0" expanded="false" />
-                <element signature="e#592#628#0" expanded="false" />
-                <element signature="e#618#626#0" expanded="false" />
-                <element signature="e#628#700#0" expanded="false" />
-                <element signature="e#819#4200#0" expanded="false" />
-                <element signature="e#841#845#0" expanded="false" />
-                <element signature="e#967#1039#0" expanded="false" />
-                <element signature="e#1045#1085#0" expanded="false" />
-                <element signature="e#1206#1647#0" expanded="false" />
-                <element signature="e#1647#1689#0" expanded="false" />
-                <element signature="e#1812#2009#0" expanded="false" />
-                <element signature="e#2015#2059#0" expanded="false" />
-                <element signature="e#2179#2385#0" expanded="false" />
-                <element signature="e#2391#2426#0" expanded="false" />
-                <element signature="e#2544#2635#0" expanded="false" />
-                <element signature="e#2635#2670#0" expanded="false" />
-                <element signature="e#2788#2802#0" expanded="false" />
-                <element signature="e#2808#2817#0" expanded="false" />
-                <element signature="e#2923#2927#0" expanded="false" />
-                <element signature="e#2933#2940#0" expanded="false" />
-                <element signature="e#3046#3050#0" expanded="false" />
-                <element signature="e#3056#3066#0" expanded="false" />
-                <element signature="e#3171#3175#0" expanded="false" />
-                <element signature="e#3181#3191#0" expanded="false" />
-                <element signature="e#3298#3302#0" expanded="false" />
-                <element signature="e#3312#3317#0" expanded="false" />
-                <element signature="e#3424#3428#0" expanded="false" />
-                <element signature="e#3434#3439#0" expanded="false" />
-                <element signature="e#3547#3551#0" expanded="false" />
-                <element signature="e#3557#3564#0" expanded="false" />
-                <element signature="e#3677#3681#0" expanded="false" />
-                <element signature="e#3687#3694#0" expanded="false" />
-                <element signature="e#3807#3811#0" expanded="false" />
-                <element signature="e#3817#3824#0" expanded="false" />
-                <element signature="e#3939#3943#0" expanded="false" />
-                <element signature="e#3949#3956#0" expanded="false" />
-                <element signature="e#4071#4075#0" expanded="false" />
-                <element signature="e#4081#4085#0" expanded="false" />
-                <element signature="e#4193#4197#0" expanded="false" />
-                <element signature="e#4200#4272#0" expanded="false" />
-                <element signature="e#4394#4826#0" expanded="false" />
-                <element signature="e#4513#4612#0" expanded="false" />
-                <element signature="e#4562#4570#0" expanded="false" />
-                <element signature="e#4626#4634#0" expanded="false" />
-                <element signature="e#4754#4826#0" expanded="false" />
-                <element signature="e#4826#4898#0" expanded="false" />
-                <element signature="e#5022#6308#0" expanded="false" />
-                <element signature="e#5047#5053#0" expanded="false" />
-                <element signature="e#5186#5548#0" expanded="false" />
-                <element signature="e#5554#5563#0" expanded="false" />
-                <element signature="e#5683#5807#0" expanded="false" />
-                <element signature="e#5813#5839#0" expanded="false" />
-                <element signature="e#5975#6306#0" expanded="false" />
-                <element signature="e#6025#6283#0" expanded="false" />
-                <element signature="e#6092#6206#0" expanded="false" />
-                <element signature="e#6308#6380#0" expanded="false" />
-                <element signature="e#6509#10240#0" expanded="false" />
-                <element signature="e#6527#6532#0" expanded="false" />
-                <element signature="e#6647#7464#0" expanded="false" />
-                <element signature="e#7598#9016#0" expanded="false" />
-                <element signature="e#8018#8978#0" expanded="false" />
-                <element signature="e#8062#8978#0" expanded="false" />
-                <element signature="e#9022#9028#0" expanded="false" />
-                <element signature="e#9135#9203#0" expanded="false" />
-                <element signature="e#9203#9209#0" expanded="false" />
-                <element signature="e#9332#9755#0" expanded="false" />
-                <element signature="e#9540#9670#0" expanded="false" />
-                <element signature="e#9755#9761#0" expanded="false" />
-                <element signature="e#9881#10040#0" expanded="false" />
-                <element signature="e#10046#10052#0" expanded="false" />
-                <element signature="e#10165#10237#0" expanded="false" />
-                <element signature="e#10699#11563#0" expanded="false" />
-                <element signature="e#11569#11640#0" expanded="false" />
-                <element signature="e#11761#12735#0" expanded="false" />
-                <element signature="e#12771#13468#0" expanded="false" />
-                <element signature="e#13581#13920#0" expanded="false" />
-                <element signature="e#14035#14325#0" expanded="false" />
-                <element signature="e#14437#14603#0" expanded="false" />
-                <element signature="e#14609#14680#0" expanded="false" />
-                <element signature="e#14829#14962#0" expanded="false" />
-                <element signature="e#15095#15292#0" expanded="false" />
-                <element signature="e#15151#15286#0" expanded="false" />
-                <element signature="e#15409#15560#0" expanded="false" />
-                <element signature="e#15717#15956#0" expanded="false" />
-                <element signature="e#15983#16243#0" expanded="false" />
-                <element signature="e#16278#16962#0" expanded="false" />
-                <element signature="e#16505#16956#0" expanded="false" />
-                <element signature="e#17067#17769#0" expanded="false" />
-                <element signature="e#17067#17111#1" expanded="false" />
-                <element signature="e#17244#17659#0" expanded="false" />
-                <element signature="e#17459#17595#0" expanded="false" />
-                <element signature="e#17905#18515#0" expanded="false" />
-                <element signature="e#17905#18002#1" expanded="false" />
-                <element signature="e#18624#18953#0" expanded="false" />
-                <element signature="e#18624#18659#1" expanded="false" />
-                <element signature="e#18959#19030#0" expanded="false" />
-                <element signature="e#19150#19540#0" expanded="false" />
-                <element signature="e#19238#19534#0" expanded="false" />
-                <element signature="e#19641#19986#0" expanded="false" />
-                <element signature="e#19730#19980#0" expanded="false" />
-                <element signature="e#20088#20516#0" expanded="false" />
-                <element signature="e#20232#20510#0" expanded="false" />
-                <element signature="e#20616#21036#0" expanded="false" />
-                <element signature="e#20746#21030#0" expanded="false" />
-                <element signature="e#21138#21473#0" expanded="false" />
-                <element signature="e#21223#21467#0" expanded="false" />
-                <element signature="e#21375#21421#0" expanded="false" />
-                <element signature="e#21576#21919#0" expanded="false" />
-                <element signature="e#21677#21909#0" expanded="false" />
-                <element signature="e#21817#21863#0" expanded="false" />
-                <element signature="e#21919#21990#0" expanded="false" />
-                <element signature="e#22111#22318#0" expanded="false" />
-                <element signature="e#22551#22966#0" expanded="false" />
-                <element signature="e#22766#22902#0" expanded="false" />
-                <element signature="e#23349#23420#0" expanded="false" />
-                <element signature="e#23541#23818#0" expanded="false" />
-                <element signature="e#23938#24329#0" expanded="false" />
-                <element signature="e#23996#24140#0" expanded="false" />
-                <element signature="e#24167#24323#0" expanded="false" />
-                <element signature="e#24438#24501#0" expanded="false" />
-                <element signature="e#24543#26033#0" expanded="false" />
-                <element signature="e#24543#24648#1" expanded="false" />
-                <element signature="e#26035#26107#0" expanded="false" />
-                <element signature="e#26230#26647#0" expanded="false" />
-                <marker date="1516010916581" expanded="false" signature="15667:16243" ph="..." />
+                <element signature="e#103#123#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -281,13 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shelf</find>
-      <find>def get</find>
-      <find>FileData</find>
-      <find>tree</find>
-      <find>filedata</find>
-      <find>png</find>
-      <find>getPngName</find>
       <find>getCsbName</find>
       <find>isFilt</find>
       <find>uiBasicIO</find>
@@ -297,7 +141,32 @@
       <find>'datetime'</find>
       <find>onBar</find>
       <find>'openInterest'</find>
+      <find>QtGui</find>
+      <find>CandlestickItem</find>
+      <find>NoBrush</find>
+      <find>class</find>
+      <find>class</find>
+      <find>m_initCompleted</find>
+      <find>KLtitle</find>
+      <find>m_pwKL</find>
+      <find>m_pwOI</find>
+      <find>data</find>
+      <find>resignData</find>
+      <find>sigData</find>
+      <find>index</find>
+      <find>master</find>
+      <find>self.master.sigData</find>
+      <find>self.su</find>
+      <find>self.master.subSigData</find>
+      <find>Crosshair</find>
+      <find>m_crosshair</find>
+      <find>signal</find>
+      <find>__view</find>
     </findStrings>
+    <replaceStrings>
+      <replace>self.master.m_sigData</replace>
+      <replace>self.master.m_subSigData</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>E:\workspace\git\StudyPython\uiKLine</dir>
     </dirStrings>
@@ -329,11 +198,20 @@
         <option value="$PROJECT_DIR$/basepy/Dm009_enum.py" />
         <option value="$PROJECT_DIR$/GetMoney.py" />
         <option value="$PROJECT_DIR$/uiKLine/uiKLine.py" />
+        <option value="$PROJECT_DIR$/uiKLine/KeyWraper.py" />
+        <option value="$PROJECT_DIR$/uiKLine/CustomViewBox.py" />
+        <option value="$PROJECT_DIR$/uiKLine/MyStringAxis.py" />
+        <option value="$PROJECT_DIR$/uiKLine/CandlestickItem.py" />
+        <option value="$PROJECT_DIR$/pyqt_demo/02HelloWin2.py" />
         <option value="$PROJECT_DIR$/uiKLine/uiKLine2.py" />
+        <option value="$PROJECT_DIR$/pyqt_graph_demo/01HelloWorld.py" />
+        <option value="$PROJECT_DIR$/uiKLine/KLineWidget.py" />
+        <option value="$PROJECT_DIR$/uiKLine/uiKLineWidget.py" />
+        <option value="$PROJECT_DIR$/uiKLine/uiCrosshair.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="232" />
     <option name="y" value="95" />
     <option name="width" value="1400" />
@@ -435,41 +313,58 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.uiKLine2">
-    <configuration name="Dm008_numpy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="01HelloWorld" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basepy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pyqt_graph_demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basepy/Dm008_numpy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyqt_graph_demo/01HelloWorld.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Dm009_enum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="02HelloWin2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basepy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pyqt_demo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basepy/Dm009_enum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyqt_demo/02HelloWin2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="uiKLine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="03HelloWin3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pyqt_demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="StudyPython" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyqt_demo/03HelloWin3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="KLineWidget" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -481,7 +376,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/uiKLine/uiKLine.py" />
+      <option name="SCRIPT_NAME" value="E:\workspace\git\StudyPython\uiKLine\uiKLineWidget.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -503,37 +398,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="uiKLineTool" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/uiKLine" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/uiKLine/uiKLineTool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Dm008_numpy" />
-      <item index="1" class="java.lang.String" itemvalue="Python.uiKLine" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Dm009_enum" />
-      <item index="3" class="java.lang.String" itemvalue="Python.uiKLineTool" />
-      <item index="4" class="java.lang.String" itemvalue="Python.uiKLine2" />
+      <item index="0" class="java.lang.String" itemvalue="Python.uiKLine2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.03HelloWin3" />
+      <item index="2" class="java.lang.String" itemvalue="Python.02HelloWin2" />
+      <item index="3" class="java.lang.String" itemvalue="Python.01HelloWorld" />
+      <item index="4" class="java.lang.String" itemvalue="Python.KLineWidget" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.uiKLine2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.uiKLine" />
-        <item index="2" class="java.lang.String" itemvalue="Python.uiKLineTool" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Dm009_enum" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Dm008_numpy" />
+        <item index="1" class="java.lang.String" itemvalue="Python.KLineWidget" />
+        <item index="2" class="java.lang.String" itemvalue="Python.01HelloWorld" />
+        <item index="3" class="java.lang.String" itemvalue="Python.02HelloWin2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.03HelloWin3" />
       </list>
     </recent_temporary>
   </component>
@@ -586,24 +464,31 @@
       <option name="project" value="LOCAL" />
       <updated>1515978913915</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="调整 uiKLine 的代码结构&#10;新增 qyptgraph 的示例代码">
+      <created>1516265928497</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1516265928498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1695279" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.50289434" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34543326" sideWeight="0.49710566" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38056207" sideWeight="0.49710566" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3114754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -611,7 +496,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -624,7 +508,8 @@
     <MESSAGE value="新增 文件的操作&#10;新增 改写cocos studio csd文件工具" />
     <MESSAGE value="新增 python list,tuple,dict 的使用demo" />
     <MESSAGE value="新增 numpy, enum 的使用demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 numpy, enum 的使用demo" />
+    <MESSAGE value="调整 uiKLine 的代码结构&#10;新增 qyptgraph 的示例代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整 uiKLine 的代码结构&#10;新增 qyptgraph 的示例代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -646,7 +531,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/uiKLine/uiKLine2.py</url>
-          <line>639</line>
+          <line>14</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
@@ -655,77 +540,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/changetype/game_csb/activity/activity_node.csd" />
-    <entry file="file://$PROJECT_DIR$/basepy/Dm001_HelloWorld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basepy/Dm002_XML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basepy/Dm003_Plist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hall_res_1.plist" />
-    <entry file="file://$PROJECT_DIR$/movies.xml" />
-    <entry file="file://$PROJECT_DIR$/mylib/biplist/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basepy/Dm001_HelloWorld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example.plist" />
-    <entry file="file://$PROJECT_DIR$/movies.xml" />
-    <entry file="file://$PROJECT_DIR$/hall_res_1.plist" />
-    <entry file="file://$PROJECT_DIR$/com_gameloading_node_new.csd" />
-    <entry file="file://C:/Python27/Lib/xml/dom/minidom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="815" column="0" lean-forward="false" selection-start-line="815" selection-start-column="0" selection-end-line="815" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com_gameloading_node.csd" />
-    <entry file="file://$PROJECT_DIR$/mylib/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basepy/res/dm02/com_gameloading_node_new.csd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/changetype/game_res/hall_res_1.plist" />
     <entry file="file://$PROJECT_DIR$/mylib/biplist/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -747,14 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="936">
           <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt_demo/01HelloWin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,24 +592,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uiKLine/uiBasicIO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="61" column="13" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/numpy/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3985">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/pandas/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -870,17 +663,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672">
-          <caret line="1187" column="8" lean-forward="false" selection-start-line="1187" selection-start-column="8" selection-end-line="1187" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="453" column="4" lean-forward="false" selection-start-line="453" selection-start-column="4" selection-end-line="453" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -902,6 +689,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="92" column="31" lean-forward="false" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -937,278 +725,259 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiCustomViewBox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="22" />
+          <folding>
+            <element signature="e#25#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/MyStringAxis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/uiKLine/uiKLine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="810" column="22" lean-forward="true" selection-start-line="810" selection-start-column="22" selection-end-line="810" selection-end-column="22" />
+        <state relative-caret-position="237">
+          <caret line="227" column="30" lean-forward="false" selection-start-line="227" selection-start-column="30" selection-end-line="227" selection-end-column="30" />
           <folding>
-            <element signature="e#24#101#1" expanded="false" />
             <element signature="e#103#123#0" expanded="true" />
-            <element signature="e#423#430#0" expanded="false" />
-            <element signature="e#592#628#0" expanded="false" />
-            <element signature="e#618#626#0" expanded="false" />
-            <element signature="e#628#700#0" expanded="false" />
-            <element signature="e#819#4200#0" expanded="false" />
-            <element signature="e#841#845#0" expanded="false" />
-            <element signature="e#967#1039#0" expanded="false" />
-            <element signature="e#1045#1085#0" expanded="false" />
-            <element signature="e#1206#1647#0" expanded="false" />
-            <element signature="e#1647#1689#0" expanded="false" />
-            <element signature="e#1812#2009#0" expanded="false" />
-            <element signature="e#2015#2059#0" expanded="false" />
-            <element signature="e#2179#2385#0" expanded="false" />
-            <element signature="e#2391#2426#0" expanded="false" />
-            <element signature="e#2544#2635#0" expanded="false" />
-            <element signature="e#2635#2670#0" expanded="false" />
-            <element signature="e#2788#2802#0" expanded="false" />
-            <element signature="e#2808#2817#0" expanded="false" />
-            <element signature="e#2923#2927#0" expanded="false" />
-            <element signature="e#2933#2940#0" expanded="false" />
-            <element signature="e#3046#3050#0" expanded="false" />
-            <element signature="e#3056#3066#0" expanded="false" />
-            <element signature="e#3171#3175#0" expanded="false" />
-            <element signature="e#3181#3191#0" expanded="false" />
-            <element signature="e#3298#3302#0" expanded="false" />
-            <element signature="e#3312#3317#0" expanded="false" />
-            <element signature="e#3424#3428#0" expanded="false" />
-            <element signature="e#3434#3439#0" expanded="false" />
-            <element signature="e#3547#3551#0" expanded="false" />
-            <element signature="e#3557#3564#0" expanded="false" />
-            <element signature="e#3677#3681#0" expanded="false" />
-            <element signature="e#3687#3694#0" expanded="false" />
-            <element signature="e#3807#3811#0" expanded="false" />
-            <element signature="e#3817#3824#0" expanded="false" />
-            <element signature="e#3939#3943#0" expanded="false" />
-            <element signature="e#3949#3956#0" expanded="false" />
-            <element signature="e#4071#4075#0" expanded="false" />
-            <element signature="e#4081#4085#0" expanded="false" />
-            <element signature="e#4193#4197#0" expanded="false" />
-            <element signature="e#4200#4272#0" expanded="false" />
-            <element signature="e#4394#4826#0" expanded="false" />
-            <element signature="e#4513#4612#0" expanded="false" />
-            <element signature="e#4562#4570#0" expanded="false" />
-            <element signature="e#4626#4634#0" expanded="false" />
-            <element signature="e#4754#4826#0" expanded="false" />
-            <element signature="e#4826#4898#0" expanded="false" />
-            <element signature="e#5047#5053#0" expanded="false" />
-            <element signature="e#5186#5548#0" expanded="false" />
-            <element signature="e#5554#5563#0" expanded="false" />
-            <element signature="e#5813#5839#0" expanded="false" />
-            <element signature="e#5975#6306#0" expanded="false" />
-            <element signature="e#6025#6283#0" expanded="false" />
-            <element signature="e#6092#6206#0" expanded="false" />
-            <element signature="e#6308#6380#0" expanded="false" />
-            <element signature="e#6509#10240#0" expanded="false" />
-            <element signature="e#6527#6532#0" expanded="false" />
-            <element signature="e#6647#7464#0" expanded="false" />
-            <element signature="e#7598#9016#0" expanded="false" />
-            <element signature="e#8018#8978#0" expanded="false" />
-            <element signature="e#8062#8978#0" expanded="false" />
-            <element signature="e#9022#9028#0" expanded="false" />
-            <element signature="e#9135#9203#0" expanded="false" />
-            <element signature="e#9203#9209#0" expanded="false" />
-            <element signature="e#9332#9755#0" expanded="false" />
-            <element signature="e#9540#9670#0" expanded="false" />
-            <element signature="e#9755#9761#0" expanded="false" />
-            <element signature="e#9881#10040#0" expanded="false" />
-            <element signature="e#10046#10052#0" expanded="false" />
-            <element signature="e#10165#10237#0" expanded="false" />
-            <element signature="e#10699#11563#0" expanded="false" />
-            <element signature="e#11569#11640#0" expanded="false" />
-            <element signature="e#11761#12735#0" expanded="false" />
-            <element signature="e#12771#13468#0" expanded="false" />
-            <element signature="e#13581#13920#0" expanded="false" />
-            <element signature="e#14035#14325#0" expanded="false" />
-            <element signature="e#14437#14603#0" expanded="false" />
-            <element signature="e#14609#14680#0" expanded="false" />
-            <element signature="e#14829#14962#0" expanded="false" />
-            <element signature="e#15095#15292#0" expanded="false" />
-            <element signature="e#15151#15286#0" expanded="false" />
-            <element signature="e#15409#15560#0" expanded="false" />
-            <element signature="e#15676#16249#0" expanded="false" />
-            <element signature="e#15717#15956#0" expanded="false" />
-            <element signature="e#15983#16243#0" expanded="false" />
-            <element signature="e#16380#17139#0" expanded="false" />
-            <element signature="e#16422#16679#0" expanded="false" />
-            <element signature="e#16493#16679#0" expanded="false" />
-            <element signature="e#16709#16903#0" expanded="false" />
-            <element signature="e#16743#16903#0" expanded="false" />
-            <element signature="e#16930#17139#0" expanded="false" />
-            <element signature="e#16964#17133#0" expanded="false" />
-            <element signature="e#17243#17927#0" expanded="false" />
-            <element signature="e#17470#17921#0" expanded="false" />
-            <element signature="e#18032#18734#0" expanded="false" />
-            <element signature="e#18032#18076#1" expanded="false" />
-            <element signature="e#18209#18624#0" expanded="false" />
-            <element signature="e#18424#18560#0" expanded="false" />
-            <element signature="e#18870#19480#0" expanded="false" />
-            <element signature="e#18870#18967#1" expanded="false" />
-            <element signature="e#19589#19918#0" expanded="false" />
-            <element signature="e#19589#19624#1" expanded="false" />
-            <element signature="e#19924#19995#0" expanded="false" />
-            <element signature="e#20115#20505#0" expanded="false" />
-            <element signature="e#20203#20499#0" expanded="false" />
-            <element signature="e#20606#20951#0" expanded="false" />
-            <element signature="e#20695#20945#0" expanded="false" />
-            <element signature="e#21053#21481#0" expanded="false" />
-            <element signature="e#21197#21475#0" expanded="false" />
-            <element signature="e#21581#22001#0" expanded="false" />
-            <element signature="e#21711#21995#0" expanded="false" />
-            <element signature="e#22103#22438#0" expanded="false" />
-            <element signature="e#22188#22432#0" expanded="false" />
-            <element signature="e#22340#22386#0" expanded="false" />
-            <element signature="e#22541#22884#0" expanded="false" />
-            <element signature="e#22642#22874#0" expanded="false" />
-            <element signature="e#22782#22828#0" expanded="false" />
-            <element signature="e#22884#22955#0" expanded="false" />
-            <element signature="e#23076#23283#0" expanded="false" />
-            <element signature="e#24314#24385#0" expanded="false" />
-            <element signature="e#24506#24783#0" expanded="false" />
-            <element signature="e#24903#25294#0" expanded="false" />
-            <element signature="e#24961#25105#0" expanded="false" />
-            <element signature="e#25132#25288#0" expanded="false" />
-            <element signature="e#25403#25466#0" expanded="false" />
-            <element signature="e#25592#25654#1" expanded="false" />
-            <element signature="e#26141#26291#0" expanded="false" />
-            <element signature="e#26334#26424#0" expanded="false" />
-            <element signature="e#26465#26691#0" expanded="false" />
-            <element signature="e#27779#27884#1" expanded="false" />
-            <element signature="e#29271#29343#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/PyQt4/QtCore/Qt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiCandlestickItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
+          <folding>
+            <element signature="e#25#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pandas/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-648">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pandas/core/series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqt_demo/02HelloWin2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqt_demo/03HelloWin3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiKeyWraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="34" column="76" lean-forward="true" selection-start-line="34" selection-start-column="76" selection-end-line="34" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/graphicsItems/GraphicsLayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/01HelloWorld.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyqt_demo/01HelloWin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/func-button/klHeatmap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/func-button/klClearSig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/func-button/klBacktest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uiKLine/uiKLine2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="659" column="89" lean-forward="false" selection-start-line="659" selection-start-column="89" selection-end-line="659" selection-end-column="89" />
+        <state relative-caret-position="335">
+          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
           <folding>
             <element signature="e#24#101#1" expanded="false" />
-            <element signature="e#423#430#0" expanded="false" />
-            <element signature="e#592#628#0" expanded="false" />
-            <element signature="e#618#626#0" expanded="false" />
-            <element signature="e#628#700#0" expanded="false" />
-            <element signature="e#819#4200#0" expanded="false" />
-            <element signature="e#841#845#0" expanded="false" />
-            <element signature="e#967#1039#0" expanded="false" />
-            <element signature="e#1045#1085#0" expanded="false" />
-            <element signature="e#1206#1647#0" expanded="false" />
-            <element signature="e#1647#1689#0" expanded="false" />
-            <element signature="e#1812#2009#0" expanded="false" />
-            <element signature="e#2015#2059#0" expanded="false" />
-            <element signature="e#2179#2385#0" expanded="false" />
-            <element signature="e#2391#2426#0" expanded="false" />
-            <element signature="e#2544#2635#0" expanded="false" />
-            <element signature="e#2635#2670#0" expanded="false" />
-            <element signature="e#2788#2802#0" expanded="false" />
-            <element signature="e#2808#2817#0" expanded="false" />
-            <element signature="e#2923#2927#0" expanded="false" />
-            <element signature="e#2933#2940#0" expanded="false" />
-            <element signature="e#3046#3050#0" expanded="false" />
-            <element signature="e#3056#3066#0" expanded="false" />
-            <element signature="e#3171#3175#0" expanded="false" />
-            <element signature="e#3181#3191#0" expanded="false" />
-            <element signature="e#3298#3302#0" expanded="false" />
-            <element signature="e#3312#3317#0" expanded="false" />
-            <element signature="e#3424#3428#0" expanded="false" />
-            <element signature="e#3434#3439#0" expanded="false" />
-            <element signature="e#3547#3551#0" expanded="false" />
-            <element signature="e#3557#3564#0" expanded="false" />
-            <element signature="e#3677#3681#0" expanded="false" />
-            <element signature="e#3687#3694#0" expanded="false" />
-            <element signature="e#3807#3811#0" expanded="false" />
-            <element signature="e#3817#3824#0" expanded="false" />
-            <element signature="e#3939#3943#0" expanded="false" />
-            <element signature="e#3949#3956#0" expanded="false" />
-            <element signature="e#4071#4075#0" expanded="false" />
-            <element signature="e#4081#4085#0" expanded="false" />
-            <element signature="e#4193#4197#0" expanded="false" />
-            <element signature="e#4200#4272#0" expanded="false" />
-            <element signature="e#4394#4826#0" expanded="false" />
-            <element signature="e#4513#4612#0" expanded="false" />
-            <element signature="e#4562#4570#0" expanded="false" />
-            <element signature="e#4626#4634#0" expanded="false" />
-            <element signature="e#4754#4826#0" expanded="false" />
-            <element signature="e#4826#4898#0" expanded="false" />
-            <element signature="e#5022#6308#0" expanded="false" />
-            <element signature="e#5047#5053#0" expanded="false" />
-            <element signature="e#5186#5548#0" expanded="false" />
-            <element signature="e#5554#5563#0" expanded="false" />
-            <element signature="e#5683#5807#0" expanded="false" />
-            <element signature="e#5813#5839#0" expanded="false" />
-            <element signature="e#5975#6306#0" expanded="false" />
-            <element signature="e#6025#6283#0" expanded="false" />
-            <element signature="e#6092#6206#0" expanded="false" />
-            <element signature="e#6308#6380#0" expanded="false" />
-            <element signature="e#6509#10240#0" expanded="false" />
-            <element signature="e#6527#6532#0" expanded="false" />
-            <element signature="e#6647#7464#0" expanded="false" />
-            <element signature="e#7598#9016#0" expanded="false" />
-            <element signature="e#8018#8978#0" expanded="false" />
-            <element signature="e#8062#8978#0" expanded="false" />
-            <element signature="e#9022#9028#0" expanded="false" />
-            <element signature="e#9135#9203#0" expanded="false" />
-            <element signature="e#9203#9209#0" expanded="false" />
-            <element signature="e#9332#9755#0" expanded="false" />
-            <element signature="e#9540#9670#0" expanded="false" />
-            <element signature="e#9755#9761#0" expanded="false" />
-            <element signature="e#9881#10040#0" expanded="false" />
-            <element signature="e#10046#10052#0" expanded="false" />
-            <element signature="e#10165#10237#0" expanded="false" />
-            <element signature="e#10699#11563#0" expanded="false" />
-            <element signature="e#11569#11640#0" expanded="false" />
-            <element signature="e#11761#12735#0" expanded="false" />
-            <element signature="e#12771#13468#0" expanded="false" />
-            <element signature="e#13581#13920#0" expanded="false" />
-            <element signature="e#14035#14325#0" expanded="false" />
-            <element signature="e#14437#14603#0" expanded="false" />
-            <element signature="e#14609#14680#0" expanded="false" />
-            <element signature="e#14829#14962#0" expanded="false" />
-            <element signature="e#15095#15292#0" expanded="false" />
-            <element signature="e#15151#15286#0" expanded="false" />
-            <element signature="e#15409#15560#0" expanded="false" />
-            <element signature="e#15717#15956#0" expanded="false" />
-            <element signature="e#15983#16243#0" expanded="false" />
-            <element signature="e#16278#16962#0" expanded="false" />
-            <element signature="e#16505#16956#0" expanded="false" />
-            <element signature="e#17067#17769#0" expanded="false" />
-            <element signature="e#17067#17111#1" expanded="false" />
-            <element signature="e#17244#17659#0" expanded="false" />
-            <element signature="e#17459#17595#0" expanded="false" />
-            <element signature="e#17905#18515#0" expanded="false" />
-            <element signature="e#17905#18002#1" expanded="false" />
-            <element signature="e#18624#18953#0" expanded="false" />
-            <element signature="e#18624#18659#1" expanded="false" />
-            <element signature="e#18959#19030#0" expanded="false" />
-            <element signature="e#19150#19540#0" expanded="false" />
-            <element signature="e#19238#19534#0" expanded="false" />
-            <element signature="e#19641#19986#0" expanded="false" />
-            <element signature="e#19730#19980#0" expanded="false" />
-            <element signature="e#20088#20516#0" expanded="false" />
-            <element signature="e#20232#20510#0" expanded="false" />
-            <element signature="e#20616#21036#0" expanded="false" />
-            <element signature="e#20746#21030#0" expanded="false" />
-            <element signature="e#21138#21473#0" expanded="false" />
-            <element signature="e#21223#21467#0" expanded="false" />
-            <element signature="e#21375#21421#0" expanded="false" />
-            <element signature="e#21576#21919#0" expanded="false" />
-            <element signature="e#21677#21909#0" expanded="false" />
-            <element signature="e#21817#21863#0" expanded="false" />
-            <element signature="e#21919#21990#0" expanded="false" />
-            <element signature="e#22111#22318#0" expanded="false" />
-            <element signature="e#22551#22966#0" expanded="false" />
-            <element signature="e#22766#22902#0" expanded="false" />
-            <element signature="e#23349#23420#0" expanded="false" />
-            <element signature="e#23541#23818#0" expanded="false" />
-            <element signature="e#23938#24329#0" expanded="false" />
-            <element signature="e#23996#24140#0" expanded="false" />
-            <element signature="e#24167#24323#0" expanded="false" />
-            <element signature="e#24438#24501#0" expanded="false" />
-            <element signature="e#24543#26033#0" expanded="false" />
-            <element signature="e#24543#24648#1" expanded="false" />
-            <element signature="e#26035#26107#0" expanded="false" />
-            <element signature="e#26230#26647#0" expanded="false" />
-            <marker date="1516010916581" expanded="false" signature="15667:16243" ph="..." />
+            <element signature="e#103#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiKLine.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiBasicIO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="61" column="13" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiCrosshair.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#25#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine/uiKLineWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="88" column="34" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+          <folding>
+            <element signature="e#715#1642#0" expanded="false" />
+            <element signature="e#1648#1720#0" expanded="false" />
+            <element signature="e#2936#3634#0" expanded="false" />
+            <element signature="e#3750#4058#0" expanded="false" />
+            <element signature="e#4172#4530#0" expanded="false" />
+            <element signature="e#4643#4819#0" expanded="false" />
+            <element signature="e#4825#4897#0" expanded="false" />
+            <element signature="e#5052#5194#0" expanded="false" />
+            <element signature="e#5334#5513#0" expanded="false" />
+            <element signature="e#5392#5507#0" expanded="false" />
+            <element signature="e#5635#5796#0" expanded="false" />
+            <element signature="e#5917#6535#0" expanded="false" />
+            <element signature="e#5959#6220#0" expanded="false" />
+            <element signature="e#6247#6529#0" expanded="false" />
+            <element signature="e#6673#7465#0" expanded="false" />
+            <element signature="e#6716#6982#0" expanded="false" />
+            <element signature="e#6790#6982#0" expanded="false" />
+            <element signature="e#7013#7218#0" expanded="false" />
+            <element signature="e#7048#7218#0" expanded="false" />
+            <element signature="e#7245#7465#0" expanded="false" />
+            <element signature="e#7280#7459#0" expanded="false" />
+            <element signature="e#7570#8277#0" expanded="false" />
+            <element signature="e#7807#8271#0" expanded="false" />
+            <element signature="e#8383#9106#0" expanded="false" />
+            <element signature="e#8383#8427#1" expanded="false" />
+            <element signature="e#8569#8987#0" expanded="false" />
+            <element signature="e#8789#8924#0" expanded="false" />
+            <element signature="e#9249#9839#0" expanded="false" />
+            <element signature="e#9249#9346#1" expanded="false" />
+            <element signature="e#9949#10285#0" expanded="false" />
+            <element signature="e#9949#9984#1" expanded="false" />
+            <element signature="e#10291#10363#0" expanded="false" />
+            <element signature="e#10483#10904#0" expanded="false" />
+            <element signature="e#10577#10898#0" expanded="false" />
+            <element signature="e#11006#11379#0" expanded="false" />
+            <element signature="e#11100#11373#0" expanded="false" />
+            <element signature="e#11482#12001#0" expanded="false" />
+            <element signature="e#11641#11995#0" expanded="false" />
+            <element signature="e#12102#12611#0" expanded="false" />
+            <element signature="e#12245#12605#0" expanded="false" />
+            <element signature="e#12714#13088#0" expanded="false" />
+            <element signature="e#12809#13082#0" expanded="false" />
+            <element signature="e#12983#13031#0" expanded="false" />
+            <element signature="e#13192#13570#0" expanded="false" />
+            <element signature="e#13307#13564#0" expanded="false" />
+            <element signature="e#13465#13513#0" expanded="false" />
+            <element signature="e#13570#13642#0" expanded="false" />
+            <element signature="e#13764#13982#0" expanded="false" />
+            <element signature="e#14226#14648#0" expanded="false" />
+            <element signature="e#14448#14585#0" expanded="false" />
+            <element signature="e#15043#15115#0" expanded="false" />
+            <element signature="e#15237#15530#0" expanded="false" />
+            <element signature="e#15653#16063#0" expanded="false" />
+            <element signature="e#15712#15865#0" expanded="false" />
+            <element signature="e#15892#16057#0" expanded="false" />
+            <element signature="e#16175#16241#0" expanded="false" />
+            <element signature="e#16368#18628#0" expanded="false" />
+            <element signature="e#16368#16430#1" expanded="false" />
+            <element signature="e#17016#17181#0" expanded="false" />
+            <element signature="e#17226#17322#0" expanded="false" />
+            <element signature="e#17365#17606#0" expanded="false" />
+            <element signature="e#17633#18208#0" expanded="false" />
+            <element signature="e#18747#20211#0" expanded="false" />
+            <element signature="e#18747#18852#1" expanded="false" />
           </folding>
         </state>
       </provider>
