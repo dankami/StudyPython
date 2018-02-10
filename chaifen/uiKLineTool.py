@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from uiBasicIO import uiBasicIO
-from uiKLine import KLineWidget
+from KLineWidget import KLineWidget
 # PyQt
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

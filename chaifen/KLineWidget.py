@@ -7,7 +7,6 @@ Support By 量投科技(http://www.quantdo.com.cn/)
 
 # Qt相关和十字光标
 from PyQt4.QtGui import *
-from PyQt4.QtCore import *
 from PyQt4 import QtGui,QtCore
 from uiCrosshair import Crosshair
 import pyqtgraph as pg
@@ -15,9 +14,14 @@ import pyqtgraph as pg
 import numpy as np
 import pandas as pd
 from functools import partial
-from datetime import datetime,timedelta
+from datetime import datetime
 from collections import deque
 
+# 自己
+from KeyWraper import KeyWraper
+from CustomViewBox import CustomViewBox
+from MyStringAxis import MyStringAxis
+from CandlestickItem import CandlestickItem
 
 # 字符串转换
 #---------------------------------------------------------------------------------------
@@ -26,281 +30,6 @@ try:
 except AttributeError:
     def _fromUtf8(s):
         return s
-
-########################################################################
-# 键盘鼠标功能
-########################################################################
-class KeyWraper(QtGui.QWidget):
-    """键盘鼠标功能支持的元类"""
-    #初始化
-    #----------------------------------------------------------------------
-    def __init__(self, parent=None):
-        QtGui.QWidget.__init__(self, parent)
-        self.setMouseTracking(True)
-
-    #重载方法keyPressEvent(self,event),即按键按下事件方法
-    #----------------------------------------------------------------------
-    def keyPressEvent(self, event):
-        if event.key() == QtCore.Qt.Key_Up:
-            self.onUp()
-        elif event.key() == QtCore.Qt.Key_Down:
-            self.onDown()
-        elif event.key() == QtCore.Qt.Key_Left:
-            self.onLeft()
-        elif event.key() == QtCore.Qt.Key_Right:
-            self.onRight()
-        elif event.key() == QtCore.Qt.Key_PageUp:
-            self.onPre()
-        elif event.key() == QtCore.Qt.Key_PageDown:
-            self.onNxt()
-
-    #重载方法mousePressEvent(self,event),即鼠标点击事件方法
-    #----------------------------------------------------------------------
-    def mousePressEvent(self, event):
-        if event.button() == QtCore.Qt.RightButton:
-            self.onRClick(event.pos())
-        elif event.button() == QtCore.Qt.LeftButton:
-            self.onLClick(event.pos())
-        event.accept()
-
-    #重载方法mouseReleaseEvent(self,event),即鼠标点击事件方法
-    #----------------------------------------------------------------------
-    def mouseRelease(self, event):
-        if event.button() == QtCore.Qt.RightButton:
-            self.onRRelease(event.pos())
-        elif event.button() == QtCore.Qt.LeftButton:
-            self.onLRelease(event.pos())
-        self.releaseMouse()
-
-    #重载方法wheelEvent(self,event),即滚轮事件方法
-    #----------------------------------------------------------------------
-    def wheelEvent(self, event):
-        if event.delta() > 0:
-            self.onUp()
-        else:
-            self.onDown()
-
-    #重载方法paintEvent(self,event),即拖动事件方法
-    #----------------------------------------------------------------------
-    def paintEvent(self, event):
-        self.onPaint()
-
-    # PgDown键
-    #----------------------------------------------------------------------
-    def onNxt(self):
-        pass
-
-    # PgUp键
-    #----------------------------------------------------------------------
-    def onPre(self):
-        pass
-
-    # 向上键和滚轮向上
-    #----------------------------------------------------------------------
-    def onUp(self):
-        pass
-
-    # 向下键和滚轮向下
-    #----------------------------------------------------------------------
-    def onDown(self):
-        pass
-    
-    # 向左键
-    #----------------------------------------------------------------------
-    def onLeft(self):
-        pass
-
-    # 向右键
-    #----------------------------------------------------------------------
-    def onRight(self):
-        pass
-
-    # 鼠标左单击
-    #----------------------------------------------------------------------
-    def onLClick(self,pos):
-        pass
-
-    # 鼠标右单击
-    #----------------------------------------------------------------------
-    def onRClick(self,pos):
-        pass
-
-    # 鼠标左释放
-    #----------------------------------------------------------------------
-    def onLRelease(self,pos):
-        pass
-
-    # 鼠标右释放
-    #----------------------------------------------------------------------
-    def onRRelease(self,pos):
-        pass
-
-    # 画图
-    #----------------------------------------------------------------------
-    def onPaint(self):
-        pass
-
-
-########################################################################
-# 选择缩放功能支持
-########################################################################
-class CustomViewBox(pg.ViewBox):
-    #----------------------------------------------------------------------
-    def __init__(self, *args, **kwds):
-        pg.ViewBox.__init__(self, *args, **kwds)
-        # 拖动放大模式
-        #self.setMouseMode(self.RectMode)
-        
-    ## 右键自适应
-    #----------------------------------------------------------------------
-    def mouseClickEvent(self, ev):
-        if ev.button() == QtCore.Qt.RightButton:
-            self.autoRange()
-
-
-########################################################################
-# 时间序列，横坐标支持
-########################################################################
-class MyStringAxis(pg.AxisItem):
-    """时间序列横坐标支持"""
-    
-    # 初始化 
-    #----------------------------------------------------------------------
-    def __init__(self, xdict, *args, **kwargs):
-        pg.AxisItem.__init__(self, *args, **kwargs)
-        self.minVal = 0 
-        self.maxVal = 0
-        self.xdict  = xdict
-        self.x_values = np.asarray(xdict.keys())
-        self.x_strings = xdict.values()
-        self.setPen(color=(255, 255, 255, 255), width=0.8)
-        self.setStyle(tickFont = QFont("Roman times",10,QFont.Bold),autoExpandTextSpace=True)
-
-    # 更新坐标映射表
-    #----------------------------------------------------------------------
-    def update_xdict(self, xdict):
-        self.xdict.update(xdict)
-        self.x_values  = np.asarray(self.xdict.keys())
-        self.x_strings = self.xdict.values()
-
-    # 将原始横坐标转换为时间字符串,第一个坐标包含日期
-    #----------------------------------------------------------------------
-    def tickStrings(self, values, scale, spacing):
-        strings = []
-        for v in values:
-            vs = v * scale
-            if vs in self.x_values:
-                vstr = self.x_strings[np.abs(self.x_values-vs).argmin()]
-                vstr = vstr.strftime('%Y-%m-%d %H:%M:%S')
-            else:
-                vstr = ""
-            strings.append(vstr)
-        return strings
-
-########################################################################
-# K线图形对象
-########################################################################
-class CandlestickItem(pg.GraphicsObject):
-    """K线图形对象"""
-
-    # 初始化
-    #----------------------------------------------------------------------
-    def __init__(self, data):
-        """初始化"""
-        pg.GraphicsObject.__init__(self)
-        # 数据格式: [ (time, open, close, low, high),...]
-        self.data = data
-        # 只重画部分图形，大大提高界面更新速度
-        self.rect = None
-        self.picture = None
-        self.setFlag(self.ItemUsesExtendedStyleOption)
-        # 画笔和画刷
-        w = 0.4
-        self.offset   = 0
-        self.low      = 0
-        self.high     = 1
-        self.picture  = QtGui.QPicture()
-        self.pictures = []
-        self.bPen     = pg.mkPen(color=(0, 240, 240, 255), width=w*2)
-        self.bBrush   = pg.mkBrush((0, 240, 240, 255))
-        self.rPen     = pg.mkPen(color=(255, 60, 60, 255), width=w*2)
-        self.rBrush   = pg.mkBrush((255, 60, 60, 255))
-        self.rBrush.setStyle(Qt.NoBrush)
-        # 刷新K线
-        self.generatePicture(self.data)          
-
-
-    # 画K线
-    #----------------------------------------------------------------------
-    def generatePicture(self,data=None,redraw=False):
-        """重新生成图形对象"""
-        # 重画或者只更新最后一个K线
-        if redraw:
-            self.pictures = []
-        elif self.pictures:
-            self.pictures.pop()
-        w = 0.4
-        bPen   = self.bPen
-        bBrush = self.bBrush
-        rPen   = self.rPen
-        rBrush = self.rBrush
-        low,high = (data[0]['low'],data[0]['high']) if len(data)>0 else (0,1)
-        for (t, open0, close0, low0, high0) in data:
-            if t >= len(self.pictures):
-                picture = QtGui.QPicture()
-                p = QtGui.QPainter(picture)
-                low,high = (min(low,low0),max(high,high0))
-                # 下跌蓝色（实心）, 上涨红色（空心）
-                pen,brush,pmin,pmax = (bPen,bBrush,close0,open0)\
-                    if open0 > close0 else (rPen,rBrush,open0,close0)
-                p.setPen(pen)  
-                p.setBrush(brush)
-                # 画K线方块和上下影线
-                if open0 == close0:
-                    p.drawLine(QtCore.QPointF(t-w,open0), QtCore.QPointF(t+w, close0))
-                else:
-                    p.drawRect(QtCore.QRectF(t-w, open0, w*2, close0-open0))
-                if pmin  > low0:
-                    p.drawLine(QtCore.QPointF(t,low0), QtCore.QPointF(t, pmin))
-                if high0 > pmax:
-                    p.drawLine(QtCore.QPointF(t,pmax), QtCore.QPointF(t, high0))
-                p.end()
-                self.pictures.append(picture)
-        self.low,self.high = low,high
-
-    # 手动重画
-    #----------------------------------------------------------------------
-    def update(self):
-        if not self.scene() is None:
-            self.scene().update()
-
-    # 自动重画
-    #----------------------------------------------------------------------
-    def paint(self, painter, opt, w):
-        rect = opt.exposedRect
-        xmin,xmax = (max(0,int(rect.left())),min(int(len(self.pictures)),int(rect.right())))
-        if not self.rect == (rect.left(),rect.right()) or self.picture is None:
-            self.rect = (rect.left(),rect.right())
-            self.picture = self.createPic(xmin,xmax)
-            self.picture.play(painter)
-        elif not self.picture is None:
-            self.picture.play(painter)
-
-
-    # 缓存图片
-    #----------------------------------------------------------------------
-    def createPic(self,xmin,xmax):
-        picture = QtGui.QPicture()
-        p = QtGui.QPainter(picture)
-        [pic.play(p) for pic in self.pictures[xmin:xmax]]
-        p.end()
-        return picture
-
-    # 定义边界
-    #----------------------------------------------------------------------
-    def boundingRect(self):
-        return QtCore.QRectF(0,self.low,len(self.pictures),(self.high-self.low))
-
 
 ########################################################################
 class KLineWidget(KeyWraper):
@@ -790,21 +519,4 @@ class KLineWidget(KeyWraper):
         # 调用画图函数
         self.plotAll(True,0,len(self.datas))
 
-########################################################################
-# 功能测试
-########################################################################
-import sys
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    # 界面设置
-    cfgfile = QtCore.QFile('css.qss')
-    cfgfile.open(QtCore.QFile.ReadOnly)
-    styleSheet = cfgfile.readAll()
-    styleSheet = unicode(styleSheet, encoding='utf8')
-    app.setStyleSheet(styleSheet)
-    # K线界面
-    ui = KLineWidget()
-    ui.show()
-    ui.KLtitle.setText('rb1701',size='20pt')
-    ui.loadData(pd.DataFrame.from_csv('data.csv'))
-    app.exec_()
+
