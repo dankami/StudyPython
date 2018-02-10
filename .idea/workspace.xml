@@ -430,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518248611817</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="初版 未修改">
+      <created>1518248715289</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1518248715289</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -470,7 +477,8 @@
     <MESSAGE value="调整 uiKLine 的代码结构&#10;新增 qyptgraph 的示例代码" />
     <MESSAGE value="修改 规范命名方便查阅" />
     <MESSAGE value="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo" />
+    <MESSAGE value="初版 未修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="初版 未修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
