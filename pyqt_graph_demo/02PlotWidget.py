@@ -9,6 +9,8 @@ import numpy as np
 import pyqtgraph as pg
 import sys
 
+from KeyWraper import KeyWraper
+
 ## Start Qt event loop unless running in interactive mode or using pyside.
 if __name__ == '__main__':
 
@@ -16,7 +18,7 @@ if __name__ == '__main__':
     app = QtGui.QApplication([])
 
     mainWin = QtGui.QMainWindow()       #主窗口
-    centerWidget = QtGui.QWidget()      #中心组件
+    centerWidget = KeyWraper()      #中心组件
     boxLayout = QtGui.QVBoxLayout()     #中心组件布局
     plotWidget = pg.PlotWidget()        #pg组件
 
