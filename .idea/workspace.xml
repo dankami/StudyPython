@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chaifen/uiKLineTool.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/uiKLineTool.py" afterPath="$PROJECT_DIR$/chaifen/uiKLineTool.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chaifen/uiKLine.py" afterPath="$PROJECT_DIR$/chaifen/KLineWidget.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/CandlestickItem.py" afterPath="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLineWidget.py" afterPath="$PROJECT_DIR$/chaifen/KLineWidget.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/Main.py" afterPath="$PROJECT_DIR$/chaifen/Main.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/chaifen/MyStringAxis.py" afterPath="$PROJECT_DIR$/chaifen/TimeAxisItem.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/chaifen/uiCrosshair.py" afterPath="$PROJECT_DIR$/chaifen/Crosshair.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,98 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chaifen/Main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-              <folding>
-                <element signature="e#25#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="02PlotWidget.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/02PlotWidget.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="28" />
-              <folding>
-                <element signature="e#149#187#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="03MoneyMachine.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/03MoneyMachine.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CandlestickItem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/CandlestickItem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="21" />
-              <folding>
-                <element signature="e#25#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyStringAxis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/MyStringAxis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-              <folding>
-                <element signature="e#24#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomViewBox.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/CustomViewBox.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-              <folding>
-                <element signature="e#24#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyWraper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/KeyWraper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -116,9 +29,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>plotKline</find>
-      <find>plotMark</find>
-      <find>self.datas</find>
       <find>self.datas =</find>
       <find>arrows</find>
       <find>listSig</find>
@@ -145,12 +55,18 @@
       <find>onRClick</find>
       <find>wheelEvent</find>
       <find>qt.</find>
+      <find>self.m_master.sigData</find>
+      <find>self.m_master.subSigColor</find>
       <find>Qt.</find>
+      <find>self.m_master.index</find>
     </findStrings>
     <replaceStrings>
       <replace>self.master.m_sigData</replace>
       <replace>self.master.m_subSigData</replace>
       <replace>self.master.m_index</replace>
+      <replace>self.m_master.sigData</replace>
+      <replace>self.m_master.m_subSigColor</replace>
+      <replace>self.m_master.m_index</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\workspace\git\StudyPython\uiKLine</dir>
@@ -162,8 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/basepy/Dm002_XML.py" />
-        <option value="$PROJECT_DIR$/basepy/Dm003_Plist.py" />
         <option value="$PROJECT_DIR$/basepy/Dm004_File.py" />
         <option value="$PROJECT_DIR$/basepy/Dm005_list.py" />
         <option value="$PROJECT_DIR$/basepy/Dm006_Tuple.py" />
@@ -200,19 +114,21 @@
         <option value="$PROJECT_DIR$/zminKLine/Main.py" />
         <option value="$PROJECT_DIR$/zminKLine/Crosshair.py" />
         <option value="$PROJECT_DIR$/zminKLine/KLineWidget_backup.py" />
-        <option value="$PROJECT_DIR$/chaifen/uiCrosshair.py" />
         <option value="$PROJECT_DIR$/chaifen/KeyWaper.py" />
         <option value="$PROJECT_DIR$/chaifen/CrossCursor.py" />
         <option value="$PROJECT_DIR$/chaifen/KLinePlotItem.py" />
         <option value="$PROJECT_DIR$/chaifen/Crosshair.py" />
-        <option value="$PROJECT_DIR$/chaifen/TimeAxisItem.py" />
         <option value="$PROJECT_DIR$/chaifen/FrameWidget.py" />
         <option value="$PROJECT_DIR$/chaifen/KeyWraper.py" />
         <option value="$PROJECT_DIR$/chaifen/CustomViewBox.py" />
-        <option value="$PROJECT_DIR$/chaifen/MyStringAxis.py" />
-        <option value="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
         <option value="$PROJECT_DIR$/chaifen/uiKLine.py" />
         <option value="$PROJECT_DIR$/chaifen/Main.py" />
+        <option value="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
+        <option value="$PROJECT_DIR$/chaifen/MyStringAxis.py" />
+        <option value="$PROJECT_DIR$/chaifen/TimeAxisItem.py" />
+        <option value="$PROJECT_DIR$/chaifen/KLineWidget.py" />
+        <option value="$PROJECT_DIR$/chaifen/uiCrosshair.py" />
+        <option value="$PROJECT_DIR$/uiKLine-master/uiKLine.py" />
       </list>
     </option>
   </component>
@@ -269,6 +185,11 @@
             <path>
               <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
+              <item name="chaifen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,9 +254,31 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="uiKLine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/uiKLine-master" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="StudyPython" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/uiKLine-master/uiKLine.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.uiKLine" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Python.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.uiKLine" />
       </list>
     </recent_temporary>
   </component>
@@ -437,21 +380,29 @@
       <option name="project" value="LOCAL" />
       <updated>1518248744368</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修改 文件分离">
+      <created>1518249826712</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1518249826712</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17167382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.50289434" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32435596" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23887588" sideWeight="0.49710566" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17167382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32435596" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2857143" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -478,7 +429,8 @@
     <MESSAGE value="修改 规范命名方便查阅" />
     <MESSAGE value="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo" />
     <MESSAGE value="初版 未修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="初版 未修改" />
+    <MESSAGE value="修改 文件分离" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改 文件分离" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -519,22 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/uiKLine/uiKLineWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="471" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="506" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zmoney/UICandlestickItem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zmoney/BaseQWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -823,14 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uiKLine-master/uiKLine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="229" column="40" lean-forward="false" selection-start-line="229" selection-start-column="40" selection-end-line="229" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/KeyWraper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1224">
@@ -863,52 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/MyStringAxis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-          <folding>
-            <element signature="e#24#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/CustomViewBox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-          <folding>
-            <element signature="e#24#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/KeyWraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/CandlestickItem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="e#25#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/02PlotWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -929,11 +811,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        <state relative-caret-position="419">
+          <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#25#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/CandlestickItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1285">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="e#25#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/CustomViewBox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/KeyWraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-552">
+          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/TimeAxisItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/Crosshair.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="237" column="77" lean-forward="false" selection-start-line="237" selection-start-column="77" selection-end-line="237" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3696">
+          <caret line="101" column="23" lean-forward="false" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="23" />
+          <folding>
+            <element signature="e#116#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uiKLine-master/uiKLine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="685" column="24" lean-forward="true" selection-start-line="685" selection-start-column="24" selection-end-line="685" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/uiKLineTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
