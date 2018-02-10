@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/KLineTool.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/MyStringAxis.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/css.qss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/ctaFunction/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/ctaFunction/calcFunction.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/ctaFunction/visFunction.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/data.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/data2.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/datasig.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klBacktest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klClearSig.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klHeatmap.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klLoad.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klShowdown.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klShowmain.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/func-button/klSigmode.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/json/uiKLine_button.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/json/uiKLine_input.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiBasicIO.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiCandlestickItem.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiCrosshair.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiCustomViewBox.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiKLine.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiKLine2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiKLineTool.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiKLineWidget.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uiKLine/uiKeyWraper.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyqt_graph_demo/02PlotWidget.py" afterPath="$PROJECT_DIR$/pyqt_graph_demo/02PlotWidget.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,21 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="GetMoney.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetMoney.py">
+      <file leaf-file-name="uiKLine.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chaifen/uiKLine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-61">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PyechartsDemo.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PyechartsDemo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="244">
+              <caret line="31" column="72" lean-forward="true" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -229,6 +188,16 @@
               <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
+              <item name="chaifen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
+              <item name="uiKLine-master" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -274,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.uiKLine (1)">
+  <component name="RunManager" selected="Python.uiKLine">
     <configuration name="Main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -343,37 +312,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="uiKLine2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="uiKLine" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/uiKLine" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chaifen" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/uiKLine/uiKLine2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chaifen/uiKLine.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.uiKLine2" />
-      <item index="2" class="java.lang.String" itemvalue="Python.uiKLine (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Python.uiKLine (2)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Main (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.uiKLine (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.uiKLine (2)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Main (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.uiKLine" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.uiKLine (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Main (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.uiKLine (2)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Main" />
-        <item index="4" class="java.lang.String" itemvalue="Python.uiKLine2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.uiKLine" />
+        <item index="1" class="java.lang.String" itemvalue="Python.uiKLine (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.uiKLine (2)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -447,7 +416,21 @@
       <option name="project" value="LOCAL" />
       <updated>1516351750197</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo">
+      <created>1518248583264</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1518248583265</updated>
+    </task>
+    <task id="LOCAL-00010" summary="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo">
+      <created>1518248611817</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1518248611817</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -728,14 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/data.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/PyQt4/QtCore/Qt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2968">
@@ -898,14 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/uiKLine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/uiKLine-master/uiKLine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -922,6 +889,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PyechartsDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GetMoney.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-61">
@@ -930,10 +905,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyechartsDemo.py">
+    <entry file="file://$PROJECT_DIR$/chaifen/data.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/uiKLine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="31" column="72" lean-forward="true" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="72" />
           <folding />
         </state>
       </provider>
