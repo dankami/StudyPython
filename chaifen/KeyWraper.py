@@ -10,8 +10,8 @@ class KeyWraper(QtGui.QWidget):
 
     # 初始化
     # ----------------------------------------------------------------------
-    def __init__(self, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
         self.setMouseTracking(True)
 
     # 重载方法keyPressEvent(self,event),即按键按下事件方法

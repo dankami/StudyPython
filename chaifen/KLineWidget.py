@@ -32,14 +32,11 @@ except AttributeError:
         return s
 
 ########################################################################
-class KLineWidget(KeyWraper):
+class KLineWidget(QtGui.QWidget):
     """用于显示价格走势图"""
-
     #----------------------------------------------------------------------
-    def __init__(self,parent=None):
-        """Constructor"""
-        self.parent = parent
-        super(KLineWidget, self).__init__(parent)
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
 
         # 当前序号
         self.m_index    = None    # 下标
@@ -293,6 +290,24 @@ class KLineWidget(KeyWraper):
     #----------------------------------------------------------------------
     #  快捷键相关 
     #----------------------------------------------------------------------
+
+    # 重载方法keyPressEvent(self,event),即按键按下事件方法
+    # ----------------------------------------------------------------------
+    def keyPressEvent(self, event):
+        if event.key() == QtCore.Qt.Key_Up:
+            self.onUp()
+        elif event.key() == QtCore.Qt.Key_Down:
+            self.onDown()
+        elif event.key() == QtCore.Qt.Key_Left:
+            self.onLeft()
+        elif event.key() == QtCore.Qt.Key_Right:
+            self.onRight()
+        elif event.key() == QtCore.Qt.Key_PageUp:
+            self.onPre()
+        elif event.key() == QtCore.Qt.Key_PageDown:
+            self.onNxt()
+
+
     def onNxt(self):
         """跳转到下一个开平仓点"""
         if len(self.m_listSig)>0 and not self.m_index is None:
