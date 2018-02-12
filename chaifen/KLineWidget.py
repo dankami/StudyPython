@@ -94,7 +94,9 @@ class KLineWidget(QtGui.QWidget):
         self.initplotVol()  
         self.initplotOI()
         # 注册十字光标
-        self.m_crosshair = Crosshair(self.m_plotWidget, self)
+        self.m_crosshair = Crosshair(self)
+        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(3)]
+        self.m_crosshair.setViews(self.m_views)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()

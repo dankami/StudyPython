@@ -19,7 +19,7 @@ class Crosshair(PyQt4.QtCore.QObject):
     signal = QtCore.pyqtSignal(type(tuple([])))
     signalInfo = QtCore.pyqtSignal(float,float)
     #----------------------------------------------------------------------
-    def __init__(self, _parent, _master):
+    def __init__(self, _master):
         """Constructor"""
         self.m_master = _master
         super(Crosshair, self).__init__()
@@ -33,8 +33,8 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_leftX      = [0 for i in range(3)]
         self.m_showHLine  = [False for i in range(3)]
         self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(3)]
-        self.m_views      = [_parent.centralWidget.getItem(i + 1, 0) for i in range(3)]
-        self.m_rects      = [self.m_views[i].sceneBoundingRect() for i in range(3)]
+
+
         self.m_vLines     = [pg.InfiniteLine(angle=90, movable=False) for i in range(3)]
         self.m_hLines     = [pg.InfiniteLine(angle=0, movable=False) for i in range(3)]
         
@@ -52,6 +52,15 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_textVolume.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
         
+
+        # 跨线程刷新界面支持
+        self.signal.connect(self.update)
+        self.signalInfo.connect(self.plotInfo)
+
+    # 设置UI
+    def setViews(self, _views):
+        self.m_views = _views
+        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(3)]
         for i in range(3):
             self.m_textPrices[i].setZValue(2)
             self.m_vLines[i].setPos(0)
@@ -61,15 +70,12 @@ class Crosshair(PyQt4.QtCore.QObject):
             self.m_views[i].addItem(self.m_vLines[i])
             self.m_views[i].addItem(self.m_hLines[i])
             self.m_views[i].addItem(self.m_textPrices[i])
-        
+
         self.m_views[0].addItem(self.m_textInfo, ignoreBounds=True)
         self.m_views[0].addItem(self.m_textSig, ignoreBounds=True)
         self.m_views[1].addItem(self.m_textVolume, ignoreBounds=True)
         self.m_views[2].addItem(self.m_textDate, ignoreBounds=True)
         self.m_views[2].addItem(self.m_textSubSig, ignoreBounds=True)
-        # 跨线程刷新界面支持
-        self.signal.connect(self.update)
-        self.signalInfo.connect(self.plotInfo)
 
     #----------------------------------------------------------------------
     def update(self,pos):
