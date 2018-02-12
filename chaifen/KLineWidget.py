@@ -95,12 +95,18 @@ class KLineWidget(QtGui.QWidget):
         self.initplotOI()
         # 注册十字光标
         self.m_crosshair = Crosshair(self.m_plotWidget, self)
+        self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
         self.m_vbLayout.addWidget(self.m_plotWidget)
         self.setLayout(self.m_vbLayout)
         # 初始化完成
         self.m_initCompleted = True
+
+    # pg组件监听鼠标事件
+    def pwMouseMoved(self, _event):
+        self.m_crosshair.onMouseMoved(_event)
+        # self.m_crosshair.sayHello()
 
     #----------------------------------------------------------------------
     def makePI(self,name):

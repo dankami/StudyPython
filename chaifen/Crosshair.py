@@ -21,7 +21,6 @@ class Crosshair(PyQt4.QtCore.QObject):
     #----------------------------------------------------------------------
     def __init__(self, _parent, _master):
         """Constructor"""
-        self.m_view = _parent
         self.m_master = _master
         super(Crosshair, self).__init__()
 
@@ -68,7 +67,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_views[1].addItem(self.m_textVolume, ignoreBounds=True)
         self.m_views[2].addItem(self.m_textDate, ignoreBounds=True)
         self.m_views[2].addItem(self.m_textSubSig, ignoreBounds=True)
-        self.proxy = pg.SignalProxy(self.m_view.scene().sigMouseMoved, rateLimit=360, slot=self.__mouseMoved)
         # 跨线程刷新界面支持
         self.signal.connect(self.update)
         self.signalInfo.connect(self.plotInfo)
@@ -81,7 +79,7 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.moveTo(xAxis,yAxis)
         
     #----------------------------------------------------------------------
-    def __mouseMoved(self,evt):
+    def onMouseMoved(self,evt):
         """鼠标移动回调"""
         pos = evt[0]  
         self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(3)]
@@ -237,3 +235,4 @@ class Crosshair(PyQt4.QtCore.QObject):
         # 修改对称方式防止遮挡
         self.m_textDate.anchor = Point((1, 1)) if xAxis > self.m_master.m_index else Point((0, 1))
         self.m_textDate.setPos(xAxis, br[2].y())
+
