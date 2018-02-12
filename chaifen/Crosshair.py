@@ -1,12 +1,10 @@
 # encoding: UTF-8
-import sys,os
+
 import PyQt4
 import pyqtgraph as pg
-import datetime as dt          
-import numpy as np
-import traceback
+import datetime as dt
 
-from pyqtgraph.Qt import QtGui, QtCore
+from pyqtgraph.Qt import QtCore
 from pyqtgraph.Point import Point
 
 ########################################################################
@@ -56,6 +54,10 @@ class Crosshair(PyQt4.QtCore.QObject):
         # 跨线程刷新界面支持
         self.signal.connect(self.update)
         self.signalInfo.connect(self.plotInfo)
+
+    # 设置数据
+    def setDatas(self, _datas):
+        self.m_datas = _datas
 
     # 设置UI
     def setViews(self, _views):
@@ -122,7 +124,7 @@ class Crosshair(PyQt4.QtCore.QObject):
                 self.m_hLines[i].hide()
 
     #----------------------------------------------------------------------
-    def plotInfo(self,xAxis,yAxis):        
+    def plotInfo(self, _xAxis, _yAxis):
         """
         被嵌入的plotWidget在需要的时候通过调用此方法显示K线信息
         """
@@ -130,8 +132,8 @@ class Crosshair(PyQt4.QtCore.QObject):
             return
         try:
             # 获取K线数据
-            data            = self.m_datas[xAxis]
-            lastdata        = self.m_datas[xAxis - 1]
+            data            = self.m_datas[_xAxis]
+            lastdata        = self.m_datas[_xAxis - 1]
             tickDatetime    = data['datetime']
             openPrice       = data['open']
             closePrice      = data['close']
@@ -155,7 +157,7 @@ class Crosshair(PyQt4.QtCore.QObject):
         # 显示所有的主图技术指标
         html = u'<div style="text-align: right">'
         for sig in self.m_master.m_sigData:
-            val = self.m_master.m_sigData[sig][xAxis]
+            val = self.m_master.m_sigData[sig][_xAxis]
             col = self.m_master.m_sigColor[sig]
             html+= u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' %(col,sig,val)
         html+=u'</div>' 
@@ -164,7 +166,7 @@ class Crosshair(PyQt4.QtCore.QObject):
         # 显示所有的主图技术指标
         html = u'<div style="text-align: right">'
         for sig in self.m_master.m_subSigData:
-            val = self.m_master.m_subSigData[sig][xAxis]
+            val = self.m_master.m_subSigData[sig][_xAxis]
             col = self.m_master.m_subSigColor[sig]
             html+= u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' %(col,sig,val)
         html+=u'</div>' 
@@ -195,7 +197,7 @@ class Crosshair(PyQt4.QtCore.QObject):
                                 <span style="color: yellow; font-size: 16px;">%.3f</span><br>\
                             </div>'\
                                 % (dateText,timeText,cOpen,openPrice,cHigh,highPrice,\
-                                    cLow,lowPrice,cClose,closePrice,volume))             
+                                    cLow,lowPrice,cClose,closePrice,volume))
         self.m_textDate.setHtml(
                             '<div style="text-align: center">\
                                 <span style="color: yellow; font-size: 20px;">%s</span>\
@@ -213,8 +215,8 @@ class Crosshair(PyQt4.QtCore.QObject):
         offset = QtCore.QPointF(rightAxisWidth,bottomAxisHeight)
 
         # 各个顶点
-        tl = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(3)]
-        br = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(3)]
+        topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(3)]
+        bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(3)]
 
         # 显示价格
         for i in range(3):
@@ -225,20 +227,20 @@ class Crosshair(PyQt4.QtCore.QObject):
                                %0.3f\
                              </span>\
                          </div>'\
-                        % (yAxis if i==0 else self.m_yAxises[i]))
-                self.m_textPrices[i].setPos(br[i].x(), yAxis if i == 0 else self.m_yAxises[i])
+                        % (_yAxis if i == 0 else self.m_yAxises[i]))
+                self.m_textPrices[i].setPos(bottomRightList[i].x(), _yAxis if i == 0 else self.m_yAxises[i])
                 self.m_textPrices[i].show()
             else:
                 self.m_textPrices[i].hide()
 
         
         # 设置坐标
-        self.m_textInfo.setPos(tl[0])
-        self.m_textSig.setPos(br[0].x(), tl[0].y())
-        self.m_textSubSig.setPos(br[2].x(), tl[2].y())
-        self.m_textVolume.setPos(br[1].x(), tl[1].y())
+        self.m_textInfo.setPos(topLeftList[0])
+        self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
+        self.m_textSubSig.setPos(bottomRightList[2].x(), topLeftList[2].y())
+        self.m_textVolume.setPos(bottomRightList[1].x(), topLeftList[1].y())
 
         # 修改对称方式防止遮挡
-        self.m_textDate.anchor = Point((1, 1)) if xAxis > self.m_master.m_index else Point((0, 1))
-        self.m_textDate.setPos(xAxis, br[2].y())
+        self.m_textDate.anchor = Point((1, 1)) if _xAxis > self.m_master.m_index else Point((0, 1))
+        self.m_textDate.setPos(_xAxis, bottomRightList[2].y())
 

@@ -396,17 +396,17 @@ class KLineWidget(QtGui.QWidget):
         self.m_index  = int((xmin + xmax) / 2) + 1
 
     #----------------------------------------------------------------------
-    def resignData(self,datas):
+    def resignData(self, _datas):
         """更新数据，用于Y坐标自适应"""
-        self.m_crosshair.m_datas = datas
+        self.m_crosshair.setDatas(_datas)
         def viewXRangeChanged(low,high,self):
             vRange = self.viewRange()
             xmin = max(0,int(vRange[0][0]))
             xmax = max(0,int(vRange[0][1]))
-            xmax = min(xmax,len(datas))
-            if len(datas)>0 and xmax > xmin:
-                ymin = min(datas[xmin:xmax][low])
-                ymax = max(datas[xmin:xmax][high])
+            xmax = min(xmax, len(_datas))
+            if len(_datas)>0 and xmax > xmin:
+                ymin = min(_datas[xmin:xmax][low])
+                ymax = max(_datas[xmin:xmax][high])
                 self.setRange(yRange = (ymin,ymax))
             else:
                 self.setRange(yRange = (0,1))
