@@ -27,15 +27,23 @@ class Crosshair(PyQt4.QtCore.QObject):
 
         self.m_datas = None
 
-        self.m_yAxises    = [0 for i in range(3)]
-        self.m_leftX      = [0 for i in range(3)]
-        self.m_showHLine  = [False for i in range(3)]
-        self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(3)]
+        self.m_yAxises    = [0 for i in range(2)]
+        self.m_leftX      = [0 for i in range(2)]
+        self.m_showHLine  = [False for i in range(2)]
+        self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(2)]
+        self.m_vLines     = [pg.InfiniteLine(angle=90, movable=False) for i in range(2)]
+        self.m_hLines     = [pg.InfiniteLine(angle=0, movable=False) for i in range(2)]
 
+        # 先把OI组件属性抽取出来
+        self.m_oiView = None
+        self.m_oiRect = None
+        self.m_oiYAxise = 0
+        self.m_oiLeftX = 0
+        self.m_oiShowHLine = False
+        self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
+        self.m_oiVLine = pg.InfiniteLine(angle=90, movable=False)
+        self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
 
-        self.m_vLines     = [pg.InfiniteLine(angle=90, movable=False) for i in range(3)]
-        self.m_hLines     = [pg.InfiniteLine(angle=0, movable=False) for i in range(3)]
-        
         #mid 在y轴动态跟随最新价显示最新价和最新时间
         self.m_textDate   = pg.TextItem('date', anchor=(1, 1))
         self.m_textInfo   = pg.TextItem('lastBarInfo')
@@ -62,8 +70,9 @@ class Crosshair(PyQt4.QtCore.QObject):
     # 设置UI
     def setViews(self, _views):
         self.m_views = _views
-        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(3)]
-        for i in range(3):
+        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
+
+        for i in range(2):
             self.m_textPrices[i].setZValue(2)
             self.m_vLines[i].setPos(0)
             self.m_hLines[i].setPos(0)
@@ -76,49 +85,82 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_views[0].addItem(self.m_textInfo, ignoreBounds=True)
         self.m_views[0].addItem(self.m_textSig, ignoreBounds=True)
         self.m_views[1].addItem(self.m_textVolume, ignoreBounds=True)
-        self.m_views[2].addItem(self.m_textDate, ignoreBounds=True)
-        self.m_views[2].addItem(self.m_textSubSig, ignoreBounds=True)
+
+
+    def setOIPlotItem(self, _item):
+        self.m_oiView = _item
+        self.m_oiRect = _item.sceneBoundingRect()
+        self.m_oiTextPrice.setZValue(2)
+        self.m_oiVLine.setPos(0)
+        self.m_oiHLine.setPos(0)
+        self.m_oiVLine.setZValue(0)
+        self.m_oiHLine.setZValue(0)
+        _item.addItem(self.m_oiVLine)
+        _item.addItem(self.m_oiHLine)
+        _item.addItem(self.m_oiTextPrice)
 
     #----------------------------------------------------------------------
-    def update(self,pos):
+    def update(self, _pos):
         """刷新界面显示"""
-        xAxis,yAxis = pos
+        xAxis,yAxis = _pos
         xAxis,yAxis = (self.m_xAxis, self.m_yAxis) if xAxis is None else (xAxis, yAxis)
         self.moveTo(xAxis,yAxis)
         
     #----------------------------------------------------------------------
-    def onMouseMoved(self,evt):
+    def onMouseMoved(self, _event):
         """鼠标移动回调"""
-        pos = evt[0]  
-        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(3)]
-        for i in range(3):
+        pos = _event[0]
+        # print 'pos = ', pos
+        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
+        for i in range(2):
             self.m_showHLine[i] = False
             if self.m_rects[i].contains(pos):
                 mousePoint = self.m_views[i].vb.mapSceneToView(pos)
+
+                # print 'mousePos', mousePoint
                 xAxis = mousePoint.x()
                 yAxis = mousePoint.y()    
                 self.m_yAxises[i] = yAxis
                 self.m_showHLine[i] = True
                 self.moveTo(xAxis,yAxis)
+                self.m_oiVLine.setPos(xAxis)
+
+        self.m_oiShowHLine = False
+        self.m_oiRect = self.m_oiView.sceneBoundingRect()
+        if self.m_oiRect.contains(pos):
+            mousePoint = self.m_oiView.vb.mapSceneToView(pos)
+            # print 'mousePos', mousePoint
+            xAxis = mousePoint.x()
+            yAxis = mousePoint.y()
+            self.m_oiVLine.setPos(xAxis)
+            self.m_oiYAxise = yAxis
+            self.m_oiShowHLine = True
+            self.moveTo(xAxis, yAxis)
+
+        if self.m_oiShowHLine:
+            self.m_oiHLine.setPos(self.m_oiYAxise)
+            self.m_oiHLine.show()
+        else:
+            self.m_oiHLine.hide()
+
 
     #----------------------------------------------------------------------
-    def moveTo(self,xAxis,yAxis):
-        xAxis,yAxis = (self.m_xAxis, self.m_yAxis) if xAxis is None else (int(xAxis), yAxis)
-        self.m_rects  = [self.m_views[i].sceneBoundingRect() for i in range(3)]
-        if not xAxis or not yAxis:
+    def moveTo(self, _xAxis, _yAxis):
+        _xAxis, _yAxis = (self.m_xAxis, self.m_yAxis) if _xAxis is None else (int(_xAxis), _yAxis)
+        if not _xAxis or not _yAxis:
             return
-        self.m_xAxis = xAxis
-        self.m_yAxis = yAxis
-        self.vhLinesSetXY(xAxis,yAxis)
-        self.plotInfo(xAxis,yAxis)
+        self.m_xAxis = _xAxis
+        self.m_yAxis = _yAxis
+        self.vhLinesSetXY(_xAxis, _yAxis)
+        self.plotInfo(_xAxis, _yAxis)
 
     #----------------------------------------------------------------------
-    def vhLinesSetXY(self,xAxis,yAxis):
+    def vhLinesSetXY(self, _xAxis, _yAxis):
         """水平和竖线位置设置"""
-        for i in range(3):
-            self.m_vLines[i].setPos(xAxis)
+        for i in range(2):
+            self.m_vLines[i].setPos(_xAxis)
             if self.m_showHLine[i]:
-                self.m_hLines[i].setPos(yAxis if i == 0 else self.m_yAxises[i])
+                self.m_hLines[i].setPos(_yAxis if i == 0 else self.m_yAxises[i])
                 self.m_hLines[i].show()
             else:
                 self.m_hLines[i].hide()
@@ -211,15 +253,19 @@ class Crosshair(PyQt4.QtCore.QObject):
                                 % (volume))   
         # 坐标轴宽度
         rightAxisWidth = self.m_views[0].getAxis('right').width()
-        bottomAxisHeight = self.m_views[2].getAxis('bottom').height()
+        bottomAxisHeight = self.m_oiView.getAxis('bottom').height()
         offset = QtCore.QPointF(rightAxisWidth,bottomAxisHeight)
 
         # 各个顶点
-        topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(3)]
-        bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(3)]
+        topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(2)]
+        bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(2)]
+
+        oiTopLeft = self.m_oiView.vb.mapSceneToView(self.m_oiRect.topLeft())
+        oiBottomRight = self.m_oiView.vb.mapSceneToView(self.m_oiRect.bottomRight() - offset)
+
 
         # 显示价格
-        for i in range(3):
+        for i in range(2):
             if self.m_showHLine[i]:
                 self.m_textPrices[i].setHtml(
                         '<div style="text-align: right">\
@@ -233,14 +279,27 @@ class Crosshair(PyQt4.QtCore.QObject):
             else:
                 self.m_textPrices[i].hide()
 
+        if self.m_oiShowHLine:
+            self.m_textPrices[i].setHtml(
+                    '<div style="text-align: right">\
+                         <span style="color: yellow; font-size: 20px;">\
+                           %0.3f\
+                         </span>\
+                     </div>'\
+                    % (_yAxis if i == 0 else self.m_oiYAxise))
+            self.m_oiTextPrice.setPos(oiBottomRight.x(), _yAxis if i == 0 else self.m_oiYAxise)
+            self.m_oiTextPrice.show()
+        else:
+            self.m_oiTextPrice.hide()
+
         
         # 设置坐标
         self.m_textInfo.setPos(topLeftList[0])
         self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
-        self.m_textSubSig.setPos(bottomRightList[2].x(), topLeftList[2].y())
+        self.m_textSubSig.setPos(oiBottomRight.x(), oiTopLeft.y())
         self.m_textVolume.setPos(bottomRightList[1].x(), topLeftList[1].y())
 
         # 修改对称方式防止遮挡
         self.m_textDate.anchor = Point((1, 1)) if _xAxis > self.m_master.m_index else Point((0, 1))
-        self.m_textDate.setPos(_xAxis, bottomRightList[2].y())
+        self.m_textDate.setPos(_xAxis, oiBottomRight.y())
 

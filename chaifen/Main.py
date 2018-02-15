@@ -21,6 +21,6 @@ if __name__ == '__main__':
     ui = KLineWidget()
     ui.resize(1280, 720)
     ui.show()
-    ui.m_pgTitle.setText('rb1701', size='20pt')
+    # ui.m_pgTitle.setText('rb1701', size='20pt')
     ui.loadData(pd.DataFrame.from_csv('data.csv'))
     app.exec_()

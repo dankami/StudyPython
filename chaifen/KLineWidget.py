@@ -86,6 +86,8 @@ class KLineWidget(QtGui.QWidget):
         self.m_pgLayout.setZValue(0)
         self.m_pgTitle = self.m_pgLayout.addLabel(u'')
         self.m_plotWidget.setCentralItem(self.m_pgLayout)
+        # self.m_plotWidget.centralWidget.getItem(0, 0).setText(u'原来是你', size='20pt')
+
         # 设置横坐标
         xdict = {}
         self.m_timeAxis = TimeAxisItem(xdict, orientation='bottom')
@@ -95,8 +97,9 @@ class KLineWidget(QtGui.QWidget):
         self.initplotOI()
         # 注册十字光标
         self.m_crosshair = Crosshair(self)
-        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(3)]
+        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(2)]
         self.m_crosshair.setViews(self.m_views)
+        self.m_crosshair.setOIPlotItem(self.m_oiPlotItem)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -156,11 +159,11 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def initplotOI(self):
         """初始化持仓量子图"""
-        self.pwOI = self.makePI('PlotOI')
-        self.curveOI = self.pwOI.plot()
+        self.m_oiPlotItem = self.makePI('PlotOI')
+        self.curveOI = self.m_oiPlotItem.plot()
 
         self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.pwOI)
+        self.m_pgLayout.addItem(self.m_oiPlotItem)
 
     #----------------------------------------------------------------------
     #  画图相关 
@@ -194,8 +197,8 @@ class KLineWidget(QtGui.QWidget):
             self.m_allColor.append(self.m_allColor.popleft())
         else:
             if sig in self.m_subSigPlots:
-                self.pwOI.removeItem(self.m_subSigPlots[sig])
-            self.m_subSigPlots[sig] = self.pwOI.plot()
+                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
+            self.m_subSigPlots[sig] = self.m_oiPlotItem.plot()
             self.m_subSigColor[sig] = self.m_allSubColor[0]
             self.m_allSubColor.append(self.m_allSubColor.popleft())
 
@@ -274,7 +277,7 @@ class KLineWidget(QtGui.QWidget):
         xMax = len(self.m_datas) if xMax < 0 else xMax
         self.m_countK = xMax - xMin
         self.m_index = int((xMax + xMin) / 2)
-        self.pwOI.setLimits(xMin=xMin,xMax=xMax)
+        self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.pwKL.setLimits(xMin=xMin,xMax=xMax)
         self.pwVol.setLimits(xMin=xMin,xMax=xMax)
         self.plotKline(redraw,xMin,xMax)                       # K线图
@@ -291,7 +294,7 @@ class KLineWidget(QtGui.QWidget):
         minutes = int(self.m_countK / 2)
         xmin    = max(0, self.m_index - minutes)
         xmax    = xmin+2*minutes
-        self.pwOI.setRange(xRange = (xmin,xmax))
+        self.m_oiPlotItem.setRange(xRange = (xmin, xmax))
         self.pwKL.setRange(xRange = (xmin,xmax))
         self.pwVol.setRange(xRange = (xmin,xmax))
 
@@ -417,7 +420,7 @@ class KLineWidget(QtGui.QWidget):
         view = self.pwVol.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged,'volume','volume'))
 
-        view = self.pwOI.getViewBox()
+        view = self.m_oiPlotItem.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged,'openInterest','openInterest'))
 
     #----------------------------------------------------------------------
@@ -447,7 +450,7 @@ class KLineWidget(QtGui.QWidget):
             self.m_sigPlots = {}
         else:
             for sig in self.m_subSigPlots:
-                self.pwOI.removeItem(self.m_subSigPlots[sig])
+                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
             self.m_subSigData  = {}
             self.m_subSigPlots = {}
 
