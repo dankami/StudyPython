@@ -338,7 +338,7 @@ class KLineWidget(QtGui.QWidget):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.update((x, y))
+            self.m_crosshair.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onPre(self):
@@ -350,7 +350,7 @@ class KLineWidget(QtGui.QWidget):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.update((x, y))
+            self.m_crosshair.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onDown(self):
@@ -361,7 +361,7 @@ class KLineWidget(QtGui.QWidget):
             x = self.m_index - self.m_countK / 2 + 2 if int(self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x][2]
-            self.m_crosshair.update((x, y))
+            self.m_crosshair.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onUp(self):
@@ -372,7 +372,7 @@ class KLineWidget(QtGui.QWidget):
             x = self.m_index - self.m_countK / 2 + 2 if int(self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x]['close']
-            self.m_crosshair.update((x, y))
+            self.m_crosshair.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onLeft(self):
@@ -383,7 +383,7 @@ class KLineWidget(QtGui.QWidget):
             if x <= self.m_index-self.m_countK/2+2 and self.m_index>1:
                 self.m_index -= 1
                 self.refresh()
-            self.m_crosshair.update((x, y))
+            self.m_crosshair.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onRight(self):
@@ -394,7 +394,7 @@ class KLineWidget(QtGui.QWidget):
             if x >= self.m_index+int(self.m_countK/2)-2:
                 self.m_index += 1
                 self.refresh()
-            self.m_crosshair.update(x, y)
+            self.m_crosshair.moveTo(x, y)
     
     #----------------------------------------------------------------------
     # 界面回调相关
@@ -510,7 +510,7 @@ class KLineWidget(QtGui.QWidget):
         if not newBar:
             self.updateAll()
         self.plotAll(False,xMin,xMax)
-        self.m_crosshair.update(None, None)
+        self.m_crosshair.moveTo(None, None)
 
     #----------------------------------------------------------------------
     def loadData(self, datas):

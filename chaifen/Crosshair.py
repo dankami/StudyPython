@@ -131,16 +131,17 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.moveTo(xAxis, yAxis)
 
     # ----------------------------------------------------------------------
-    def moveTo(self, xAxis, yAxis):
-        xAxis, yAxis = (self.m_xAxis, self.m_yAxis) if xAxis is None else (int(xAxis), yAxis)
+    def moveTo(self, _xAxis, _yAxis):
+        _xAxis = self.m_xAxis if _xAxis is None else int(_xAxis)
+        _yAxis = self.m_yAxis if _yAxis is None else int(_yAxis)
+
         self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
         self.m_oiRect = self.m_oiView.sceneBoundingRect()
-        if not xAxis or not yAxis:
-            return
-        self.m_xAxis = xAxis
-        self.m_yAxis = yAxis
-        self.vhLinesSetXY(xAxis, yAxis)
-        self.plotInfo(xAxis, yAxis)
+
+        self.m_xAxis = _xAxis
+        self.m_yAxis = _yAxis
+        self.vhLinesSetXY(_xAxis, _yAxis)
+        self.plotInfo(_xAxis, _yAxis)
 
     # ----------------------------------------------------------------------
     def vhLinesSetXY(self, xAxis, yAxis):

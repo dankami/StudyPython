@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="340" column="42" lean-forward="false" selection-start-line="340" selection-start-column="42" selection-end-line="340" selection-end-column="42" />
+            <state relative-caret-position="-496">
+              <caret line="512" column="31" lean-forward="false" selection-start-line="512" selection-start-column="31" selection-end-line="512" selection-end-column="31" />
               <folding>
                 <element signature="e#116#141#0" expanded="true" />
               </folding>
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Crosshair.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Crosshair.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chaifen/Crosshair.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="58" column="78" lean-forward="false" selection-start-line="58" selection-start-column="78" selection-end-line="58" selection-end-column="78" />
+            <state relative-caret-position="312">
+              <caret line="133" column="27" lean-forward="false" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="27" />
               <folding>
                 <element signature="e#19#31#0" expanded="true" />
               </folding>
@@ -183,8 +183,8 @@
         <option value="$PROJECT_DIR$/chaifen/Main.py" />
         <option value="$PROJECT_DIR$/pyqt_demo/19EventSignalDemo.py" />
         <option value="$PROJECT_DIR$/chaifen/OIPlotItem.py" />
-        <option value="$PROJECT_DIR$/chaifen/KLineWidget.py" />
         <option value="$PROJECT_DIR$/chaifen/Crosshair.py" />
+        <option value="$PROJECT_DIR$/chaifen/KLineWidget.py" />
       </list>
     </option>
   </component>
@@ -582,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519455986656</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="去除 没必要的信号使用">
+      <created>1519456810886</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1519456810886</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -636,7 +643,8 @@
     <MESSAGE value="使用 抽离的oi组件" />
     <MESSAGE value="修改 十字光标moveto的调用次数" />
     <MESSAGE value="新增 pyqt 信号使用demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 pyqt 信号使用demo" />
+    <MESSAGE value="去除 没必要的信号使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="去除 没必要的信号使用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1012,22 +1020,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
+    <entry file="file://$PROJECT_DIR$/chaifen/Crosshair.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="340" column="42" lean-forward="false" selection-start-line="340" selection-start-column="42" selection-end-line="340" selection-end-column="42" />
+        <state relative-caret-position="312">
+          <caret line="133" column="27" lean-forward="false" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="27" />
           <folding>
-            <element signature="e#116#141#0" expanded="true" />
+            <element signature="e#19#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/Crosshair.py">
+    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="58" column="78" lean-forward="false" selection-start-line="58" selection-start-column="78" selection-end-line="58" selection-end-column="78" />
+        <state relative-caret-position="-496">
+          <caret line="512" column="31" lean-forward="false" selection-start-line="512" selection-start-column="31" selection-end-line="512" selection-end-column="31" />
           <folding>
-            <element signature="e#19#31#0" expanded="true" />
+            <element signature="e#116#141#0" expanded="true" />
           </folding>
         </state>
       </provider>
