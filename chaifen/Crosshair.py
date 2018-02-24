@@ -5,8 +5,6 @@ import pyqtgraph as pg
 import datetime as dt
 
 from pyqtgraph.Qt import QtCore
-from pyqtgraph.Point import Point
-
 
 ########################################################################
 # 十字光标支持
@@ -29,22 +27,28 @@ class Crosshair(PyQt4.QtCore.QObject):
 
         self.m_datas = None
 
-        self.m_yAxises = [0 for i in range(2)]
-        self.m_showHLine = [False for i in range(2)]
-        self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(2)]
-
-        self.m_vLines = [pg.InfiniteLine(angle=90, movable=False) for i in range(2)]
-        self.m_hLines = [pg.InfiniteLine(angle=0, movable=False) for i in range(2)]
+        self.m_yAxises = [0 for i in range(1)]
+        self.m_showHLine = [False for i in range(1)]
+        self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(1)]
+        self.m_vLines = [pg.InfiniteLine(angle=90, movable=False) for i in range(1)]
+        self.m_hLines = [pg.InfiniteLine(angle=0, movable=False) for i in range(1)]
 
         # mid 在y轴动态跟随最新价显示最新价和最新时间
         self.m_textInfo = pg.TextItem('lastBarInfo')
         self.m_textSig = pg.TextItem('lastSigInfo', anchor=(1, 0))
-        self.m_textVolume = pg.TextItem('lastBarVolume', anchor=(1, 0))
 
         self.m_textInfo.setZValue(2)
         self.m_textSig.setZValue(2)
-        self.m_textVolume.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
+
+        # vol相关
+        self.m_volYAxis = 0
+        self.m_volShowHLine = False
+        self.m_volTextPrice = pg.TextItem('', anchor=(1, 1))
+        self.m_volVLine = pg.InfiniteLine(angle=90, movable=False)
+        self.m_volHLine = pg.InfiniteLine(angle=0, movable=False)
+        self.m_textVolume = pg.TextItem('lastBarVolume', anchor=(1, 0))
+        self.m_textVolume.setZValue(2)
 
     # 设置数据
     def setDatas(self, _datas):
@@ -53,8 +57,8 @@ class Crosshair(PyQt4.QtCore.QObject):
     # 设置UI
     def setViews(self, _views):
         self.m_views = _views
-        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
-        for i in range(2):
+        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(1)]
+        for i in range(1):
             self.m_textPrices[i].setZValue(2)
             self.m_vLines[i].setPos(0)
             self.m_hLines[i].setPos(0)
@@ -66,7 +70,19 @@ class Crosshair(PyQt4.QtCore.QObject):
 
         self.m_views[0].addItem(self.m_textInfo, ignoreBounds=True)
         self.m_views[0].addItem(self.m_textSig, ignoreBounds=True)
-        self.m_views[1].addItem(self.m_textVolume, ignoreBounds=True)
+
+    def setVolView(self, _view):
+        self.m_volView = _view
+        self.m_volRect = self.m_volView.sceneBoundingRect()
+        self.m_volTextPrice.setZValue(2)
+        self.m_volVLine.setPos(0)
+        self.m_volHLine.setPos(0)
+        self.m_volVLine.setZValue(0)
+        self.m_volHLine.setZValue(0)
+        self.m_volView.addItem(self.m_volVLine)
+        self.m_volView.addItem(self.m_volHLine)
+        self.m_volView.addItem(self.m_volTextPrice)
+        self.m_volView.addItem(self.m_textVolume, ignoreBounds=True)
 
     def setYAxis(self, _index, _yAxis):
         self.m_yAxises[_index] = _yAxis
@@ -75,22 +91,22 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_showHLine[_index] = _showHLine
 
     # ----------------------------------------------------------------------
-    def onMouseMoved(self, _evt):
-        """鼠标移动回调"""
-        pos = _evt[0]
-        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
-        xAxis = None
-        yAxis = None
-        for i in range(2):
-            self.m_showHLine[i] = False
-            if self.m_rects[i].contains(pos):
-                mousePoint = self.m_views[i].vb.mapSceneToView(pos)
-                xAxis = mousePoint.x()
-                yAxis = mousePoint.y()
-                self.m_yAxises[i] = yAxis
-                self.m_showHLine[i] = True
-
-        self.moveTo(xAxis, yAxis)
+    # def onMouseMoved(self, _evt):
+    #     """鼠标移动回调"""
+    #     pos = _evt[0]
+    #     self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
+    #     xAxis = None
+    #     yAxis = None
+    #     for i in range(2):
+    #         self.m_showHLine[i] = False
+    #         if self.m_rects[i].contains(pos):
+    #             mousePoint = self.m_views[i].vb.mapSceneToView(pos)
+    #             xAxis = mousePoint.x()
+    #             yAxis = mousePoint.y()
+    #             self.m_yAxises[i] = yAxis
+    #             self.m_showHLine[i] = True
+    #
+    #     self.moveTo(xAxis, yAxis)
 
     # ----------------------------------------------------------------------
     def moveTo(self, _xAxis, _yAxis):
@@ -98,18 +114,27 @@ class Crosshair(PyQt4.QtCore.QObject):
         _xAxis = self.m_xAxis if _xAxis is None else int(_xAxis)
         _yAxis = self.m_yAxis if _yAxis is None else int(_yAxis)
 
-        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
+        self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(1)]
+        self.m_volRect = self.m_volView.sceneBoundingRect()
 
         self.m_xAxis = _xAxis
         self.m_yAxis = _yAxis
 
-        for i in range(2):
+        for i in range(1):
             self.m_vLines[i].setPos(_xAxis)
             if self.m_showHLine[i]:
                 self.m_hLines[i].setPos(_yAxis if i == 0 else self.m_yAxises[i])
                 self.m_hLines[i].show()
             else:
                 self.m_hLines[i].hide()
+
+        self.m_volVLine.setPos(_xAxis)
+        if self.m_volShowHLine:
+            self.m_volHLine.setPos(self.m_volYAxis)
+            self.m_volHLine.show()
+        else:
+            self.m_volHLine.hide()
+
 
         if self.m_datas is None:
             return
@@ -169,22 +194,18 @@ class Crosshair(PyQt4.QtCore.QObject):
             % (dateText, timeText, cOpen, openPrice, cHigh, highPrice, \
                cLow, lowPrice, cClose, closePrice, volume))
 
-        self.m_textVolume.setHtml(
-            '<div style="text-align: right">\
-                <span style="color: white; font-size: 20px;">VOL : %.3f</span>\
-            </div>' \
-            % (volume))
+
         # 坐标轴宽度
         rightAxisWidth = self.m_views[0].getAxis('right').width()
         bottomAxisHeight = 20  # self.m_oiView.getAxis('bottom').height()
         offset = QtCore.QPointF(rightAxisWidth, bottomAxisHeight)
 
         # 各个顶点
-        topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(2)]
-        bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(2)]
+        topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(1)]
+        bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(1)]
 
         # 显示价格
-        for i in range(2):
+        for i in range(1):
             if self.m_showHLine[i]:
                 self.m_textPrices[i].setHtml(
                     '<div style="text-align: right">\
@@ -202,4 +223,39 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_textInfo.setPos(topLeftList[0])
         self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
 
-        self.m_textVolume.setPos(bottomRightList[1].x(), topLeftList[1].y())
+        # vol相关
+        if self.m_datas is None:
+            return
+        try:
+            # 获取K线数据
+            data = self.m_datas[_xAxis]
+            volume = data['volume']
+        except Exception, e:
+            return
+
+        self.m_textVolume.setHtml(
+            '<div style="text-align: right">\
+                <span style="color: white; font-size: 20px;">VOL : %.3f</span>\
+            </div>' \
+            % (volume))
+
+        volRightAxisWidth = self.m_volView.getAxis('right').width()
+        volBottomAxisHeight = 20  # self.m_oiView.getAxis('bottom').height()
+        volOffset = QtCore.QPointF(volRightAxisWidth, volBottomAxisHeight)
+        volTopLeft = self.m_volView.vb.mapSceneToView(self.m_volRect.topLeft())
+        volBottomRight = self.m_volView.vb.mapSceneToView(self.m_volRect.bottomRight() - volOffset)
+        self.m_textVolume.setPos(volBottomRight.x(), volTopLeft.y())
+
+
+        if self.m_volShowHLine:
+            self.m_volTextPrice.setHtml(
+                '<div style="text-align: right">\
+                     <span style="color: yellow; font-size: 20px;">\
+                       %0.3f\
+                     </span>\
+                 </div>' \
+                % (self.m_volYAxis) )
+            self.m_volTextPrice.setPos(volBottomRight.x(), self.m_volYAxis)
+            self.m_volTextPrice.show()
+        else:
+            self.m_volTextPrice.hide()

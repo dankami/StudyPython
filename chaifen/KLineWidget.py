@@ -98,9 +98,9 @@ class KLineWidget(QtGui.QWidget):
         self.initplotOI()
         # 注册十字光标
         self.m_crosshair = Crosshair(self)
-        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(2)]
+        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(1)]
         self.m_crosshair.setViews(self.m_views)
-        # self.m_crosshair.setOIPlotItem(self.m_oiPlotItem)
+        self.m_crosshair.setVolView(self.m_volPlotItem)
         self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
@@ -119,7 +119,7 @@ class KLineWidget(QtGui.QWidget):
         volRect = self.m_volPlotItem.sceneBoundingRect()
         oiRect = self.m_oiPlotItem.sceneBoundingRect()
         self.m_crosshair.setShowHLine(0, False)
-        self.m_crosshair.setShowHLine(1, False)
+        self.m_crosshair.m_volShowHLine = False
         self.m_oiPlotItem.setShowHLine(False)
         if klRect.contains(pos):
             mousePoint = self.m_klPlotItem.vb.mapSceneToView(pos)
@@ -131,8 +131,8 @@ class KLineWidget(QtGui.QWidget):
             mousePoint = self.m_volPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
             yAxis = mousePoint.y()
-            self.m_crosshair.setYAxis(1, yAxis)
-            self.m_crosshair.setShowHLine(1, True)
+            self.m_crosshair.m_volYAxis = yAxis
+            self.m_crosshair.m_volShowHLine = True
         if oiRect.contains(pos):
             mousePoint = self.m_oiPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
