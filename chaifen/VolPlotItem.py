@@ -63,20 +63,6 @@ class VolPlotItem(pg.PlotItem):
         self.m_master = _master
 
     # ----------------------------------------------------------------------
-    # def onMouseMoved(self, _evt):
-    #     """鼠标移动回调"""
-    #     pos = _evt[0]
-    #     self.m_oiRect = self.sceneBoundingRect()
-    #     self.m_oiShowHLine = False
-    #     if self.m_oiRect.contains(pos):
-    #         mousePoint = self.vb.mapSceneToView(pos)
-    #         xAxis = mousePoint.x()
-    #         yAxis = mousePoint.y()
-    #         self.m_oiYAxis = yAxis
-    #         self.m_oiShowHLine = True
-    #         self.moveTo(xAxis, yAxis)
-
-    # ----------------------------------------------------------------------
     def moveTo(self, xAxis, yAxis):
         xAxis, yAxis = (self.m_xAxis, self.m_yAxis) if xAxis is None else (int(xAxis), yAxis)
         self.m_oiRect = self.sceneBoundingRect()

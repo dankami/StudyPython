@@ -91,24 +91,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_showHLine[_index] = _showHLine
 
     # ----------------------------------------------------------------------
-    # def onMouseMoved(self, _evt):
-    #     """鼠标移动回调"""
-    #     pos = _evt[0]
-    #     self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
-    #     xAxis = None
-    #     yAxis = None
-    #     for i in range(2):
-    #         self.m_showHLine[i] = False
-    #         if self.m_rects[i].contains(pos):
-    #             mousePoint = self.m_views[i].vb.mapSceneToView(pos)
-    #             xAxis = mousePoint.x()
-    #             yAxis = mousePoint.y()
-    #             self.m_yAxises[i] = yAxis
-    #             self.m_showHLine[i] = True
-    #
-    #     self.moveTo(xAxis, yAxis)
-
-    # ----------------------------------------------------------------------
     def moveTo(self, _xAxis, _yAxis):
 
         _xAxis = self.m_xAxis if _xAxis is None else int(_xAxis)
