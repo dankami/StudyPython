@@ -22,6 +22,7 @@ from KeyWraper import KeyWraper
 from CustomViewBox import CustomViewBox
 from TimeAxisItem import TimeAxisItem
 from CandlestickItem import CandlestickItem
+from OIPlotItem import OIPlotItem
 
 # 字符串转换
 #---------------------------------------------------------------------------------------
@@ -159,7 +160,8 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def initplotOI(self):
         """初始化持仓量子图"""
-        self.m_oiPlotItem = self.makePI('PlotOI')
+        # self.m_oiPlotItem = self.makePI('PlotOI')
+        self.m_oiPlotItem = OIPlotItem()
         self.curveOI = self.m_oiPlotItem.plot()
 
         self.m_pgLayout.nextRow()
@@ -498,6 +500,7 @@ class KLineWidget(QtGui.QWidget):
             self.m_listVol   = np.rec.array([recordVol], names=('datetime', 'open', 'close', 'low', 'high'))
             self.resignData(self.m_datas)
         self.m_timeAxis.update_xdict({nrecords:bar.datetime})
+        self.m_oiPlotItem.update_xdict({nrecords:bar.datetime})
         self.m_listLow.append(bar.low)
         self.m_listHigh.append(bar.high)
         self.m_listOpenInterest.append(bar.openInterest)
@@ -523,6 +526,7 @@ class KLineWidget(QtGui.QWidget):
         self.m_timeAxis.m_xdict={}
         xdict = dict(enumerate(datas.index.tolist()))
         self.m_timeAxis.update_xdict(xdict)
+        self.m_oiPlotItem.update_xdict(xdict)
         self.resignData(self.m_datas)
         # 更新画图用到的数据
         self.m_listBar          = datas[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
