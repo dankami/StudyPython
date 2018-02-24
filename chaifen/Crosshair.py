@@ -58,10 +58,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_textVolume.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
 
-        # 跨线程刷新界面支持
-        self.signal.connect(self.update)
-        self.signalInfo.connect(self.plotInfo)
-
     # 设置数据
     def setDatas(self, _datas):
         self.m_datas = _datas
