@@ -100,7 +100,7 @@ class KLineWidget(QtGui.QWidget):
         self.m_crosshair = Crosshair(self)
         self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(2)]
         self.m_crosshair.setViews(self.m_views)
-        self.m_crosshair.setOIPlotItem(self.m_oiPlotItem)
+        # self.m_crosshair.setOIPlotItem(self.m_oiPlotItem)
         self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
@@ -112,8 +112,38 @@ class KLineWidget(QtGui.QWidget):
 
     # pg组件监听鼠标事件
     def pwMouseMoved(self, _event):
-        self.m_crosshair.onMouseMoved(_event)
-        # self.m_oiPlotItem.onMouseMoved(_event)
+        pos = _event[0]
+        xAxis = None
+        yAxis = None
+        klRect = self.m_klPlotItem.sceneBoundingRect()
+        volRect = self.m_volPlotItem.sceneBoundingRect()
+        oiRect = self.m_oiPlotItem.sceneBoundingRect()
+        self.m_crosshair.setShowHLine(0, False)
+        self.m_crosshair.setShowHLine(1, False)
+        self.m_oiPlotItem.setShowHLine(False)
+        if klRect.contains(pos):
+            mousePoint = self.m_klPlotItem.vb.mapSceneToView(pos)
+            xAxis = mousePoint.x()
+            yAxis = mousePoint.y()
+            self.m_crosshair.setYAxis(0, yAxis)
+            self.m_crosshair.setShowHLine(0, True)
+        if volRect.contains(pos):
+            mousePoint = self.m_volPlotItem.vb.mapSceneToView(pos)
+            xAxis = mousePoint.x()
+            yAxis = mousePoint.y()
+            self.m_crosshair.setYAxis(1, yAxis)
+            self.m_crosshair.setShowHLine(1, True)
+        if oiRect.contains(pos):
+            mousePoint = self.m_oiPlotItem.vb.mapSceneToView(pos)
+            xAxis = mousePoint.x()
+            yAxis = mousePoint.y()
+            self.m_oiPlotItem.setYAxis(yAxis)
+            self.m_oiPlotItem.setShowHLine(True)
+
+        self.m_crosshair.moveTo(xAxis, yAxis)
+        self.m_oiPlotItem.moveTo(xAxis, yAxis)
+
+
 
     #----------------------------------------------------------------------
     def makePI(self,name):
@@ -136,27 +166,27 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def initplotVol(self):
         """初始化成交量子图"""
-        self.pwVol  = self.makePI('PlotVol')
+        self.m_volPlotItem  = self.makePI('PlotVol')
         self.volume = CandlestickItem(self.m_listVol)
-        self.pwVol.addItem(self.volume)
-        self.pwVol.setMaximumHeight(150)
-        self.pwVol.setXLink('PlotOI')
-        self.pwVol.hideAxis('bottom')
+        self.m_volPlotItem.addItem(self.volume)
+        self.m_volPlotItem.setMaximumHeight(150)
+        self.m_volPlotItem.setXLink('PlotOI')
+        self.m_volPlotItem.hideAxis('bottom')
 
         self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.pwVol)
+        self.m_pgLayout.addItem(self.m_volPlotItem)
 
     #----------------------------------------------------------------------
     def initplotKline(self):
         """初始化K线子图"""
-        self.pwKL = self.makePI('PlotKL')
+        self.m_klPlotItem = self.makePI('PlotKL')
         self.candle = CandlestickItem(self.m_listBar)
-        self.pwKL.addItem(self.candle)
-        self.pwKL.setXLink('PlotOI')
-        self.pwKL.hideAxis('bottom')
+        self.m_klPlotItem.addItem(self.candle)
+        self.m_klPlotItem.setXLink('PlotOI')
+        self.m_klPlotItem.hideAxis('bottom')
 
         self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.pwKL)
+        self.m_pgLayout.addItem(self.m_klPlotItem)
 
     #----------------------------------------------------------------------
     def initplotOI(self):
@@ -193,8 +223,8 @@ class KLineWidget(QtGui.QWidget):
         """新增信号图"""
         if main:
             if sig in self.m_sigPlots:
-                self.pwKL.removeItem(self.m_sigPlots[sig])
-            self.m_sigPlots[sig] = self.pwKL.plot()
+                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
+            self.m_sigPlots[sig] = self.m_klPlotItem.plot()
             self.m_sigColor[sig] = self.m_allColor[0]
             self.m_allColor.append(self.m_allColor.popleft())
         else:
@@ -232,7 +262,7 @@ class KLineWidget(QtGui.QWidget):
         if len(self.m_datas)==0:
             return
         for arrow in self.m_arrows:
-            self.pwKL.removeItem(arrow)
+            self.m_klPlotItem.removeItem(arrow)
         # 画买卖信号
         for i in range(len(self.m_listSig)):
             # 无信号
@@ -244,7 +274,7 @@ class KLineWidget(QtGui.QWidget):
             # 卖信号
             elif self.m_listSig[i] < 0:
                 arrow = pg.ArrowItem(pos=(i, self.m_datas[i]['high']), angle=-90, brush=(0, 255, 0))
-            self.pwKL.addItem(arrow)
+            self.m_klPlotItem.addItem(arrow)
             self.m_arrows.append(arrow)
 
     #----------------------------------------------------------------------
@@ -266,8 +296,8 @@ class KLineWidget(QtGui.QWidget):
                 view.setRange(yRange = (ymin,ymax))
             else:
                 view.setRange(yRange = (0,1))
-        update(self.pwKL.getViewBox(),'low','high')
-        update(self.pwVol.getViewBox(),'volume','volume')
+        update(self.m_klPlotItem.getViewBox(), 'low', 'high')
+        update(self.m_volPlotItem.getViewBox(), 'volume', 'volume')
 
     #----------------------------------------------------------------------
     def plotAll(self,redraw=True,xMin=0,xMax=-1):
@@ -280,8 +310,8 @@ class KLineWidget(QtGui.QWidget):
         self.m_countK = xMax - xMin
         self.m_index = int((xMax + xMin) / 2)
         self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
-        self.pwKL.setLimits(xMin=xMin,xMax=xMax)
-        self.pwVol.setLimits(xMin=xMin,xMax=xMax)
+        self.m_klPlotItem.setLimits(xMin=xMin, xMax=xMax)
+        self.m_volPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.plotKline(redraw,xMin,xMax)                       # K线图
         self.plotVol(redraw,xMin,xMax)                         # K线副图，成交量
         self.plotOI(0, len(self.m_datas))                         # K线副图，持仓量
@@ -297,8 +327,8 @@ class KLineWidget(QtGui.QWidget):
         xmin    = max(0, self.m_index - minutes)
         xmax    = xmin+2*minutes
         self.m_oiPlotItem.setRange(xRange = (xmin, xmax))
-        self.pwKL.setRange(xRange = (xmin,xmax))
-        self.pwVol.setRange(xRange = (xmin,xmax))
+        self.m_klPlotItem.setRange(xRange = (xmin, xmax))
+        self.m_volPlotItem.setRange(xRange = (xmin, xmax))
 
     #----------------------------------------------------------------------
     #  快捷键相关 
@@ -401,7 +431,7 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def onPaint(self):
         """界面刷新回调"""
-        view = self.pwKL.getViewBox()
+        view = self.m_klPlotItem.getViewBox()
         vRange = view.viewRange()
         xmin = max(0,int(vRange[0][0]))
         xmax = max(0,int(vRange[0][1]))
@@ -424,10 +454,10 @@ class KLineWidget(QtGui.QWidget):
             else:
                 self.setRange(yRange = (0,1))
 
-        view = self.pwKL.getViewBox()
+        view = self.m_klPlotItem.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged,'low','high'))
 
-        view = self.pwVol.getViewBox()
+        view = self.m_volPlotItem.getViewBox()
         view.sigXRangeChanged.connect(partial(viewXRangeChanged,'volume','volume'))
 
         view = self.m_oiPlotItem.getViewBox()
@@ -455,7 +485,7 @@ class KLineWidget(QtGui.QWidget):
         # 清空信号图
         if main:
             for sig in self.m_sigPlots:
-                self.pwKL.removeItem(self.m_sigPlots[sig])
+                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
             self.m_sigData  = {}
             self.m_sigPlots = {}
         else:

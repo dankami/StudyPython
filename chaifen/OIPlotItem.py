@@ -29,30 +29,36 @@ class OIPlotItem(pg.PlotItem):
         self.hideButtons()
 
         # 十字光标
-        # self.m_oiYAxis = 0
-        # self.m_oiLeftX = 0
-        # self.m_oiShowHLine = False
-        # self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
-        # self.m_oiVLine = pg.InfiniteLine(angle=90, movable=False)
-        # self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
-        #
-        # self.m_textDate = pg.TextItem('date', anchor=(1, 1))
-        # self.m_textSubSig = pg.TextItem('lastSubSigInfo', anchor=(1, 0))
-        # self.m_textDate.setZValue(2)
-        # self.m_textSubSig.setZValue(2)
-        #
-        # self.m_oiRect = self.sceneBoundingRect()
-        # self.m_oiTextPrice.setZValue(2)
-        # self.m_oiVLine.setPos(0)
-        # self.m_oiHLine.setPos(0)
-        # self.m_oiVLine.setZValue(0)
-        # self.m_oiHLine.setZValue(0)
-        #
-        # self.addItem(self.m_oiVLine)
-        # self.addItem(self.m_oiHLine)
-        # self.addItem(self.m_oiTextPrice)
-        # self.addItem(self.m_textDate, ignoreBounds=True)
-        # self.addItem(self.m_textSubSig, ignoreBounds=True)
+        self.m_oiYAxis = 0
+        self.m_oiLeftX = 0
+        self.m_oiShowHLine = False
+        self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
+        self.m_oiVLine = pg.InfiniteLine(angle=90, movable=False)
+        self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
+
+        self.m_textDate = pg.TextItem('date', anchor=(1, 1))
+        self.m_textSubSig = pg.TextItem('lastSubSigInfo', anchor=(1, 0))
+        self.m_textDate.setZValue(2)
+        self.m_textSubSig.setZValue(2)
+
+        self.m_oiRect = self.sceneBoundingRect()
+        self.m_oiTextPrice.setZValue(2)
+        self.m_oiVLine.setPos(0)
+        self.m_oiHLine.setPos(0)
+        self.m_oiVLine.setZValue(0)
+        self.m_oiHLine.setZValue(0)
+
+        self.addItem(self.m_oiVLine)
+        self.addItem(self.m_oiHLine)
+        self.addItem(self.m_oiTextPrice)
+        self.addItem(self.m_textDate, ignoreBounds=True)
+        self.addItem(self.m_textSubSig, ignoreBounds=True)
+
+    def setYAxis(self, _yAxis):
+        self.m_oiYAxis = _yAxis
+
+    def setShowHLine(self, _showHLine):
+        self.m_oiShowHLine = _showHLine
 
     # 设置数据
     def setDatas(self, _datas):
