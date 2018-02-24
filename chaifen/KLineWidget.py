@@ -318,6 +318,13 @@ class KLineWidget(QtGui.QWidget):
         elif event.key() == QtCore.Qt.Key_PageDown:
             self.onNxt()
 
+    # 重载方法wheelEvent(self,event),即滚轮事件方法
+    # ----------------------------------------------------------------------
+    def wheelEvent(self, event):
+        if event.delta() > 0:
+            self.onUp()
+        else:
+            self.onDown()
 
     def onNxt(self):
         """跳转到下一个开平仓点"""
