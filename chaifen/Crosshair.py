@@ -30,31 +30,31 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_datas = None
 
         self.m_yAxises = [0 for i in range(2)]
-        # self.m_leftX      = [0 for i in range(2)]
         self.m_showHLine = [False for i in range(2)]
         self.m_textPrices = [pg.TextItem('', anchor=(1, 1)) for i in range(2)]
 
         self.m_vLines = [pg.InfiniteLine(angle=90, movable=False) for i in range(2)]
         self.m_hLines = [pg.InfiniteLine(angle=0, movable=False) for i in range(2)]
 
+        # oi部分
         self.m_oiYAxis = 0
         self.m_oiLeftX = 0
         self.m_oiShowHLine = False
         self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
         self.m_oiVLine = pg.InfiniteLine(angle=90, movable=False)
         self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
+        self.m_textDate = pg.TextItem('date', anchor=(1, 1))
+        self.m_textSubSig = pg.TextItem('lastSubSigInfo', anchor=(1, 0))
+        self.m_textDate.setZValue(2)
+        self.m_textSubSig.setZValue(2)
 
         # mid 在y轴动态跟随最新价显示最新价和最新时间
-        self.m_textDate = pg.TextItem('date', anchor=(1, 1))
         self.m_textInfo = pg.TextItem('lastBarInfo')
         self.m_textSig = pg.TextItem('lastSigInfo', anchor=(1, 0))
-        self.m_textSubSig = pg.TextItem('lastSubSigInfo', anchor=(1, 0))
         self.m_textVolume = pg.TextItem('lastBarVolume', anchor=(1, 0))
 
-        self.m_textDate.setZValue(2)
         self.m_textInfo.setZValue(2)
         self.m_textSig.setZValue(2)
-        self.m_textSubSig.setZValue(2)
         self.m_textVolume.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
 
@@ -111,7 +111,8 @@ class Crosshair(PyQt4.QtCore.QObject):
         """鼠标移动回调"""
         pos = _evt[0]
         self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(2)]
-
+        xAxis = None
+        yAxis = None
         for i in range(2):
             self.m_showHLine[i] = False
             if self.m_rects[i].contains(pos):
@@ -120,8 +121,8 @@ class Crosshair(PyQt4.QtCore.QObject):
                 yAxis = mousePoint.y()
                 self.m_yAxises[i] = yAxis
                 self.m_showHLine[i] = True
-                self.moveTo(xAxis, yAxis)
 
+        # oi部分
         self.m_oiRect = self.m_oiView.sceneBoundingRect()
         self.m_oiShowHLine = False
         if self.m_oiRect.contains(pos):
@@ -130,7 +131,8 @@ class Crosshair(PyQt4.QtCore.QObject):
             yAxis = mousePoint.y()
             self.m_oiYAxis = yAxis
             self.m_oiShowHLine = True
-            self.moveTo(xAxis, yAxis)
+
+        self.moveTo(xAxis, yAxis)
 
     # ----------------------------------------------------------------------
     def moveTo(self, xAxis, yAxis):
@@ -155,9 +157,10 @@ class Crosshair(PyQt4.QtCore.QObject):
             else:
                 self.m_hLines[i].hide()
 
+        # oi部分
         self.m_oiVLine.setPos(xAxis)
         if self.m_oiShowHLine:
-            self.m_oiHLine.setPos(yAxis if 2 == 0 else self.m_oiYAxis)
+            self.m_oiHLine.setPos(self.m_oiYAxis)
             self.m_oiHLine.show()
         else:
             self.m_oiHLine.hide()
@@ -179,17 +182,14 @@ class Crosshair(PyQt4.QtCore.QObject):
             lowPrice = data['low']
             highPrice = data['high']
             volume = data['volume']
-            openInterest = data['openInterest']
             preClosePrice = lastdata['close']
         except Exception, e:
             return
 
         if (isinstance(tickDatetime, dt.datetime)):
-            datetimeText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d %H:%M:%S')
             dateText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d')
             timeText = dt.datetime.strftime(tickDatetime, '%H:%M:%S')
         else:
-            datetimeText = ""
             dateText = ""
             timeText = ""
 
@@ -202,14 +202,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         html += u'</div>'
         self.m_textSig.setHtml(html)
 
-        # 显示所有的主图技术指标
-        html = u'<div style="text-align: right">'
-        for sig in self.m_master.m_subSigData:
-            val = self.m_master.m_subSigData[sig][_xAxis]
-            col = self.m_master.m_subSigColor[sig]
-            html += u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' % (col, sig, val)
-        html += u'</div>'
-        self.m_textSubSig.setHtml(html)
 
         # 和上一个收盘价比较，决定K线信息的字符颜色
         cOpen = 'red' if openPrice > preClosePrice else 'green'
@@ -236,11 +228,7 @@ class Crosshair(PyQt4.QtCore.QObject):
             </div>' \
             % (dateText, timeText, cOpen, openPrice, cHigh, highPrice, \
                cLow, lowPrice, cClose, closePrice, volume))
-        self.m_textDate.setHtml(
-            '<div style="text-align: center">\
-                <span style="color: yellow; font-size: 20px;">%s</span>\
-            </div>' \
-            % (datetimeText))
+
 
         self.m_textVolume.setHtml(
             '<div style="text-align: right">\
@@ -249,15 +237,13 @@ class Crosshair(PyQt4.QtCore.QObject):
             % (volume))
         # 坐标轴宽度
         rightAxisWidth = self.m_views[0].getAxis('right').width()
-        bottomAxisHeight = self.m_oiView.getAxis('bottom').height()
+        bottomAxisHeight = 20 #self.m_oiView.getAxis('bottom').height()
         offset = QtCore.QPointF(rightAxisWidth, bottomAxisHeight)
 
         # 各个顶点
         topLeftList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].topLeft()) for i in range(2)]
         bottomRightList = [self.m_views[i].vb.mapSceneToView(self.m_rects[i].bottomRight() - offset) for i in range(2)]
 
-        oiTopLeft = self.m_oiView.vb.mapSceneToView(self.m_oiRect.topLeft())
-        oiBottomRigt = self.m_oiView.vb.mapSceneToView(self.m_oiRect.bottomRight() - offset)
 
         # 显示价格
         for i in range(2):
@@ -274,6 +260,54 @@ class Crosshair(PyQt4.QtCore.QObject):
             else:
                 self.m_textPrices[i].hide()
 
+        # 设置坐标
+        self.m_textInfo.setPos(topLeftList[0])
+        self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
+
+        self.m_textVolume.setPos(bottomRightList[1].x(), topLeftList[1].y())
+
+
+
+        # oi部分
+        if self.m_datas is None:
+            return
+        try:
+            # 获取K线数据
+            tickDatetime = data['datetime']
+        except Exception, e:
+            return
+
+        if (isinstance(tickDatetime, dt.datetime)):
+            datetimeText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d %H:%M:%S')
+        else:
+            datetimeText = ""
+
+        # 显示所有的主图技术指标
+        html = u'<div style="text-align: right">'
+        for sig in self.m_master.m_subSigData:
+            val = self.m_master.m_subSigData[sig][_xAxis]
+            col = self.m_master.m_subSigColor[sig]
+            html += u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' % (col, sig, val)
+        html += u'</div>'
+        self.m_textSubSig.setHtml(html)
+
+        self.m_textDate.setHtml(
+            '<div style="text-align: center">\
+                <span style="color: yellow; font-size: 20px;">%s</span>\
+            </div>' \
+            % (datetimeText))
+
+        oiRightAxisWidth = self.m_oiView.getAxis('right').width()
+        oiBottomAxisHeight = self.m_oiView.getAxis('bottom').height()
+        oiOffset = QtCore.QPointF(oiRightAxisWidth, oiBottomAxisHeight)
+        oiTopLeft = self.m_oiView.vb.mapSceneToView(self.m_oiRect.topLeft())
+        oiBottomRigt = self.m_oiView.vb.mapSceneToView(self.m_oiRect.bottomRight() - oiOffset)
+
+        # 修改对称方式防止遮挡
+        self.m_textDate.anchor = Point((1, 1)) if _xAxis > self.m_master.m_index else Point((0, 1))
+        self.m_textDate.setPos(_xAxis, oiBottomRigt.y())
+        self.m_textSubSig.setPos(oiBottomRigt.x(), oiTopLeft.y())
+
         if self.m_oiShowHLine:
             self.m_oiTextPrice.setHtml(
                 '<div style="text-align: right">\
@@ -281,19 +315,9 @@ class Crosshair(PyQt4.QtCore.QObject):
                        %0.3f\
                      </span>\
                  </div>' \
-                % (_yAxis if 2 == 0 else self.m_oiYAxis))
-            self.m_oiTextPrice.setPos(oiBottomRigt.x(), _yAxis if i == 0 else self.m_oiYAxis)
+                % (self.m_oiYAxis))
+            self.m_oiTextPrice.setPos(oiBottomRigt.x(), self.m_oiYAxis)
             self.m_oiTextPrice.show()
         else:
             self.m_oiTextPrice.hide()
-
-        # 设置坐标
-        self.m_textInfo.setPos(topLeftList[0])
-        self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
-        self.m_textSubSig.setPos(oiBottomRigt.x(), oiTopLeft.y())
-        self.m_textVolume.setPos(bottomRightList[1].x(), topLeftList[1].y())
-
-        # 修改对称方式防止遮挡
-        self.m_textDate.anchor = Point((1, 1)) if _xAxis > self.m_master.m_index else Point((0, 1))
-        self.m_textDate.setPos(_xAxis, oiBottomRigt.y())
 

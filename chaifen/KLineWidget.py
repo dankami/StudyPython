@@ -101,6 +101,7 @@ class KLineWidget(QtGui.QWidget):
         self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(2)]
         self.m_crosshair.setViews(self.m_views)
         self.m_crosshair.setOIPlotItem(self.m_oiPlotItem)
+        self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -112,7 +113,7 @@ class KLineWidget(QtGui.QWidget):
     # pg组件监听鼠标事件
     def pwMouseMoved(self, _event):
         self.m_crosshair.onMouseMoved(_event)
-        # self.m_crosshair.sayHello()
+        # self.m_oiPlotItem.onMouseMoved(_event)
 
     #----------------------------------------------------------------------
     def makePI(self,name):
@@ -160,7 +161,6 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def initplotOI(self):
         """初始化持仓量子图"""
-        # self.m_oiPlotItem = self.makePI('PlotOI')
         self.m_oiPlotItem = OIPlotItem()
         self.curveOI = self.m_oiPlotItem.plot()
 
@@ -411,6 +411,7 @@ class KLineWidget(QtGui.QWidget):
     def resignData(self, _datas):
         """更新数据，用于Y坐标自适应"""
         self.m_crosshair.setDatas(_datas)
+        self.m_oiPlotItem.setDatas(_datas)
         def viewXRangeChanged(low,high,self):
             vRange = self.viewRange()
             xmin = max(0,int(vRange[0][0]))
