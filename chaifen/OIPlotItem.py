@@ -54,6 +54,9 @@ class OIPlotItem(pg.PlotItem):
         self.addItem(self.m_textDate, ignoreBounds=True)
         self.addItem(self.m_textSubSig, ignoreBounds=True)
 
+        self.m_xAxis = 0
+        self.m_yAxis = 0
+
     def setYAxis(self, _yAxis):
         self.m_oiYAxis = _yAxis
 
@@ -67,20 +70,6 @@ class OIPlotItem(pg.PlotItem):
     # 设置master
     def setMaster(self, _master):
         self.m_master = _master
-
-    # ----------------------------------------------------------------------
-    def onMouseMoved(self, _evt):
-        """鼠标移动回调"""
-        pos = _evt[0]
-        self.m_oiRect = self.sceneBoundingRect()
-        self.m_oiShowHLine = False
-        if self.m_oiRect.contains(pos):
-            mousePoint = self.vb.mapSceneToView(pos)
-            xAxis = mousePoint.x()
-            yAxis = mousePoint.y()
-            self.m_oiYAxis = yAxis
-            self.m_oiShowHLine = True
-            self.moveTo(xAxis, yAxis)
 
     # ----------------------------------------------------------------------
     def moveTo(self, xAxis, yAxis):

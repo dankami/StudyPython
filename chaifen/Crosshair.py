@@ -41,14 +41,7 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_textSig.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
 
-        # vol相关
-        self.m_volYAxis = 0
-        self.m_volShowHLine = False
-        self.m_volTextPrice = pg.TextItem('', anchor=(1, 1))
-        self.m_volVLine = pg.InfiniteLine(angle=90, movable=False)
-        self.m_volHLine = pg.InfiniteLine(angle=0, movable=False)
-        self.m_textVolume = pg.TextItem('lastBarVolume', anchor=(1, 0))
-        self.m_textVolume.setZValue(2)
+
 
     # 设置数据
     def setDatas(self, _datas):
@@ -71,18 +64,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_views[0].addItem(self.m_textInfo, ignoreBounds=True)
         self.m_views[0].addItem(self.m_textSig, ignoreBounds=True)
 
-    def setVolView(self, _view):
-        self.m_volView = _view
-        self.m_volRect = self.m_volView.sceneBoundingRect()
-        self.m_volTextPrice.setZValue(2)
-        self.m_volVLine.setPos(0)
-        self.m_volHLine.setPos(0)
-        self.m_volVLine.setZValue(0)
-        self.m_volHLine.setZValue(0)
-        self.m_volView.addItem(self.m_volVLine)
-        self.m_volView.addItem(self.m_volHLine)
-        self.m_volView.addItem(self.m_volTextPrice)
-        self.m_volView.addItem(self.m_textVolume, ignoreBounds=True)
 
     def setYAxis(self, _index, _yAxis):
         self.m_yAxises[_index] = _yAxis
@@ -97,7 +78,6 @@ class Crosshair(PyQt4.QtCore.QObject):
         _yAxis = self.m_yAxis if _yAxis is None else int(_yAxis)
 
         self.m_rects = [self.m_views[i].sceneBoundingRect() for i in range(1)]
-        self.m_volRect = self.m_volView.sceneBoundingRect()
 
         self.m_xAxis = _xAxis
         self.m_yAxis = _yAxis
@@ -109,13 +89,6 @@ class Crosshair(PyQt4.QtCore.QObject):
                 self.m_hLines[i].show()
             else:
                 self.m_hLines[i].hide()
-
-        self.m_volVLine.setPos(_xAxis)
-        if self.m_volShowHLine:
-            self.m_volHLine.setPos(self.m_volYAxis)
-            self.m_volHLine.show()
-        else:
-            self.m_volHLine.hide()
 
 
         if self.m_datas is None:
@@ -205,39 +178,3 @@ class Crosshair(PyQt4.QtCore.QObject):
         self.m_textInfo.setPos(topLeftList[0])
         self.m_textSig.setPos(bottomRightList[0].x(), topLeftList[0].y())
 
-        # vol相关
-        if self.m_datas is None:
-            return
-        try:
-            # 获取K线数据
-            data = self.m_datas[_xAxis]
-            volume = data['volume']
-        except Exception, e:
-            return
-
-        self.m_textVolume.setHtml(
-            '<div style="text-align: right">\
-                <span style="color: white; font-size: 20px;">VOL : %.3f</span>\
-            </div>' \
-            % (volume))
-
-        volRightAxisWidth = self.m_volView.getAxis('right').width()
-        volBottomAxisHeight = 20  # self.m_oiView.getAxis('bottom').height()
-        volOffset = QtCore.QPointF(volRightAxisWidth, volBottomAxisHeight)
-        volTopLeft = self.m_volView.vb.mapSceneToView(self.m_volRect.topLeft())
-        volBottomRight = self.m_volView.vb.mapSceneToView(self.m_volRect.bottomRight() - volOffset)
-        self.m_textVolume.setPos(volBottomRight.x(), volTopLeft.y())
-
-
-        if self.m_volShowHLine:
-            self.m_volTextPrice.setHtml(
-                '<div style="text-align: right">\
-                     <span style="color: yellow; font-size: 20px;">\
-                       %0.3f\
-                     </span>\
-                 </div>' \
-                % (self.m_volYAxis) )
-            self.m_volTextPrice.setPos(volBottomRight.x(), self.m_volYAxis)
-            self.m_volTextPrice.show()
-        else:
-            self.m_volTextPrice.hide()

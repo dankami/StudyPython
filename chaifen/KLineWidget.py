@@ -18,11 +18,11 @@ from datetime import datetime
 from collections import deque
 
 # 自己
-from KeyWraper import KeyWraper
 from CustomViewBox import CustomViewBox
 from TimeAxisItem import TimeAxisItem
 from CandlestickItem import CandlestickItem
 from OIPlotItem import OIPlotItem
+from VolPlotItem import VolPlotItem
 
 # 字符串转换
 #---------------------------------------------------------------------------------------
@@ -100,8 +100,9 @@ class KLineWidget(QtGui.QWidget):
         self.m_crosshair = Crosshair(self)
         self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(1)]
         self.m_crosshair.setViews(self.m_views)
-        self.m_crosshair.setVolView(self.m_volPlotItem)
+        # self.m_crosshair.setVolView(self.m_volPlotItem)
         self.m_oiPlotItem.setMaster(self)
+        self.m_volPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -119,7 +120,7 @@ class KLineWidget(QtGui.QWidget):
         volRect = self.m_volPlotItem.sceneBoundingRect()
         oiRect = self.m_oiPlotItem.sceneBoundingRect()
         self.m_crosshair.setShowHLine(0, False)
-        self.m_crosshair.m_volShowHLine = False
+        self.m_volPlotItem.setShowHLine(False)
         self.m_oiPlotItem.setShowHLine(False)
         if klRect.contains(pos):
             mousePoint = self.m_klPlotItem.vb.mapSceneToView(pos)
@@ -131,8 +132,8 @@ class KLineWidget(QtGui.QWidget):
             mousePoint = self.m_volPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
             yAxis = mousePoint.y()
-            self.m_crosshair.m_volYAxis = yAxis
-            self.m_crosshair.m_volShowHLine = True
+            self.m_volPlotItem.setYAxis(yAxis)
+            self.m_volPlotItem.setShowHLine(True)
         if oiRect.contains(pos):
             mousePoint = self.m_oiPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
@@ -142,8 +143,7 @@ class KLineWidget(QtGui.QWidget):
 
         self.m_crosshair.moveTo(xAxis, yAxis)
         self.m_oiPlotItem.moveTo(xAxis, yAxis)
-
-
+        self.m_volPlotItem.moveTo(xAxis, yAxis)
 
     #----------------------------------------------------------------------
     def makePI(self,name):
@@ -164,19 +164,6 @@ class KLineWidget(QtGui.QWidget):
         return plotItem
 
     #----------------------------------------------------------------------
-    def initplotVol(self):
-        """初始化成交量子图"""
-        self.m_volPlotItem  = self.makePI('PlotVol')
-        self.volume = CandlestickItem(self.m_listVol)
-        self.m_volPlotItem.addItem(self.volume)
-        self.m_volPlotItem.setMaximumHeight(150)
-        self.m_volPlotItem.setXLink('PlotOI')
-        self.m_volPlotItem.hideAxis('bottom')
-
-        self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.m_volPlotItem)
-
-    #----------------------------------------------------------------------
     def initplotKline(self):
         """初始化K线子图"""
         self.m_klPlotItem = self.makePI('PlotKL')
@@ -187,6 +174,19 @@ class KLineWidget(QtGui.QWidget):
 
         self.m_pgLayout.nextRow()
         self.m_pgLayout.addItem(self.m_klPlotItem)
+
+    #----------------------------------------------------------------------
+    def initplotVol(self):
+        """初始化成交量子图"""
+        self.m_volPlotItem = VolPlotItem()
+        self.volume = CandlestickItem(self.m_listVol)
+        self.m_volPlotItem.addItem(self.volume)
+        self.m_volPlotItem.setMaximumHeight(150)
+        self.m_volPlotItem.setXLink('PlotOI')
+        self.m_volPlotItem.hideAxis('bottom')
+
+        self.m_pgLayout.nextRow()
+        self.m_pgLayout.addItem(self.m_volPlotItem)
 
     #----------------------------------------------------------------------
     def initplotOI(self):
@@ -442,6 +442,7 @@ class KLineWidget(QtGui.QWidget):
         """更新数据，用于Y坐标自适应"""
         self.m_crosshair.setDatas(_datas)
         self.m_oiPlotItem.setDatas(_datas)
+        self.m_volPlotItem.setDatas(_datas)
         def viewXRangeChanged(low,high,self):
             vRange = self.viewRange()
             xmin = max(0,int(vRange[0][0]))
