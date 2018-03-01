@@ -3,7 +3,7 @@
 from PyQt4.QtGui import *
 import pyqtgraph as pg
 from CustomViewBox import CustomViewBox
-from TimeAxisItem import TimeAxisItem
+from CandlestickItem import CandlestickItem
 
 import datetime as dt
 from pyqtgraph.Qt import QtCore
@@ -12,64 +12,56 @@ class KLPlotItem(pg.PlotItem):
     def __init__(self):
         vb = CustomViewBox()
         pg.PlotItem.__init__(self, viewBox=vb, name='PlotKL')
+
+        # 属性设置
         self.setMenuEnabled(False)
         self.setClipToView(True)
-        self.hideAxis('left')
-        self.showAxis('right')
+        self.showGrid(True, True)
         self.setDownsampling(mode='peak')
+        self.hideButtons()
         self.setRange(xRange=(0, 1), yRange=(0, 1))
+        self.setXLink('PlotOI')
+
+        self.hideAxis('left')
+        self.hideAxis('bottom')
+        self.showAxis('right')
         self.getAxis('right').setWidth(60)
         self.getAxis('right').setStyle(tickFont=QFont("Roman times", 10, QFont.Bold))
         self.getAxis('right').setPen(color=(255, 255, 255, 255), width=0.8)
-        self.showGrid(True, True)
-        self.hideButtons()
 
-        # 十字光标
-        self.m_xAxis = 0
-        self.m_yAxis = 0
-        self.m_datas = None
-
-        self.m_klYAxise = 0
-        self.m_klShowHLine = False
-        self.m_klTextPrice = pg.TextItem('', anchor=(1, 1))
+        # 添加子组件及设置
+        self.m_candle = CandlestickItem() # K线图组件
+        self.m_klTextPrice = pg.TextItem('', anchor=(1, 1)) # 十字光标相关
         self.m_klVLine = pg.InfiniteLine(angle=90, movable=False)
         self.m_klHLine = pg.InfiniteLine(angle=0, movable=False)
-        # mid 在y轴动态跟随最新价显示最新价和最新时间
-        self.m_textInfo = pg.TextItem('lastBarInfo')
-        self.m_textSig = pg.TextItem('lastSigInfo', anchor=(1, 0))
+        self.m_textInfo = pg.TextItem('lastBarInfo') # K线数据显示
+        self.m_textSig = pg.TextItem('lastSigInfo', anchor=(1, 0)) #信号数据
+        self.addItem(self.m_candle)
+        self.addItem(self.m_klTextPrice)
+        self.addItem(self.m_klVLine)
+        self.addItem(self.m_klHLine)
+        self.addItem(self.m_textInfo, ignoreBounds=True)
+        self.addItem(self.m_textSig, ignoreBounds=True)
+        self.m_klTextPrice.setZValue(2)
+        self.m_klVLine.setZValue(0)
+        self.m_klHLine.setZValue(0)
+        self.m_klVLine.setPos(0)
+        self.m_klHLine.setPos(0)
         self.m_textInfo.setZValue(2)
         self.m_textSig.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
 
+        # 数据
+        self.m_xAxis = 0
+        self.m_yAxis = 0
+        self.m_datas = None
+        self.m_klYAxise = 0
+        self.m_klShowHLine = False
         self.m_klRect = self.sceneBoundingRect()
-        self.m_klTextPrice.setZValue(2)
-        self.m_klVLine.setPos(0)
-        self.m_klHLine.setPos(0)
-        self.m_klVLine.setZValue(0)
-        self.m_klHLine.setZValue(0)
-        self.addItem(self.m_klVLine)
-        self.addItem(self.m_klHLine)
-        self.addItem(self.m_klTextPrice)
-        self.addItem(self.m_textInfo, ignoreBounds=True)
-        self.addItem(self.m_textSig, ignoreBounds=True)
 
-    def setYAxis(self, _yAxis):
-        self.m_volYAxis = _yAxis
-
-    def setShowHLine(self, _showHLine):
-        self.m_klShowHLine = _showHLine
-
-    # 设置数据
-    def setDatas(self, _datas):
-        self.m_datas = _datas
-
-    # 设置master
-    def setMaster(self, _master):
-        self.m_master = _master
-
-    # 获取横坐标
-    def getXAxis(self):
-        return self.m_xAxis
+    # 刷新K线
+    def updateCandle(self, _data=None, _redraw=False):
+        self.m_candle.generatePicture(_data, _redraw)
 
     # ----------------------------------------------------------------------
     def moveTo(self, _xAxis, _yAxis):
@@ -173,6 +165,25 @@ class KLPlotItem(pg.PlotItem):
         # 设置坐标
         self.m_textInfo.setPos(klTopLeft)
         self.m_textSig.setPos(klBottomRight.x(), klTopLeft.y())
+
+
+    def setYAxis(self, _yAxis):
+        self.m_volYAxis = _yAxis
+
+    def setShowHLine(self, _showHLine):
+        self.m_klShowHLine = _showHLine
+
+    # 设置数据
+    def setDatas(self, _datas):
+        self.m_datas = _datas
+
+    # 设置master
+    def setMaster(self, _master):
+        self.m_master = _master
+
+    # 获取横坐标
+    def getXAxis(self):
+        return self.m_xAxis
 
 
 

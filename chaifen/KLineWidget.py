@@ -21,7 +21,6 @@ from KLPlotItem import KLPlotItem
 from VolPlotItem import VolPlotItem
 from OIPlotItem import OIPlotItem
 
-
 # 字符串转换
 #---------------------------------------------------------------------------------------
 try:
@@ -144,11 +143,6 @@ class KLineWidget(QtGui.QWidget):
     def initplotKline(self):
         """初始化K线子图"""
         self.m_klPlotItem = KLPlotItem()
-        self.candle = CandlestickItem()
-        self.m_klPlotItem.addItem(self.candle)
-        self.m_klPlotItem.setXLink('PlotOI')
-        self.m_klPlotItem.hideAxis('bottom')
-
         self.m_pgLayout.nextRow()
         self.m_pgLayout.addItem(self.m_klPlotItem)
 
@@ -186,7 +180,7 @@ class KLineWidget(QtGui.QWidget):
     def plotKline(self,redraw=False,xmin=0,xmax=-1):
         """重画K线子图"""
         if self.m_initCompleted:
-            self.candle.generatePicture(self.m_listBar[xmin:xmax], redraw)   # 画K线
+            self.m_klPlotItem.updateCandle(self.m_listBar[xmin:xmax], redraw)   # 画K线
             self.plotMark()                             # 显示开平仓信号位置
 
     #----------------------------------------------------------------------

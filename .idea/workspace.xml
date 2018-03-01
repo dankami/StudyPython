@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/CandlestickItem.py" afterPath="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/KLPlotItem.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLineWidget.py" afterPath="$PROJECT_DIR$/chaifen/KLineWidget.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="146" column="29" lean-forward="true" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
+            <state relative-caret-position="1272">
+              <caret line="182" column="29" lean-forward="false" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
               <folding>
                 <element signature="e#116#141#0" expanded="true" />
               </folding>
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CandlestickItem.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CandlestickItem.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chaifen/CandlestickItem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="204">
+              <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -52,8 +52,8 @@
       <file leaf-file-name="KLPlotItem.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chaifen/KLPlotItem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="264">
+              <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="20" />
               <folding>
                 <element signature="e#25#50#0" expanded="true" />
               </folding>
@@ -96,10 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setViews</find>
-      <find>initplotv</find>
-      <find>m_volPlotItem</find>
-      <find>onMouseMoved</find>
       <find>setYAxis</find>
       <find>moveTo</find>
       <find>setDatas</find>
@@ -123,9 +119,13 @@
       <find>generatePicture</find>
       <find>m_timeAxis</find>
       <find>self.candle</find>
-      <find>m_listBar</find>
       <find>m_data</find>
+      <find>m_textInfo</find>
+      <find>m_textSig</find>
+      <find>m_klRect</find>
+      <find>m_listBar</find>
       <find>redraw</find>
+      <find>candle</find>
     </findStrings>
     <replaceStrings>
       <replace>self.master.m_sigData</replace>
@@ -194,9 +194,9 @@
         <option value="$PROJECT_DIR$/chaifen/data2.csv" />
         <option value="$PROJECT_DIR$/chaifen/Main.py" />
         <option value="$PROJECT_DIR$/chaifen/VolPlotItem.py" />
+        <option value="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
         <option value="$PROJECT_DIR$/chaifen/KLPlotItem.py" />
         <option value="$PROJECT_DIR$/chaifen/KLineWidget.py" />
-        <option value="$PROJECT_DIR$/chaifen/CandlestickItem.py" />
       </list>
     </option>
   </component>
@@ -645,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519893494558</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="修改 烛状图创建不需要设置数据">
+      <created>1519893758372</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1519893758372</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -678,7 +685,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增 numpy, enum 的使用demo" />
     <MESSAGE value="调整 uiKLine 的代码结构&#10;新增 qyptgraph 的示例代码" />
     <MESSAGE value="修改 规范命名方便查阅" />
     <MESSAGE value="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo" />
@@ -703,7 +709,8 @@
     <MESSAGE value="拆分出 vol组件" />
     <MESSAGE value="完成 三大组件的拆分。wow" />
     <MESSAGE value="删除 组件没有使用的底部坐标轴" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除 组件没有使用的底部坐标轴" />
+    <MESSAGE value="修改 烛状图创建不需要设置数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改 烛状图创建不需要设置数据" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,7 +752,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/chaifen/KLineWidget.py</url>
-          <line>187</line>
+          <line>181</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
@@ -1079,26 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/KLPlotItem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#25#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="146" column="29" lean-forward="true" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
-          <folding>
-            <element signature="e#116#141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/VolPlotItem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360">
@@ -1111,9 +1098,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/CandlestickItem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="204">
+          <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/KLPlotItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="20" />
+          <folding>
+            <element signature="e#25#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1272">
+          <caret line="182" column="29" lean-forward="false" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
+          <folding>
+            <element signature="e#116#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
