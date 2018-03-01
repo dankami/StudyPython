@@ -5,9 +5,7 @@ import pyqtgraph as pg
 from CustomViewBox import CustomViewBox
 from TimeAxisItem import TimeAxisItem
 
-import datetime as dt
 from pyqtgraph.Qt import QtCore
-from pyqtgraph.Point import Point
 
 class VolPlotItem(pg.PlotItem):
     def __init__(self):

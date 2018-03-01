@@ -8,7 +8,6 @@ Support By 量投科技(http://www.quantdo.com.cn/)
 # Qt相关和十字光标
 from PyQt4.QtGui import *
 from PyQt4 import QtGui,QtCore
-from Crosshair import Crosshair
 import pyqtgraph as pg
 # 其他
 import numpy as np
@@ -21,8 +20,10 @@ from collections import deque
 from CustomViewBox import CustomViewBox
 from TimeAxisItem import TimeAxisItem
 from CandlestickItem import CandlestickItem
-from OIPlotItem import OIPlotItem
+from KLPlotItem import KLPlotItem
 from VolPlotItem import VolPlotItem
+from OIPlotItem import OIPlotItem
+
 
 # 字符串转换
 #---------------------------------------------------------------------------------------
@@ -97,12 +98,9 @@ class KLineWidget(QtGui.QWidget):
         self.initplotVol()  
         self.initplotOI()
         # 注册十字光标
-        self.m_crosshair = Crosshair(self)
-        self.m_views = [self.m_plotWidget.centralWidget.getItem(i + 1, 0) for i in range(1)]
-        self.m_crosshair.setViews(self.m_views)
-        # self.m_crosshair.setVolView(self.m_volPlotItem)
-        self.m_oiPlotItem.setMaster(self)
+        self.m_klPlotItem.setMaster(self)
         self.m_volPlotItem.setMaster(self)
+        self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -119,15 +117,15 @@ class KLineWidget(QtGui.QWidget):
         klRect = self.m_klPlotItem.sceneBoundingRect()
         volRect = self.m_volPlotItem.sceneBoundingRect()
         oiRect = self.m_oiPlotItem.sceneBoundingRect()
-        self.m_crosshair.setShowHLine(0, False)
+        self.m_klPlotItem.setShowHLine(False)
         self.m_volPlotItem.setShowHLine(False)
         self.m_oiPlotItem.setShowHLine(False)
         if klRect.contains(pos):
             mousePoint = self.m_klPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
             yAxis = mousePoint.y()
-            self.m_crosshair.setYAxis(0, yAxis)
-            self.m_crosshair.setShowHLine(0, True)
+            self.m_klPlotItem.setYAxis(yAxis)
+            self.m_klPlotItem.setShowHLine(True)
         if volRect.contains(pos):
             mousePoint = self.m_volPlotItem.vb.mapSceneToView(pos)
             xAxis = mousePoint.x()
@@ -141,9 +139,13 @@ class KLineWidget(QtGui.QWidget):
             self.m_oiPlotItem.setYAxis(yAxis)
             self.m_oiPlotItem.setShowHLine(True)
 
-        self.m_crosshair.moveTo(xAxis, yAxis)
-        self.m_oiPlotItem.moveTo(xAxis, yAxis)
-        self.m_volPlotItem.moveTo(xAxis, yAxis)
+        self.moveTo(xAxis, yAxis)
+
+    # 移动坐标
+    def moveTo(self, _xAxis, _yAxis):
+        self.m_klPlotItem.moveTo(_xAxis, _yAxis)
+        self.m_volPlotItem.moveTo(_xAxis, _yAxis)
+        self.m_oiPlotItem.moveTo(_xAxis, _yAxis)
 
     #----------------------------------------------------------------------
     def makePI(self,name):
@@ -166,7 +168,8 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def initplotKline(self):
         """初始化K线子图"""
-        self.m_klPlotItem = self.makePI('PlotKL')
+        # self.m_klPlotItem = self.makePI('PlotKL')
+        self.m_klPlotItem = KLPlotItem()
         self.candle = CandlestickItem(self.m_listBar)
         self.m_klPlotItem.addItem(self.candle)
         self.m_klPlotItem.setXLink('PlotOI')
@@ -368,7 +371,7 @@ class KLineWidget(QtGui.QWidget):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onPre(self):
@@ -380,7 +383,7 @@ class KLineWidget(QtGui.QWidget):
             self.refresh()
             x = self.m_index
             y = self.m_datas[x]['close']
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onDown(self):
@@ -388,10 +391,10 @@ class KLineWidget(QtGui.QWidget):
         self.m_countK = min(len(self.m_datas), int(self.m_countK * 1.2) + 1)
         self.refresh()
         if len(self.m_datas)>0:
-            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
+            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_index - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x][2]
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onUp(self):
@@ -399,32 +402,32 @@ class KLineWidget(QtGui.QWidget):
         self.m_countK = max(3, int(self.m_countK / 1.2) - 1)
         self.refresh()
         if len(self.m_datas)>0:
-            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_crosshair.m_xAxis) < self.m_index - self.m_countK / 2 + 2 else int(self.m_crosshair.m_xAxis)
+            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_index - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
             x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
             y = self.m_datas[x]['close']
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onLeft(self):
         """向左移动"""
-        if len(self.m_datas)>0 and int(self.m_crosshair.m_xAxis)>2:
-            x = int(self.m_crosshair.m_xAxis) - 1
+        if len(self.m_datas)>0 and int(self.m_klPlotItem.getXAxis())>2:
+            x = int(self.m_klPlotItem.getXAxis()) - 1
             y = self.m_datas[x]['close']
             if x <= self.m_index-self.m_countK/2+2 and self.m_index>1:
                 self.m_index -= 1
                 self.refresh()
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onRight(self):
         """向右移动"""
-        if len(self.m_datas)>0 and int(self.m_crosshair.m_xAxis)<len(self.m_datas)-1:
-            x = int(self.m_crosshair.m_xAxis) + 1
+        if len(self.m_datas)>0 and int(self.m_klPlotItem.getXAxis())<len(self.m_datas)-1:
+            x = int(self.m_klPlotItem.getXAxis()) + 1
             y = self.m_datas[x]['close']
             if x >= self.m_index+int(self.m_countK/2)-2:
                 self.m_index += 1
                 self.refresh()
-            self.m_crosshair.moveTo(x, y)
+            self.moveTo(x, y)
     
     #----------------------------------------------------------------------
     # 界面回调相关
@@ -440,9 +443,9 @@ class KLineWidget(QtGui.QWidget):
     #----------------------------------------------------------------------
     def resignData(self, _datas):
         """更新数据，用于Y坐标自适应"""
-        self.m_crosshair.setDatas(_datas)
-        self.m_oiPlotItem.setDatas(_datas)
+        self.m_klPlotItem.setDatas(_datas)
         self.m_volPlotItem.setDatas(_datas)
+        self.m_oiPlotItem.setDatas(_datas)
         def viewXRangeChanged(low,high,self):
             vRange = self.viewRange()
             xmin = max(0,int(vRange[0][0]))
@@ -541,7 +544,7 @@ class KLineWidget(QtGui.QWidget):
         if not newBar:
             self.updateAll()
         self.plotAll(False,xMin,xMax)
-        self.m_crosshair.moveTo(None, None)
+        self.moveTo(None, None)
 
     #----------------------------------------------------------------------
     def loadData(self, datas):
