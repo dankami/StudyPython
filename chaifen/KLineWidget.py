@@ -44,8 +44,6 @@ class KLineWidget(QtGui.QWidget):
         self.m_datas    = []
         self.m_listBar  = []
         self.m_listVol  = []
-        self.m_listHigh = []
-        self.m_listLow  = []
         self.m_listSig  = []
         self.m_listOpenInterest = []
         self.m_arrows   = []
@@ -445,8 +443,6 @@ class KLineWidget(QtGui.QWidget):
         self.resignData(self.m_datas)
         # 更新画图用到的数据
         self.m_listBar          = datas[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
-        self.m_listHigh         = list(datas['high'])
-        self.m_listLow          = list(datas['low'])
         self.m_listOpenInterest = list(datas['openInterest'])
         # 成交量颜色和涨跌同步，K线方向由涨跌决定
         datas0                = pd.DataFrame()
@@ -455,7 +451,9 @@ class KLineWidget(QtGui.QWidget):
         datas0['low']         = 0
         datas0['high']        = datas['volume']
         datas0['time_int']    = np.array(range(len(datas.index)))
-        self.m_listVol          = datas0[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
+        print datas
+        print datas0
+        self.m_listVol        = datas0[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
         # 调用画图函数
         self.plotAll(True, 0, len(self.m_datas))
 
@@ -495,8 +493,6 @@ class KLineWidget(QtGui.QWidget):
         self.time_index = []
         self.m_listBar = []
         self.m_listVol = []
-        self.m_listLow = []
-        self.m_listHigh = []
         self.m_listOpenInterest = []
         self.m_listSig = []
         self.m_sigData = {}

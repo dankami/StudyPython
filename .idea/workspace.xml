@@ -625,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519898027719</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="优化 dataframe例子使用">
+      <created>1519898914395</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1519898914395</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -658,7 +665,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增 dataframe使用方法&#10;新增 pandas排序方法&#10;新增 pyqtgraph基本线条demo" />
     <MESSAGE value="初版 未修改" />
     <MESSAGE value="修改 文件分离" />
     <MESSAGE value="修改 参数变量名规范" />
@@ -683,7 +689,8 @@
     <MESSAGE value="修改 烛状图创建不需要设置数据" />
     <MESSAGE value="修改 烛状图抽取到K线组件" />
     <MESSAGE value="新增 lambda的使用demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 lambda的使用demo" />
+    <MESSAGE value="优化 dataframe例子使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化 dataframe例子使用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
