@@ -4,10 +4,13 @@ import pandas as pd
 import numpy as np
 
 if __name__ == "__main__":
+    # 第一种是写法是正常写法的简写
     df = pd.DataFrame([1, 2, 3, 4, 5], columns=['cols'], index=['a', 'b', 'c', 'd', 'e'])
+    df = pd.DataFrame([[1], [2], [3], [4], [5]], columns=['cols'], index=['a', 'b', 'c', 'd', 'e'])
     print df
 
     df2 = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]], columns=['col1', 'col2', 'col3'], index=['a', 'b', 'c', 'd'])
+    df2.index.name = "test" # index 是可以命名的
     print df2
 
     df3 = pd.DataFrame(np.array([[1, 2], [3, 4]]), columns=['col1', 'col2'], index=['a', 'b'])
