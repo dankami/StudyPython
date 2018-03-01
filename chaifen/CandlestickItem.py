@@ -12,11 +12,11 @@ class CandlestickItem(pg.GraphicsObject):
 
     # 初始化
     #----------------------------------------------------------------------
-    def __init__(self, data):
+    def __init__(self):
         """初始化"""
         pg.GraphicsObject.__init__(self)
         # 数据格式: [ (time, open, close, low, high),...]
-        self.m_data = data
+
         # 只重画部分图形，大大提高界面更新速度
         self.m_rect = None
         self.m_picture = None
@@ -33,15 +33,13 @@ class CandlestickItem(pg.GraphicsObject):
         self.m_rPen     = pg.mkPen(color=(255, 60, 60, 255), width=w * 2)
         self.m_rBrush   = pg.mkBrush((255, 60, 60, 255))
         self.m_rBrush.setStyle(QtCore.Qt.NoBrush)
-        # 刷新K线
-        self.generatePicture(self.m_data)
-
 
     # 画K线
     #----------------------------------------------------------------------
     def generatePicture(self,data=None,redraw=False):
         """重新生成图形对象"""
         # 重画或者只更新最后一个K线
+
         if redraw:
             self.m_pictures = []
         elif self.m_pictures:

@@ -144,7 +144,7 @@ class KLineWidget(QtGui.QWidget):
     def initplotKline(self):
         """初始化K线子图"""
         self.m_klPlotItem = KLPlotItem()
-        self.candle = CandlestickItem(self.m_listBar)
+        self.candle = CandlestickItem()
         self.m_klPlotItem.addItem(self.candle)
         self.m_klPlotItem.setXLink('PlotOI')
         self.m_klPlotItem.hideAxis('bottom')
@@ -156,7 +156,7 @@ class KLineWidget(QtGui.QWidget):
     def initplotVol(self):
         """初始化成交量子图"""
         self.m_volPlotItem = VolPlotItem()
-        self.volume = CandlestickItem(self.m_listVol)
+        self.volume = CandlestickItem()
         self.m_volPlotItem.addItem(self.volume)
         self.m_volPlotItem.setMaximumHeight(150)
         self.m_volPlotItem.setXLink('PlotOI')
