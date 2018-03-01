@@ -13,12 +13,9 @@ import pyqtgraph as pg
 import numpy as np
 import pandas as pd
 from functools import partial
-from datetime import datetime
 from collections import deque
 
 # 自己
-from CustomViewBox import CustomViewBox
-from TimeAxisItem import TimeAxisItem
 from CandlestickItem import CandlestickItem
 from KLPlotItem import KLPlotItem
 from VolPlotItem import VolPlotItem
@@ -90,16 +87,12 @@ class KLineWidget(QtGui.QWidget):
         self.m_plotWidget.setCentralItem(self.m_pgLayout)
         # self.m_plotWidget.centralWidget.getItem(0, 0).setText(u'原来是你', size='20pt')
 
-        # 设置横坐标
-        xdict = {}
-        self.m_timeAxis = TimeAxisItem(xdict, orientation='bottom')
         # 初始化子图
         self.initplotKline()
         self.initplotVol()  
         self.initplotOI()
         # 注册十字光标
         self.m_klPlotItem.setMaster(self)
-        self.m_volPlotItem.setMaster(self)
         self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
@@ -148,27 +141,8 @@ class KLineWidget(QtGui.QWidget):
         self.m_oiPlotItem.moveTo(_xAxis, _yAxis)
 
     #----------------------------------------------------------------------
-    def makePI(self,name):
-        """生成PlotItem对象"""
-        vb = CustomViewBox()
-        plotItem = pg.PlotItem(viewBox = vb, name=name, axisItems={'bottom': self.m_timeAxis})
-        plotItem.setMenuEnabled(False)
-        plotItem.setClipToView(True)
-        plotItem.hideAxis('left')
-        plotItem.showAxis('right')
-        plotItem.setDownsampling(mode='peak')
-        plotItem.setRange(xRange = (0,1),yRange = (0,1))
-        plotItem.getAxis('right').setWidth(60)
-        plotItem.getAxis('right').setStyle(tickFont = QFont("Roman times",10,QFont.Bold))
-        plotItem.getAxis('right').setPen(color=(255, 255, 255, 255), width=0.8)
-        plotItem.showGrid(True,True)
-        plotItem.hideButtons()
-        return plotItem
-
-    #----------------------------------------------------------------------
     def initplotKline(self):
         """初始化K线子图"""
-        # self.m_klPlotItem = self.makePI('PlotKL')
         self.m_klPlotItem = KLPlotItem()
         self.candle = CandlestickItem(self.m_listBar)
         self.m_klPlotItem.addItem(self.candle)
@@ -441,6 +415,57 @@ class KLineWidget(QtGui.QWidget):
         self.m_index  = int((xmin + xmax) / 2) + 1
 
     #----------------------------------------------------------------------
+    def clearSig(self,main=True):
+        """清空信号图形"""
+        # 清空信号图
+        if main:
+            for sig in self.m_sigPlots:
+                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
+            self.m_sigData  = {}
+            self.m_sigPlots = {}
+        else:
+            for sig in self.m_subSigPlots:
+                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
+            self.m_subSigData  = {}
+            self.m_subSigPlots = {}
+
+    #----------------------------------------------------------------------
+    def updateSig(self,sig):
+        """刷新买卖信号"""
+        self.m_listSig = sig
+        self.plotMark()
+
+    #----------------------------------------------------------------------
+    def loadData(self, datas):
+        """
+        载入pandas.DataFrame数据
+        datas : 数据格式，cols : datetime, open, close, low, high
+        """
+        # 设置中心点时间
+        self.m_index = 0
+        # 绑定数据，更新横坐标映射，更新Y轴自适应函数，更新十字光标映射
+        datas.insert(1,'time_int',np.array(range(len(datas.index))))
+        self.m_datas = datas[['open', 'close', 'low', 'high', 'volume', 'openInterest']].to_records()
+        xdict = dict(enumerate(datas.index.tolist()))
+        self.m_oiPlotItem.update_xdict(xdict)
+        self.resignData(self.m_datas)
+        # 更新画图用到的数据
+        self.m_listBar          = datas[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
+        self.m_listHigh         = list(datas['high'])
+        self.m_listLow          = list(datas['low'])
+        self.m_listOpenInterest = list(datas['openInterest'])
+        # 成交量颜色和涨跌同步，K线方向由涨跌决定
+        datas0                = pd.DataFrame()
+        datas0['open']        = datas.apply(lambda x:0 if x['close'] >= x['open'] else x['volume'],axis=1)  
+        datas0['close']       = datas.apply(lambda x:0 if x['close'] <  x['open'] else x['volume'],axis=1) 
+        datas0['low']         = 0
+        datas0['high']        = datas['volume']
+        datas0['time_int']    = np.array(range(len(datas.index)))
+        self.m_listVol          = datas0[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
+        # 调用画图函数
+        self.plotAll(True, 0, len(self.m_datas))
+
+    #----------------------------------------------------------------------
     def resignData(self, _datas):
         """更新数据，用于Y坐标自适应"""
         self.m_klPlotItem.setDatas(_datas)
@@ -482,101 +507,5 @@ class KLineWidget(QtGui.QWidget):
         self.m_listSig = []
         self.m_sigData = {}
         self.m_datas = None
-
-    #----------------------------------------------------------------------
-    def clearSig(self,main=True):
-        """清空信号图形"""
-        # 清空信号图
-        if main:
-            for sig in self.m_sigPlots:
-                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
-            self.m_sigData  = {}
-            self.m_sigPlots = {}
-        else:
-            for sig in self.m_subSigPlots:
-                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
-            self.m_subSigData  = {}
-            self.m_subSigPlots = {}
-
-    #----------------------------------------------------------------------
-    def updateSig(self,sig):
-        """刷新买卖信号"""
-        self.m_listSig = sig
-        self.plotMark()
-
-    #----------------------------------------------------------------------
-    def onBar(self, bar, nWindow = 20):
-        """
-        新增K线数据,K线播放模式
-        nWindow : 最大数据窗口
-        """
-        # 是否需要更新K线
-        newBar = False if len(self.m_datas) > 0 and bar.datetime == self.m_datas[-1].datetime else True
-        nrecords = len(self.m_datas) if newBar else len(self.m_datas) - 1
-        bar.openInterest = np.random.randint(0,3) if bar.openInterest==np.inf or bar.openInterest==-np.inf else bar.openInterest
-        recordVol = (nrecords,bar.volume,0,0,bar.volume) if bar.close < bar.open else (nrecords,0,bar.volume,0,bar.volume)
-        if newBar and any(self.m_datas):
-            self.m_datas.resize(nrecords + 1, refcheck=0)
-            self.m_listBar.resize(nrecords + 1, refcheck=0)
-            self.m_listVol.resize(nrecords + 1, refcheck=0)
-        elif any(self.m_datas):
-            self.m_listLow.pop()
-            self.m_listHigh.pop()
-            self.m_listOpenInterest.pop()
-        if any(self.m_datas):
-            self.m_datas[-1]   = (bar.datetime, bar.open, bar.close, bar.low, bar.high, bar.volume, bar.openInterest)
-            self.m_listBar[-1] = (nrecords, bar.open, bar.close, bar.low, bar.high)
-            self.m_listVol[-1] = recordVol
-        else:
-            self.m_datas     = np.rec.array([(datetime, bar.open, bar.close, bar.low, bar.high, bar.volume, bar.openInterest)], \
-                                            names=('datetime','open','close','low','high','volume','openInterest'))
-            self.m_listBar   = np.rec.array([(nrecords, bar.open, bar.close, bar.low, bar.high)], \
-                                            names=('datetime','open','close','low','high'))
-            self.m_listVol   = np.rec.array([recordVol], names=('datetime', 'open', 'close', 'low', 'high'))
-            self.resignData(self.m_datas)
-        self.m_timeAxis.update_xdict({nrecords:bar.datetime})
-        self.m_oiPlotItem.update_xdict({nrecords:bar.datetime})
-        self.m_listLow.append(bar.low)
-        self.m_listHigh.append(bar.high)
-        self.m_listOpenInterest.append(bar.openInterest)
-        xMax = nrecords+1
-        xMin = max(0,nrecords-nWindow)
-        if not newBar:
-            self.updateAll()
-        self.plotAll(False,xMin,xMax)
-        self.moveTo(None, None)
-
-    #----------------------------------------------------------------------
-    def loadData(self, datas):
-        """
-        载入pandas.DataFrame数据
-        datas : 数据格式，cols : datetime, open, close, low, high
-        """
-        # 设置中心点时间
-        self.m_index = 0
-        # 绑定数据，更新横坐标映射，更新Y轴自适应函数，更新十字光标映射
-        datas.insert(1,'time_int',np.array(range(len(datas.index))))
-        #datas['time_int'] = np.array(range(len(datas.index)))
-        self.m_datas = datas[['open', 'close', 'low', 'high', 'volume', 'openInterest']].to_records()
-        self.m_timeAxis.m_xdict={}
-        xdict = dict(enumerate(datas.index.tolist()))
-        self.m_timeAxis.update_xdict(xdict)
-        self.m_oiPlotItem.update_xdict(xdict)
-        self.resignData(self.m_datas)
-        # 更新画图用到的数据
-        self.m_listBar          = datas[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
-        self.m_listHigh         = list(datas['high'])
-        self.m_listLow          = list(datas['low'])
-        self.m_listOpenInterest = list(datas['openInterest'])
-        # 成交量颜色和涨跌同步，K线方向由涨跌决定
-        datas0                = pd.DataFrame()
-        datas0['open']        = datas.apply(lambda x:0 if x['close'] >= x['open'] else x['volume'],axis=1)  
-        datas0['close']       = datas.apply(lambda x:0 if x['close'] <  x['open'] else x['volume'],axis=1) 
-        datas0['low']         = 0
-        datas0['high']        = datas['volume']
-        datas0['time_int']    = np.array(range(len(datas.index)))
-        self.m_listVol          = datas0[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
-        # 调用画图函数
-        self.plotAll(True, 0, len(self.m_datas))
 
 

@@ -11,10 +11,7 @@ from pyqtgraph.Qt import QtCore
 class KLPlotItem(pg.PlotItem):
     def __init__(self):
         vb = CustomViewBox()
-        # 设置横坐标
-        xdict = {}
-        self.m_timeAxis = TimeAxisItem(xdict, orientation='bottom')
-        pg.PlotItem.__init__(self, viewBox=vb, name='PlotKL', axisItems={'bottom': self.m_timeAxis})
+        pg.PlotItem.__init__(self, viewBox=vb, name='PlotKL')
         self.setMenuEnabled(False)
         self.setClipToView(True)
         self.hideAxis('left')
@@ -177,9 +174,6 @@ class KLPlotItem(pg.PlotItem):
         self.m_textInfo.setPos(klTopLeft)
         self.m_textSig.setPos(klBottomRight.x(), klTopLeft.y())
 
-    # 更新时间轴
-    def update_xdict(self, _xdict):
-        self.m_timeAxis.update_xdict(_xdict)
 
 
 

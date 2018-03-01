@@ -10,10 +10,7 @@ from pyqtgraph.Qt import QtCore
 class VolPlotItem(pg.PlotItem):
     def __init__(self):
         vb = CustomViewBox()
-        # 设置横坐标
-        xdict = {}
-        self.m_timeAxis = TimeAxisItem(xdict, orientation='bottom')
-        pg.PlotItem.__init__(self, viewBox=vb, name='PlotVol', axisItems={'bottom': self.m_timeAxis})
+        pg.PlotItem.__init__(self, viewBox=vb, name='PlotVol')
         self.setMenuEnabled(False)
         self.setClipToView(True)
         self.hideAxis('left')
@@ -57,11 +54,6 @@ class VolPlotItem(pg.PlotItem):
     # 设置数据
     def setDatas(self, _datas):
         self.m_datas = _datas
-
-    # 设置master
-    def setMaster(self, _master):
-        self.m_master = _master
-
 
     # ----------------------------------------------------------------------
     def moveTo(self, _xAxis, _yAxis):
@@ -120,9 +112,6 @@ class VolPlotItem(pg.PlotItem):
         else:
             self.m_volTextPrice.hide()
 
-    # 更新时间轴
-    def update_xdict(self, _xdict):
-        self.m_timeAxis.update_xdict(_xdict)
 
 
 
