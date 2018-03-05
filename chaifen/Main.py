@@ -22,5 +22,5 @@ if __name__ == '__main__':
     ui.resize(1280, 720)
     ui.show()
     # ui.m_pgTitle.setText('rb1701', size='20pt')
-    ui.loadData(pd.DataFrame.from_csv('data.csv'))
+    ui.loadData(pd.DataFrame.from_csv('data2.csv'))
     app.exec_()

@@ -6,7 +6,6 @@ Support By 量投科技(http://www.quantdo.com.cn/)
 
 
 # Qt相关和十字光标
-from PyQt4.QtGui import *
 from PyQt4 import QtGui,QtCore
 import pyqtgraph as pg
 # 其他
@@ -446,13 +445,11 @@ class KLineWidget(QtGui.QWidget):
         self.m_listOpenInterest = list(datas['openInterest'])
         # 成交量颜色和涨跌同步，K线方向由涨跌决定
         datas0                = pd.DataFrame()
-        datas0['open']        = datas.apply(lambda x:0 if x['close'] >= x['open'] else x['volume'],axis=1)  
-        datas0['close']       = datas.apply(lambda x:0 if x['close'] <  x['open'] else x['volume'],axis=1) 
+        datas0['open']        = datas.apply(lambda x:0 if x['close'] >= x['open'] else x['volume'],axis='columns')
+        datas0['close']       = datas.apply(lambda x:0 if x['close'] <  x['open'] else x['volume'],axis='columns')
         datas0['low']         = 0
         datas0['high']        = datas['volume']
         datas0['time_int']    = np.array(range(len(datas.index)))
-        print datas
-        print datas0
         self.m_listVol        = datas0[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
         # 调用画图函数
         self.plotAll(True, 0, len(self.m_datas))
