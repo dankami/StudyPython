@@ -35,20 +35,17 @@ class KLPlotItem(pg.PlotItem):
         self.m_klVLine = pg.InfiniteLine(angle=90, movable=False)
         self.m_klHLine = pg.InfiniteLine(angle=0, movable=False)
         self.m_textInfo = pg.TextItem('lastBarInfo') # K线数据显示
-        self.m_textSig = pg.TextItem('lastSigInfo', anchor=(1, 0)) #信号数据
         self.addItem(self.m_candle)
         self.addItem(self.m_klTextPrice)
         self.addItem(self.m_klVLine)
         self.addItem(self.m_klHLine)
         self.addItem(self.m_textInfo, ignoreBounds=True)
-        self.addItem(self.m_textSig, ignoreBounds=True)
         self.m_klTextPrice.setZValue(2)
         self.m_klVLine.setZValue(0)
         self.m_klHLine.setZValue(0)
         self.m_klVLine.setPos(0)
         self.m_klHLine.setPos(0)
         self.m_textInfo.setZValue(2)
-        self.m_textSig.setZValue(2)
         self.m_textInfo.border = pg.mkPen(color=(230, 255, 0, 255), width=1.2)
 
         # 数据
@@ -104,15 +101,6 @@ class KLPlotItem(pg.PlotItem):
             dateText = ""
             timeText = ""
 
-        # 显示所有的主图技术指标
-        html = u'<div style="text-align: right">'
-        for sig in self.m_master.m_sigData:
-            val = self.m_master.m_sigData[sig][_xAxis]
-            col = self.m_master.m_sigColor[sig]
-            html += u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' % (col, sig, val)
-        html += u'</div>'
-        self.m_textSig.setHtml(html)
-
         # 和上一个收盘价比较，决定K线信息的字符颜色
         cOpen = 'red' if openPrice > preClosePrice else 'green'
         cClose = 'red' if closePrice > preClosePrice else 'green'
@@ -164,8 +152,6 @@ class KLPlotItem(pg.PlotItem):
 
         # 设置坐标
         self.m_textInfo.setPos(klTopLeft)
-        self.m_textSig.setPos(klBottomRight.x(), klTopLeft.y())
-
 
     def setYAxis(self, _yAxis):
         self.m_volYAxis = _yAxis
@@ -176,10 +162,6 @@ class KLPlotItem(pg.PlotItem):
     # 设置数据
     def setDatas(self, _datas):
         self.m_datas = _datas
-
-    # 设置master
-    def setMaster(self, _master):
-        self.m_master = _master
 
     # 获取横坐标
     def getXAxis(self):

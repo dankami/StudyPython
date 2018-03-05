@@ -37,9 +37,7 @@ class OIPlotItem(pg.PlotItem):
         self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
 
         self.m_textDate = pg.TextItem('date', anchor=(1, 1))
-        self.m_textSubSig = pg.TextItem('lastSubSigInfo', anchor=(1, 0))
         self.m_textDate.setZValue(2)
-        self.m_textSubSig.setZValue(2)
 
         self.m_oiRect = self.sceneBoundingRect()
         self.m_oiTextPrice.setZValue(2)
@@ -52,7 +50,6 @@ class OIPlotItem(pg.PlotItem):
         self.addItem(self.m_oiHLine)
         self.addItem(self.m_oiTextPrice)
         self.addItem(self.m_textDate, ignoreBounds=True)
-        self.addItem(self.m_textSubSig, ignoreBounds=True)
 
         self.m_xAxis = 0
         self.m_yAxis = 0
@@ -66,10 +63,6 @@ class OIPlotItem(pg.PlotItem):
     # 设置数据
     def setDatas(self, _datas):
         self.m_datas = _datas
-
-    # 设置master
-    def setMaster(self, _master):
-        self.m_master = _master
 
     # ----------------------------------------------------------------------
     def moveTo(self, xAxis, yAxis):
@@ -108,31 +101,21 @@ class OIPlotItem(pg.PlotItem):
         else:
             datetimeText = ""
 
-        # 显示所有的主图技术指标
-        html = u'<div style="text-align: right">'
-        for sig in self.m_master.m_subSigData:
-            val = self.m_master.m_subSigData[sig][_xAxis]
-            col = self.m_master.m_subSigColor[sig]
-            html += u'<span style="color: %s;  font-size: 20px;">&nbsp;&nbsp;%s：%.2f</span>' % (col, sig, val)
-        html += u'</div>'
-        self.m_textSubSig.setHtml(html)
-
         self.m_textDate.setHtml(
             '<div style="text-align: center">\
-                <span style="color: yellow; font-size: 20px;">%s</span>\
+                <span style="color: yellow; font-size: 20px; font-weight:bold">%s</span>\
             </div>' \
             % (datetimeText))
 
         oiRightAxisWidth = self.getAxis('right').width()
         oiBottomAxisHeight = self.getAxis('bottom').height()
         oiOffset = QtCore.QPointF(oiRightAxisWidth, oiBottomAxisHeight)
-        oiTopLeft = self.vb.mapSceneToView(self.m_oiRect.topLeft())
         oiBottomRigt = self.vb.mapSceneToView(self.m_oiRect.bottomRight() - oiOffset)
 
         # 修改对称方式防止遮挡
-        self.m_textDate.anchor = Point((1, 1)) if _xAxis > self.m_master.m_index else Point((0, 1))
+        midAxis = int(len(self.m_datas) / 2)
+        self.m_textDate.anchor = Point((1, 1)) if _xAxis > midAxis else Point((0, 1))
         self.m_textDate.setPos(_xAxis, oiBottomRigt.y())
-        self.m_textSubSig.setPos(oiBottomRigt.x(), oiTopLeft.y())
 
         if self.m_oiShowHLine:
             self.m_oiTextPrice.setHtml(

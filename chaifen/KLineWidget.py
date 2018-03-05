@@ -88,8 +88,6 @@ class KLineWidget(QtGui.QWidget):
         self.initplotVol()  
         self.initplotOI()
         # 注册十字光标
-        self.m_klPlotItem.setMaster(self)
-        self.m_oiPlotItem.setMaster(self)
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -185,43 +183,6 @@ class KLineWidget(QtGui.QWidget):
         """重画持仓量子图"""
         if self.m_initCompleted:
             self.curveOI.setData(self.m_listOpenInterest[xmin:xmax] + [0], pen='w', name="OpenInterest")
-
-    #----------------------------------------------------------------------
-    def addSig(self,sig,main=True):
-        """新增信号图"""
-        if main:
-            if sig in self.m_sigPlots:
-                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
-            self.m_sigPlots[sig] = self.m_klPlotItem.plot()
-            self.m_sigColor[sig] = self.m_allColor[0]
-            self.m_allColor.append(self.m_allColor.popleft())
-        else:
-            if sig in self.m_subSigPlots:
-                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
-            self.m_subSigPlots[sig] = self.m_oiPlotItem.plot()
-            self.m_subSigColor[sig] = self.m_allSubColor[0]
-            self.m_allSubColor.append(self.m_allSubColor.popleft())
-
-    #----------------------------------------------------------------------
-    def showSig(self,datas,main=True,clear=False):
-        """刷新信号图"""
-        if clear:
-            self.clearSig(main)
-            if datas and not main:
-                sigDatas = np.array(datas.values()[0])
-                self.m_listOpenInterest = sigDatas
-                self.m_datas['openInterest'] = sigDatas
-                self.plotOI(0,len(sigDatas))
-        if main:
-            for sig in datas:
-                self.addSig(sig,main)
-                self.m_sigData[sig] = datas[sig]
-                self.m_sigPlots[sig].setData(datas[sig], pen=self.m_sigColor[sig][0], name=sig)
-        else:
-            for sig in datas:
-                self.addSig(sig,main)
-                self.m_subSigData[sig] = datas[sig]
-                self.m_subSigPlots[sig].setData(datas[sig], pen=self.m_subSigColor[sig][0], name=sig)
 
     #----------------------------------------------------------------------
     def plotMark(self):
