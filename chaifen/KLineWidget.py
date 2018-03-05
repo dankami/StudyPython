@@ -36,7 +36,7 @@ class KLineWidget(QtGui.QWidget):
         QtGui.QWidget.__init__(self)
 
         # 当前序号
-        self.m_index    = None    # 下标
+        self.m_midIndex    = None    # 下标
         self.m_countK   = 60      # 显示的Ｋ线范围
 
         # 缓存数据
@@ -46,18 +46,6 @@ class KLineWidget(QtGui.QWidget):
         self.m_listSig  = []
         self.m_listOpenInterest = []
         self.m_arrows   = []
-
-        # 所有K线上信号图
-        self.m_allColor = deque(['blue', 'green', 'yellow', 'white'])
-        self.m_sigData  = {}
-        self.m_sigColor = {}
-        self.m_sigPlots = {}
-
-        # 所副图上信号图
-        self.m_allSubColor = deque(['blue', 'green', 'yellow', 'white'])
-        self.m_subSigData  = {}
-        self.m_subSigColor = {}
-        self.m_subSigPlots = {}
 
         # 初始化完成
         self.m_initCompleted = False
@@ -237,7 +225,7 @@ class KLineWidget(QtGui.QWidget):
         """
         xMax = len(self.m_datas) if xMax < 0 else xMax
         self.m_countK = xMax - xMin
-        self.m_index = int((xMax + xMin) / 2)
+        self.m_midIndex = int((xMax + xMin) / 2)
         self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.m_klPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.m_volPlotItem.setLimits(xMin=xMin, xMax=xMax)
@@ -253,7 +241,7 @@ class KLineWidget(QtGui.QWidget):
         """   
         datas   = self.m_datas
         minutes = int(self.m_countK / 2)
-        xmin    = max(0, self.m_index - minutes)
+        xmin    = max(0, self.m_midIndex - minutes)
         xmax    = xmin+2*minutes
         self.m_oiPlotItem.setRange(xRange = (xmin, xmax))
         self.m_klPlotItem.setRange(xRange = (xmin, xmax))
@@ -289,25 +277,25 @@ class KLineWidget(QtGui.QWidget):
 
     def onNxt(self):
         """跳转到下一个开平仓点"""
-        if len(self.m_listSig)>0 and not self.m_index is None:
+        if len(self.m_listSig)>0 and not self.m_midIndex is None:
             datalen = len(self.m_listSig)
-            self.m_index+=1
-            while self.m_index < datalen and self.m_listSig[self.m_index] == 0:
-                self.m_index+=1
+            self.m_midIndex+=1
+            while self.m_midIndex < datalen and self.m_listSig[self.m_midIndex] == 0:
+                self.m_midIndex+=1
             self.refresh()
-            x = self.m_index
+            x = self.m_midIndex
             y = self.m_datas[x]['close']
             self.moveTo(x, y)
 
     #----------------------------------------------------------------------
     def onPre(self):
         """跳转到上一个开平仓点"""
-        if  len(self.m_listSig)>0 and not self.m_index is None:
-            self.m_index-=1
-            while self.m_index > 0 and self.m_listSig[self.m_index] == 0:
-                self.m_index-=1
+        if  len(self.m_listSig)>0 and not self.m_midIndex is None:
+            self.m_midIndex-=1
+            while self.m_midIndex > 0 and self.m_listSig[self.m_midIndex] == 0:
+                self.m_midIndex-=1
             self.refresh()
-            x = self.m_index
+            x = self.m_midIndex
             y = self.m_datas[x]['close']
             self.moveTo(x, y)
 
@@ -317,8 +305,8 @@ class KLineWidget(QtGui.QWidget):
         self.m_countK = min(len(self.m_datas), int(self.m_countK * 1.2) + 1)
         self.refresh()
         if len(self.m_datas)>0:
-            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_index - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
-            x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
+            x = self.m_midIndex - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_midIndex - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
+            x = self.m_midIndex + self.m_countK / 2 - 2 if x > self.m_midIndex + self.m_countK / 2 - 2 else x
             y = self.m_datas[x][2]
             self.moveTo(x, y)
 
@@ -328,8 +316,8 @@ class KLineWidget(QtGui.QWidget):
         self.m_countK = max(3, int(self.m_countK / 1.2) - 1)
         self.refresh()
         if len(self.m_datas)>0:
-            x = self.m_index - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_index - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
-            x = self.m_index + self.m_countK / 2 - 2 if x > self.m_index + self.m_countK / 2 - 2 else x
+            x = self.m_midIndex - self.m_countK / 2 + 2 if int(self.m_klPlotItem.getXAxis()) < self.m_midIndex - self.m_countK / 2 + 2 else int(self.m_klPlotItem.getXAxis())
+            x = self.m_midIndex + self.m_countK / 2 - 2 if x > self.m_midIndex + self.m_countK / 2 - 2 else x
             y = self.m_datas[x]['close']
             self.moveTo(x, y)
 
@@ -339,8 +327,8 @@ class KLineWidget(QtGui.QWidget):
         if len(self.m_datas)>0 and int(self.m_klPlotItem.getXAxis())>2:
             x = int(self.m_klPlotItem.getXAxis()) - 1
             y = self.m_datas[x]['close']
-            if x <= self.m_index-self.m_countK/2+2 and self.m_index>1:
-                self.m_index -= 1
+            if x <= self.m_midIndex-self.m_countK/2+2 and self.m_midIndex>1:
+                self.m_midIndex -= 1
                 self.refresh()
             self.moveTo(x, y)
 
@@ -350,8 +338,8 @@ class KLineWidget(QtGui.QWidget):
         if len(self.m_datas)>0 and int(self.m_klPlotItem.getXAxis())<len(self.m_datas)-1:
             x = int(self.m_klPlotItem.getXAxis()) + 1
             y = self.m_datas[x]['close']
-            if x >= self.m_index+int(self.m_countK/2)-2:
-                self.m_index += 1
+            if x >= self.m_midIndex+int(self.m_countK/2)-2:
+                self.m_midIndex += 1
                 self.refresh()
             self.moveTo(x, y)
     
@@ -364,28 +352,7 @@ class KLineWidget(QtGui.QWidget):
         vRange = view.viewRange()
         xmin = max(0,int(vRange[0][0]))
         xmax = max(0,int(vRange[0][1]))
-        self.m_index  = int((xmin + xmax) / 2) + 1
-
-    #----------------------------------------------------------------------
-    def clearSig(self,main=True):
-        """清空信号图形"""
-        # 清空信号图
-        if main:
-            for sig in self.m_sigPlots:
-                self.m_klPlotItem.removeItem(self.m_sigPlots[sig])
-            self.m_sigData  = {}
-            self.m_sigPlots = {}
-        else:
-            for sig in self.m_subSigPlots:
-                self.m_oiPlotItem.removeItem(self.m_subSigPlots[sig])
-            self.m_subSigData  = {}
-            self.m_subSigPlots = {}
-
-    #----------------------------------------------------------------------
-    def updateSig(self,sig):
-        """刷新买卖信号"""
-        self.m_listSig = sig
-        self.plotMark()
+        self.m_midIndex  = int((xmin + xmax) / 2) + 1
 
     #----------------------------------------------------------------------
     def loadData(self, datas):
@@ -394,7 +361,7 @@ class KLineWidget(QtGui.QWidget):
         datas : 数据格式，cols : datetime, open, close, low, high
         """
         # 设置中心点时间
-        self.m_index = 0
+        self.m_midIndex = 0
         # 绑定数据，更新横坐标映射，更新Y轴自适应函数，更新十字光标映射
         datas.insert(1,'time_int',np.array(range(len(datas.index))))
         self.m_datas = datas[['open', 'close', 'low', 'high', 'volume', 'openInterest']].to_records()
@@ -453,7 +420,6 @@ class KLineWidget(QtGui.QWidget):
         self.m_listVol = []
         self.m_listOpenInterest = []
         self.m_listSig = []
-        self.m_sigData = {}
         self.m_datas = None
 
 

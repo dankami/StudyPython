@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/KLPlotItem.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLineWidget.py" afterPath="$PROJECT_DIR$/chaifen/KLineWidget.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/Main.py" afterPath="$PROJECT_DIR$/chaifen/Main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/OIPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/OIPlotItem.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="89" column="16" lean-forward="false" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+            <state relative-caret-position="1128">
+              <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="21" />
               <folding>
                 <element signature="e#116#146#0" expanded="true" />
               </folding>
@@ -92,18 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resignData</find>
-      <find>datetime</find>
-      <find>viewXRangeChanged</find>
-      <find>plotKline</find>
-      <find>m_datas</find>
-      <find>generatePicture</find>
-      <find>m_timeAxis</find>
-      <find>self.candle</find>
-      <find>m_data</find>
-      <find>m_textInfo</find>
-      <find>m_textSig</find>
-      <find>m_klRect</find>
       <find>m_listBar</find>
       <find>candle</find>
       <find>m_listHigh</find>
@@ -115,13 +100,25 @@
       <find>showSig</find>
       <find>addSig</find>
       <find>plotMark</find>
-      <find>m_sigData</find>
       <find>m_textSubSig</find>
       <find>setMaster</find>
-      <find>m_index</find>
       <find>oiBottomRigt</find>
-      <find>plotAll</find>
       <find>m_master</find>
+      <find>plotAll</find>
+      <find>m_index</find>
+      <find>m_midIndex</find>
+      <find>xMin</find>
+      <find>m_allColor</find>
+      <find>m_allSubColor</find>
+      <find>m_sigData</find>
+      <find>m_sigColor</find>
+      <find>clearSig</find>
+      <find>updateSig</find>
+      <find>m_sigPlots</find>
+      <find>m_subSigData</find>
+      <find>m_subSigColor</find>
+      <find>m_subSigPlots</find>
+      <find>m_arrows</find>
     </findStrings>
     <replaceStrings>
       <replace>self.master.m_sigData</replace>
@@ -690,7 +687,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520231249076</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="去除 组件对父组件的依赖。">
+      <created>1520243752511</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1520243752511</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -723,7 +727,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改 拆分键盘事件" />
     <MESSAGE value="修改 拆分十字星监听鼠标逻辑" />
     <MESSAGE value="修改 解偶Crosshair对plotwidget的依赖" />
     <MESSAGE value="新增 isinstance 的使用例子" />
@@ -748,7 +751,8 @@
     <MESSAGE value="修改 删除无用字段" />
     <MESSAGE value="修改 dataframe使用demo" />
     <MESSAGE value="修改 删除无用打印" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改 删除无用打印" />
+    <MESSAGE value="去除 组件对父组件的依赖。" />
+    <option name="LAST_COMMIT_MESSAGE" value="去除 组件对父组件的依赖。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1165,8 +1169,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="89" column="16" lean-forward="false" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+        <state relative-caret-position="1128">
+          <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="21" />
           <folding>
             <element signature="e#116#146#0" expanded="true" />
           </folding>
