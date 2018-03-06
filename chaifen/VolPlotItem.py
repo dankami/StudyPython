@@ -3,7 +3,7 @@
 from PyQt4.QtGui import *
 import pyqtgraph as pg
 from CustomViewBox import CustomViewBox
-from TimeAxisItem import TimeAxisItem
+from CandlestickItem import CandlestickItem
 
 from pyqtgraph.Qt import QtCore
 
@@ -11,49 +11,51 @@ class VolPlotItem(pg.PlotItem):
     def __init__(self):
         vb = CustomViewBox()
         pg.PlotItem.__init__(self, viewBox=vb, name='PlotVol')
+
+        # 属性设置
         self.setMenuEnabled(False)
         self.setClipToView(True)
+        self.showGrid(True, True)
+        self.setDownsampling(mode='peak')
+        self.hideButtons()
+        self.setRange(xRange=(0, 1), yRange=(0, 1))
+        self.setMaximumHeight(150)
+        self.setXLink('PlotOI')
+
         self.hideAxis('left')
         self.showAxis('right')
-        self.setDownsampling(mode='peak')
-        self.setRange(xRange=(0, 1), yRange=(0, 1))
+        self.hideAxis('bottom')
         self.getAxis('right').setWidth(60)
         self.getAxis('right').setStyle(tickFont=QFont("Roman times", 10, QFont.Bold))
         self.getAxis('right').setPen(color=(255, 255, 255, 255), width=0.8)
-        self.showGrid(True, True)
-        self.hideButtons()
 
-        # 十字光标
-        self.m_volYAxis = 0
-        self.m_volShowHLine = False
-        self.m_volTextPrice = pg.TextItem('', anchor=(1, 1))
+        # 添加子组件及设置
+        self.m_candle = CandlestickItem()
         self.m_volVLine = pg.InfiniteLine(angle=90, movable=False)
         self.m_volHLine = pg.InfiniteLine(angle=0, movable=False)
+        self.m_volTextPrice = pg.TextItem('', anchor=(1, 1))
         self.m_textVolume = pg.TextItem('lastBarVolume', anchor=(1, 0))
-        self.m_textVolume.setZValue(2)
-
-        self.m_volTextPrice.setZValue(2)
-        self.m_volVLine.setPos(0)
-        self.m_volHLine.setPos(0)
-        self.m_volVLine.setZValue(0)
-        self.m_volHLine.setZValue(0)
+        self.addItem(self.m_candle)
         self.addItem(self.m_volVLine)
         self.addItem(self.m_volHLine)
         self.addItem(self.m_volTextPrice)
         self.addItem(self.m_textVolume, ignoreBounds=True)
 
+        self.m_volVLine.setPos(0)
+        self.m_volHLine.setPos(0)
+        self.m_volVLine.setZValue(0)
+        self.m_volHLine.setZValue(0)
+        self.m_volTextPrice.setZValue(2)
+        self.m_textVolume.setZValue(2)
+
+        self.m_volYAxis = 0
+        self.m_volShowHLine = False
         self.m_xAxis = 0
         self.m_yAxis = 0
 
-    def setYAxis(self, _yAxis):
-        self.m_volYAxis = _yAxis
-
-    def setShowHLine(self, _showHLine):
-        self.m_volShowHLine = _showHLine
-
-    # 设置数据
-    def setDatas(self, _datas):
-        self.m_datas = _datas
+    # 刷新K线
+    def updateCandle(self, _data=None, _redraw=False):
+        self.m_candle.generatePicture(_data, _redraw)
 
     # ----------------------------------------------------------------------
     def moveTo(self, _xAxis, _yAxis):
@@ -112,6 +114,16 @@ class VolPlotItem(pg.PlotItem):
         else:
             self.m_volTextPrice.hide()
 
+
+    def setYAxis(self, _yAxis):
+        self.m_volYAxis = _yAxis
+
+    def setShowHLine(self, _showHLine):
+        self.m_volShowHLine = _showHLine
+
+    # 设置数据
+    def setDatas(self, _datas):
+        self.m_datas = _datas
 
 
 

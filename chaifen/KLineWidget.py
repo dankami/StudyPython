@@ -67,15 +67,25 @@ class KLineWidget(QtGui.QWidget):
         self.m_pgLayout.setSpacing(0)
         self.m_pgLayout.setBorder(color=(255, 255, 255, 255), width=0.8)
         self.m_pgLayout.setZValue(0)
-        self.m_pgTitle = self.m_pgLayout.addLabel(u'')
+        self.m_pgTitle = self.m_pgLayout.addLabel(u'量化分析工具', size='20pt')
         self.m_plotWidget.setCentralItem(self.m_pgLayout)
         # self.m_plotWidget.centralWidget.getItem(0, 0).setText(u'原来是你', size='20pt')
 
         # 初始化子图
-        self.initplotKline()
-        self.initplotVol()  
-        self.initplotOI()
-        # 注册十字光标
+        self.m_klPlotItem = KLPlotItem()
+        self.m_pgLayout.nextRow()
+        self.m_pgLayout.addItem(self.m_klPlotItem)
+
+        self.m_volPlotItem = VolPlotItem()
+        self.m_pgLayout.nextRow()
+        self.m_pgLayout.addItem(self.m_volPlotItem)
+
+        self.m_oiPlotItem = OIPlotItem()
+        self.m_curveOI = self.m_oiPlotItem.plot()
+        self.m_pgLayout.nextRow()
+        self.m_pgLayout.addItem(self.m_oiPlotItem)
+
+        # 注册鼠标事件
         self.m_proxy = pg.SignalProxy(self.m_plotWidget.scene().sigMouseMoved, rateLimit=360, slot=self.pwMouseMoved)
         # 设置界面
         self.m_vbLayout = QtGui.QVBoxLayout()
@@ -123,41 +133,12 @@ class KLineWidget(QtGui.QWidget):
         self.m_oiPlotItem.moveTo(_xAxis, _yAxis)
 
     #----------------------------------------------------------------------
-    def initplotKline(self):
-        """初始化K线子图"""
-        self.m_klPlotItem = KLPlotItem()
-        self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.m_klPlotItem)
-
-    #----------------------------------------------------------------------
-    def initplotVol(self):
-        """初始化成交量子图"""
-        self.m_volPlotItem = VolPlotItem()
-        self.volume = CandlestickItem()
-        self.m_volPlotItem.addItem(self.volume)
-        self.m_volPlotItem.setMaximumHeight(150)
-        self.m_volPlotItem.setXLink('PlotOI')
-        self.m_volPlotItem.hideAxis('bottom')
-
-        self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.m_volPlotItem)
-
-    #----------------------------------------------------------------------
-    def initplotOI(self):
-        """初始化持仓量子图"""
-        self.m_oiPlotItem = OIPlotItem()
-        self.curveOI = self.m_oiPlotItem.plot()
-
-        self.m_pgLayout.nextRow()
-        self.m_pgLayout.addItem(self.m_oiPlotItem)
-
-    #----------------------------------------------------------------------
     #  画图相关 
     #----------------------------------------------------------------------
     def plotVol(self,redraw=False,xmin=0,xmax=-1):
         """重画成交量子图"""
         if self.m_initCompleted:
-            self.volume.generatePicture(self.m_listVol[xmin:xmax], redraw)   # 画成交量子图
+            self.m_volPlotItem.updateCandle(self.m_listVol[xmin:xmax], redraw)   # 画成交量子图
 
     #----------------------------------------------------------------------
     def plotKline(self,redraw=False,xmin=0,xmax=-1):
@@ -170,7 +151,7 @@ class KLineWidget(QtGui.QWidget):
     def plotOI(self,xmin=0,xmax=-1):
         """重画持仓量子图"""
         if self.m_initCompleted:
-            self.curveOI.setData(self.m_listOpenInterest[xmin:xmax] + [0], pen='w', name="OpenInterest")
+            self.m_curveOI.setData(self.m_listOpenInterest[xmin:xmax] + [0], pen='w', name="OpenInterest")
 
     #----------------------------------------------------------------------
     def plotMark(self):
@@ -195,28 +176,6 @@ class KLineWidget(QtGui.QWidget):
             self.m_arrows.append(arrow)
 
     #----------------------------------------------------------------------
-    def updateAll(self):
-        """
-        手动更新所有K线图形，K线播放模式下需要
-        """
-        datas = self.m_datas
-        self.volume.update()
-        self.candle.update()
-        def update(view,low,high):
-            vRange = view.viewRange()
-            xmin = max(0,int(vRange[0][0]))
-            xmax = max(0,int(vRange[0][1]))
-            xmax = min(xmax,len(datas))
-            if len(datas)>0 and xmax > xmin:
-                ymin = min(datas[xmin:xmax][low])
-                ymax = max(datas[xmin:xmax][high])
-                view.setRange(yRange = (ymin,ymax))
-            else:
-                view.setRange(yRange = (0,1))
-        update(self.m_klPlotItem.getViewBox(), 'low', 'high')
-        update(self.m_volPlotItem.getViewBox(), 'volume', 'volume')
-
-    #----------------------------------------------------------------------
     def plotAll(self,redraw=True,xMin=0,xMax=-1):
         """
         重画所有界面
@@ -226,9 +185,9 @@ class KLineWidget(QtGui.QWidget):
         xMax = len(self.m_datas) if xMax < 0 else xMax
         self.m_countK = xMax - xMin
         self.m_midIndex = int((xMax + xMin) / 2)
-        self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.m_klPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.m_volPlotItem.setLimits(xMin=xMin, xMax=xMax)
+        self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.plotKline(redraw,xMin,xMax)                       # K线图
         self.plotVol(redraw,xMin,xMax)                         # K线副图，成交量
         self.plotOI(0, len(self.m_datas))                         # K线副图，持仓量
@@ -239,13 +198,12 @@ class KLineWidget(QtGui.QWidget):
         """
         刷新三个子图的现实范围
         """   
-        datas   = self.m_datas
         minutes = int(self.m_countK / 2)
         xmin    = max(0, self.m_midIndex - minutes)
         xmax    = xmin+2*minutes
-        self.m_oiPlotItem.setRange(xRange = (xmin, xmax))
         self.m_klPlotItem.setRange(xRange = (xmin, xmax))
         self.m_volPlotItem.setRange(xRange = (xmin, xmax))
+        self.m_oiPlotItem.setRange(xRange=(xmin, xmax))
 
     #----------------------------------------------------------------------
     #  快捷键相关 
