@@ -60,7 +60,7 @@ class KLPlotItem(pg.PlotItem):
     def updateCandle(self, _data=None, _redraw=False):
         self.m_candle.generatePicture(_data, _redraw)
 
-    # ----------------------------------------------------------------------
+    # 移动
     def moveTo(self, _xAxis, _yAxis):
 
         _xAxis = self.m_xAxis if _xAxis is None else int(_xAxis)
@@ -153,15 +153,15 @@ class KLPlotItem(pg.PlotItem):
         # 设置坐标
         self.m_textInfo.setPos(klTopLeft)
 
+    # 设置数据
+    def setDatas(self, _datas):
+        self.m_datas = _datas
+
     def setYAxis(self, _yAxis):
         self.m_volYAxis = _yAxis
 
     def setShowHLine(self, _showHLine):
         self.m_klShowHLine = _showHLine
-
-    # 设置数据
-    def setDatas(self, _datas):
-        self.m_datas = _datas
 
     # 获取横坐标
     def getXAxis(self):

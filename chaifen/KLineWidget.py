@@ -12,10 +12,8 @@ import pyqtgraph as pg
 import numpy as np
 import pandas as pd
 from functools import partial
-from collections import deque
 
 # 自己
-from CandlestickItem import CandlestickItem
 from KLPlotItem import KLPlotItem
 from VolPlotItem import VolPlotItem
 from OIPlotItem import OIPlotItem

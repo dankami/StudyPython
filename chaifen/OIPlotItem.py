@@ -16,55 +16,48 @@ class OIPlotItem(pg.PlotItem):
         xdict = {}
         self.m_timeAxis = TimeAxisItem(xdict, orientation='bottom')
         pg.PlotItem.__init__(self, viewBox=vb, name='PlotOI', axisItems={'bottom': self.m_timeAxis})
+
+        # 属性设置
         self.setMenuEnabled(False)
         self.setClipToView(True)
-        self.hideAxis('left')
-        self.showAxis('right')
         self.setDownsampling(mode='peak')
         self.setRange(xRange=(0, 1), yRange=(0, 1))
-        self.getAxis('right').setWidth(60)
-        self.getAxis('right').setStyle(tickFont=QFont("Roman times", 10, QFont.Bold))
-        self.getAxis('right').setPen(color=(255, 255, 255, 255), width=0.8)
         self.showGrid(True, True)
         self.hideButtons()
 
-        # 十字光标
-        self.m_oiYAxis = 0
-        self.m_oiLeftX = 0
-        self.m_oiShowHLine = False
-        self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
+        self.hideAxis('left')
+        self.showAxis('right')
+        self.getAxis('right').setWidth(60)
+        self.getAxis('right').setStyle(tickFont=QFont("Roman times", 10, QFont.Bold))
+        self.getAxis('right').setPen(color=(255, 255, 255, 255), width=0.8)
+
+        # 组件及属性设置
+        self.m_oiRect = self.sceneBoundingRect()
         self.m_oiVLine = pg.InfiniteLine(angle=90, movable=False)
         self.m_oiHLine = pg.InfiniteLine(angle=0, movable=False)
-
-        self.m_textDate = pg.TextItem('date', anchor=(1, 1))
-        self.m_textDate.setZValue(2)
-
-        self.m_oiRect = self.sceneBoundingRect()
-        self.m_oiTextPrice.setZValue(2)
+        self.m_oiTextPrice = pg.TextItem('', anchor=(1, 1))
+        self.addItem(self.m_oiVLine)
+        self.addItem(self.m_oiHLine)
+        self.addItem(self.m_oiTextPrice)
         self.m_oiVLine.setPos(0)
         self.m_oiHLine.setPos(0)
         self.m_oiVLine.setZValue(0)
         self.m_oiHLine.setZValue(0)
+        self.m_oiTextPrice.setZValue(2)
 
-        self.addItem(self.m_oiVLine)
-        self.addItem(self.m_oiHLine)
-        self.addItem(self.m_oiTextPrice)
+        # 字期组件
+        self.m_textDate = pg.TextItem('date', anchor=(1, 1))
+        self.m_textDate.setZValue(2)
         self.addItem(self.m_textDate, ignoreBounds=True)
 
+        # 参数
+        self.m_oiYAxis = 0
+        self.m_oiLeftX = 0
+        self.m_oiShowHLine = False
         self.m_xAxis = 0
         self.m_yAxis = 0
 
-    def setYAxis(self, _yAxis):
-        self.m_oiYAxis = _yAxis
-
-    def setShowHLine(self, _showHLine):
-        self.m_oiShowHLine = _showHLine
-
-    # 设置数据
-    def setDatas(self, _datas):
-        self.m_datas = _datas
-
-    # ----------------------------------------------------------------------
+    # 移动
     def moveTo(self, xAxis, yAxis):
         xAxis, yAxis = (self.m_xAxis, self.m_yAxis) if xAxis is None else (int(xAxis), yAxis)
         self.m_oiRect = self.sceneBoundingRect()
@@ -133,6 +126,16 @@ class OIPlotItem(pg.PlotItem):
     # 更新时间轴
     def update_xdict(self, _xdict):
         self.m_timeAxis.update_xdict(_xdict)
+
+    # 设置数据
+    def setDatas(self, _datas):
+        self.m_datas = _datas
+
+    def setYAxis(self, _yAxis):
+        self.m_oiYAxis = _yAxis
+
+    def setShowHLine(self, _showHLine):
+        self.m_oiShowHLine = _showHLine
 
 
 
