@@ -42,7 +42,6 @@ class KLineWidget(QtGui.QWidget):
         self.m_listBar  = []
         self.m_listVol  = []
         self.m_listSig  = []
-        self.m_listOpenInterest = []
         self.m_arrows   = []
 
         # 初始化完成
@@ -146,12 +145,6 @@ class KLineWidget(QtGui.QWidget):
             self.plotMark()                             # 显示开平仓信号位置
 
     #----------------------------------------------------------------------
-    def plotOI(self,xmin=0,xmax=-1):
-        """重画持仓量子图"""
-        # if self.m_initCompleted:
-        #     self.m_curveOI.setData(self.m_listOpenInterest[xmin:xmax] + [0], pen='w', name="OpenInterest")
-
-    #----------------------------------------------------------------------
     def plotMark(self):
         """显示开平仓信号"""
         # 检查是否有数据
@@ -188,7 +181,6 @@ class KLineWidget(QtGui.QWidget):
         # self.m_oiPlotItem.setLimits(xMin=xMin, xMax=xMax)
         self.plotKline(redraw,xMin,xMax)                       # K线图
         self.plotVol(redraw,xMin,xMax)                         # K线副图，成交量
-        self.plotOI(0, len(self.m_datas))                         # K线副图，持仓量
         self.refresh()
 
     #----------------------------------------------------------------------
@@ -312,6 +304,7 @@ class KLineWidget(QtGui.QWidget):
 
     #----------------------------------------------------------------------
     def loadData(self, datas):
+        datas = datas.sort_index(ascending=True)
         print datas
         """
         载入pandas.DataFrame数据
@@ -321,14 +314,13 @@ class KLineWidget(QtGui.QWidget):
         self.m_midIndex = 0
         # 绑定数据，更新横坐标映射，更新Y轴自适应函数，更新十字光标映射
         datas.insert(1,'time_int',np.array(range(len(datas.index))))
-        self.m_datas = datas[['open', 'close', 'low', 'high', 'volume', 'openInterest']].to_records()
+        self.m_datas = datas[['open', 'close', 'low', 'high', 'volume']].to_records()
         xdict = dict(enumerate(datas.index.tolist()))
         # self.m_oiPlotItem.update_xdict(xdict)
         self.m_volPlotItem.update_xdict(xdict)
         self.resignData(self.m_datas)
         # 更新画图用到的数据
         self.m_listBar          = datas[['time_int', 'open', 'close', 'low', 'high']].to_records(False)
-        self.m_listOpenInterest = list(datas['openInterest'])
         # 成交量颜色和涨跌同步，K线方向由涨跌决定
         datas0                = pd.DataFrame()
         datas0['open']        = datas.apply(lambda x:0 if x['close'] >= x['open'] else x['volume'],axis='columns')
@@ -376,7 +368,6 @@ class KLineWidget(QtGui.QWidget):
         self.time_index = []
         self.m_listBar = []
         self.m_listVol = []
-        self.m_listOpenInterest = []
         self.m_listSig = []
         self.m_datas = None
 

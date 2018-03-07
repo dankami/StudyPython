@@ -36,7 +36,7 @@ class TimeAxisItem(pg.AxisItem):
             vs = v * scale
             if vs in self.m_valuesX:
                 vstr = self.m_stringsX[np.abs(self.m_valuesX - vs).argmin()]
-                vstr = vstr.strftime('%Y-%m-%d %H:%M:%S')
+                vstr = vstr.strftime('%Y-%m-%d')
             else:
                 vstr = ""
             strings.append(vstr)

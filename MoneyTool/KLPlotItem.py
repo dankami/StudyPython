@@ -84,7 +84,7 @@ class KLPlotItem(pg.PlotItem):
             # 获取K线数据
             data = self.m_datas[_xAxis]
             lastdata = self.m_datas[_xAxis - 1]
-            tickDatetime = data['datetime']
+            tickDate = data['date']
             openPrice = data['open']
             closePrice = data['close']
             lowPrice = data['low']
@@ -94,12 +94,10 @@ class KLPlotItem(pg.PlotItem):
         except Exception, e:
             return
 
-        if (isinstance(tickDatetime, dt.datetime)):
-            dateText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d')
-            timeText = dt.datetime.strftime(tickDatetime, '%H:%M:%S')
+        if (isinstance(tickDate, dt.datetime)):
+            dateText = dt.datetime.strftime(tickDate, '%Y-%m-%d')
         else:
             dateText = ""
-            timeText = ""
 
         # 和上一个收盘价比较，决定K线信息的字符颜色
         cOpen = 'red' if openPrice > preClosePrice else 'green'
@@ -110,8 +108,6 @@ class KLPlotItem(pg.PlotItem):
         self.m_textInfo.setHtml(
             u'<div style="text-align: center; background-color:#000">\
                 <span style="color: white;  font-size: 16px;">日期</span><br>\
-                <span style="color: yellow; font-size: 16px;">%s</span><br>\
-                <span style="color: white;  font-size: 16px;">时间</span><br>\
                 <span style="color: yellow; font-size: 16px;">%s</span><br>\
                 <span style="color: white;  font-size: 16px;">开盘</span><br>\
                 <span style="color: %s;     font-size: 16px;">%.3f</span><br>\
@@ -124,7 +120,7 @@ class KLPlotItem(pg.PlotItem):
                 <span style="color: white;  font-size: 16px;">成交量</span><br>\
                 <span style="color: yellow; font-size: 16px;">%.3f</span><br>\
             </div>' \
-            % (dateText, timeText, cOpen, openPrice, cHigh, highPrice, \
+            % (dateText, cOpen, openPrice, cHigh, highPrice, \
                cLow, lowPrice, cClose, closePrice, volume))
 
         # 坐标轴宽度

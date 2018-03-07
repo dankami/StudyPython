@@ -93,7 +93,7 @@ class VolPlotItem(pg.PlotItem):
             # 获取K线数据
             data = self.m_datas[_xAxis]
             volume = data['volume']
-            tickDatetime = data['datetime']
+            tickDatetime = data['date']
         except Exception, e:
             return
 
@@ -126,14 +126,14 @@ class VolPlotItem(pg.PlotItem):
 
         # 十字标时间
         if (isinstance(tickDatetime, dt.datetime)):
-            datetimeText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d %H:%M:%S')
+            dateText = dt.datetime.strftime(tickDatetime, '%Y-%m-%d')
         else:
-            datetimeText = ""
+            dateText = ""
         self.m_textDate.setHtml(
             '<div style="text-align: center">\
                 <span style="color: yellow; font-size: 20px; font-weight:bold">%s</span>\
             </div>' \
-            % (datetimeText))
+            % (dateText))
 
         oiRightAxisWidth = self.getAxis('right').width()
         oiBottomAxisHeight = self.getAxis('bottom').height()
