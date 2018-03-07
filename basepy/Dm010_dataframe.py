@@ -28,13 +28,23 @@ if __name__ == "__main__":
     print df2.columns
 
     # 访问多行数据，索引参数为一个列表对象
-    print u'df2 访问多行数据'
+    print u'====== df2 访问多行数据========'
+    print df2
+    print df2.loc[df2.col1 > 4]
     print df2.loc[['a', 'c']]
-    print df2.loc[df2.index[1:3]]
+    print df2.loc[['a', 'c'], ['col2', 'col3']]
+    print df2.loc[df2.index[0:2]]
+    df3 = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]], columns=['a', 'b', 'c'])
+    print u'打印df3'
+    print df3
+    print df3.loc[df3.index > 1]
+
+
 
     # 访问列数据
     print u'df2 访问列数据'
     print df2[['col1', 'col3']]
+
 
 
     #### 计算 #####
