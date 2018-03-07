@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce40ca7-50a9-447b-9599-f93ecfdfab95" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GetMoney.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PyechartsDemo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/basepy/MoneyMachine.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/KLPlotItem.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/KLineWidget.py" afterPath="$PROJECT_DIR$/chaifen/KLineWidget.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/OIPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/OIPlotItem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/Main.py" afterPath="$PROJECT_DIR$/chaifen/Main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chaifen/VolPlotItem.py" afterPath="$PROJECT_DIR$/chaifen/VolPlotItem.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,86 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/Main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-              <folding>
-                <element signature="e#25#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KLineWidget.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="148" column="27" lean-forward="false" selection-start-line="148" selection-start-column="27" selection-end-line="151" selection-end-column="106" />
-              <folding>
-                <element signature="e#116#146#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KLPlotItem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/KLPlotItem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2214">
-              <caret line="153" column="41" lean-forward="true" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-              <folding>
-                <element signature="e#25#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VolPlotItem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/VolPlotItem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1896">
-              <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-              <folding>
-                <element signature="e#25#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OIPlotItem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/OIPlotItem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="50" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data2.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/data2.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" column="76" lean-forward="false" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chaifen/data.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,9 +29,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>m_sigPlots</find>
-      <find>m_subSigData</find>
-      <find>m_subSigColor</find>
       <find>m_subSigPlots</find>
       <find>m_arrows</find>
       <find>plotMark</find>
@@ -123,19 +43,22 @@
       <find>update</find>
       <find>datas</find>
       <find>CandlestickItem</find>
-      <find>m_volPlotItem</find>
       <find>m_vol</find>
       <find>initplotKline</find>
       <find>initplotVol</find>
       <find>initplotOI</find>
       <find>m_curveOI</find>
-      <find>m_oiPlotItem</find>
       <find>plotAll</find>
       <find>getXAxis</find>
-      <find>m_textDate</find>
-      <find>m_candle</find>
       <find>OIPlotItem</find>
       <find>plotOI</find>
+      <find>m_oiPlotItem</find>
+      <find>m_textDate</find>
+      <find>oiBottomRigt</find>
+      <find>update_xdict</find>
+      <find>m_candle</find>
+      <find>datetimeText</find>
+      <find>m_volPlotItem</find>
     </findStrings>
     <replaceStrings>
       <replace>self.master.m_sigData</replace>
@@ -156,8 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/uiKLine/KeyWraper.py" />
-        <option value="$PROJECT_DIR$/uiKLine/CustomViewBox.py" />
         <option value="$PROJECT_DIR$/uiKLine/MyStringAxis.py" />
         <option value="$PROJECT_DIR$/uiKLine/CandlestickItem.py" />
         <option value="$PROJECT_DIR$/pyqt_demo/02HelloWin2.py" />
@@ -202,11 +123,13 @@
         <option value="$PROJECT_DIR$/basepy/Dm013_lambda.py" />
         <option value="$PROJECT_DIR$/chaifen/data2.csv" />
         <option value="$PROJECT_DIR$/basepy/Dm010_dataframe.py" />
-        <option value="$PROJECT_DIR$/chaifen/Main.py" />
-        <option value="$PROJECT_DIR$/chaifen/OIPlotItem.py" />
         <option value="$PROJECT_DIR$/chaifen/KLPlotItem.py" />
+        <option value="$PROJECT_DIR$/chaifen/OIPlotItem.py" />
         <option value="$PROJECT_DIR$/chaifen/VolPlotItem.py" />
+        <option value="$PROJECT_DIR$/TuShare/Dm01_Hello.py" />
+        <option value="$PROJECT_DIR$/chaifen/600104.csv" />
         <option value="$PROJECT_DIR$/chaifen/KLineWidget.py" />
+        <option value="$PROJECT_DIR$/chaifen/Main.py" />
       </list>
     </option>
   </component>
@@ -267,7 +190,7 @@
             <path>
               <item name="StudyPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="StudyPython" type="462c0819:PsiDirectoryNode" />
-              <item name="chaifen" type="462c0819:PsiDirectoryNode" />
+              <item name="MoneyTool" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -289,17 +212,17 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\workspace\git\StudyPython\chaifen" />
-      <recent name="E:\workspace\git\StudyPython\pyqt_graph_demo" />
-      <recent name="E:\workspace\git\StudyPython\zminKLine" />
-      <recent name="E:\workspace\git\StudyPython\zmoney" />
-      <recent name="E:\workspace\git\StudyPython\uiKLine" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\workspace\git\StudyPython\basepy" />
       <recent name="E:\workspace\git\StudyPython" />
       <recent name="E:\workspace\git\StudyPython\mylib" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspace\git\StudyPython\MoneyTool" />
+      <recent name="E:\workspace\git\StudyPython\chaifen" />
+      <recent name="E:\workspace\git\StudyPython\pyqt_graph_demo" />
+      <recent name="E:\workspace\git\StudyPython\zminKLine" />
+      <recent name="E:\workspace\git\StudyPython\zmoney" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -315,23 +238,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Main">
-    <configuration name="19EventSignalDemo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pyqt_demo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="StudyPython" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyqt_demo/19EventSignalDemo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="Dm010_dataframe" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -362,6 +268,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StudyPython" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basepy/Dm013_lambda.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="Dm01_Hello" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TuShare" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="StudyPython" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TuShare/Dm01_Hello.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -403,17 +326,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Main" />
       <item index="1" class="java.lang.String" itemvalue="Python.uiKLine" />
-      <item index="2" class="java.lang.String" itemvalue="Python.19EventSignalDemo" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Dm013_lambda" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Dm010_dataframe" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Dm013_lambda" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Dm010_dataframe" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Dm01_Hello" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Dm010_dataframe" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Dm013_lambda" />
-        <item index="3" class="java.lang.String" itemvalue="Python.uiKLine" />
-        <item index="4" class="java.lang.String" itemvalue="Python.19EventSignalDemo" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Dm01_Hello" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Dm010_dataframe" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Dm013_lambda" />
+        <item index="4" class="java.lang.String" itemvalue="Python.uiKLine" />
       </list>
     </recent_temporary>
   </component>
@@ -725,17 +648,24 @@
       <option name="project" value="LOCAL" />
       <updated>1520308991966</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="调整 代码位置">
+      <created>1520309964930</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1520309964930</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16630901" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16523606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.50289434" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32435596" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18032786" sideWeight="0.49710566" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34192038" sideWeight="0.49710566" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -758,7 +688,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增 isinstance 的使用例子" />
     <MESSAGE value="修改 规范数据调用、命名" />
     <MESSAGE value="修改 抽离oi组件注册十字标逻辑" />
     <MESSAGE value="修改 抽离oi组件引起的bug" />
@@ -783,7 +712,8 @@
     <MESSAGE value="去除 组件对父组件的依赖。" />
     <MESSAGE value="修改 去除无用代码" />
     <MESSAGE value="烛状图 抽取到vol组件" />
-    <option name="LAST_COMMIT_MESSAGE" value="烛状图 抽取到vol组件" />
+    <MESSAGE value="调整 代码位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整 代码位置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,37 +763,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zminKLine/Main.py" />
-    <entry file="file://$PROJECT_DIR$/zminKLine/TimeAxis.py" />
-    <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/graphicsItems/AxisItem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8928">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/PyQt4/QtCore/Qt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2968">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/PyQt4/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basepy/Dm001_HelloWorld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/basepy/Dm003_Plist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
@@ -924,20 +823,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/KLinePlotItem.py" />
     <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/KeyWraper.py" />
-    <entry file="file://$PROJECT_DIR$/PyechartsDemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetMoney.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyqt_graph_demo/02PlotWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -1002,14 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/graphicsItems/PlotItem/PlotItem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1136,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/data2.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="76" lean-forward="false" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1162,28 +1031,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chaifen/Main.py">
+    <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/graphicsItems/PlotItem/PlotItem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding>
-            <element signature="e#25#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-5614">
+          <caret line="105" column="9" lean-forward="false" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/OIPlotItem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="50" selection-end-column="56" />
+        <state relative-caret-position="216">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/KLPlotItem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2214">
-          <caret line="153" column="41" lean-forward="true" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
+        <state relative-caret-position="1207">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
             <element signature="e#25#50#0" expanded="true" />
           </folding>
@@ -1192,21 +1059,103 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/VolPlotItem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1896">
-          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="223">
+          <caret line="130" column="29" lean-forward="false" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
           <folding>
             <element signature="e#25#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/data2.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basepy/ChangeTypeUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-298">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/pandas/io/pytables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="457" column="42" lean-forward="true" selection-start-line="457" selection-start-column="42" selection-end-line="457" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basepy/MoneyMachine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TuShare/Dm01_Hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/600104.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyechartsDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetMoney.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-581">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chaifen/KLineWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="148" column="27" lean-forward="false" selection-start-line="148" selection-start-column="27" selection-end-line="151" selection-end-column="106" />
+        <state relative-caret-position="-228">
+          <caret line="340" column="48" lean-forward="false" selection-start-line="340" selection-start-column="48" selection-end-line="340" selection-end-column="48" />
           <folding>
             <element signature="e#116#146#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chaifen/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="e#25#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MoneyTool/600104.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
