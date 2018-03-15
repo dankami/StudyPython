@@ -38,6 +38,7 @@ if __name__ == "__main__":
     print u'打印df3'
     print df3
     print df3.loc[df3.index > 1]
+    print df3.iloc[0]  # 根据行获取数据
 
 
 
