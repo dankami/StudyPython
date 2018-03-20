@@ -6,3 +6,10 @@ print '就算被包含也会执行，这是脚本语言的特性'
 #脚本语言没有真正的入口，所以用__name__来区分。否则在被包含时就被执行
 if __name__ == '__main__':
     print 'Hello world'
+    for i in range(3):
+        print i
+
+    print '倒序'
+    tList = [1,3,4,5,5]
+    for i in reversed(tList):
+        print i
