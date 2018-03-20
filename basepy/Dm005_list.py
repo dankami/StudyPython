@@ -11,3 +11,6 @@ if __name__ == "__main__":
     list2 = []
     print(list2)
     print(type(list2))
+    list2.append(3)
+    list2.append(5)
+    print list2
