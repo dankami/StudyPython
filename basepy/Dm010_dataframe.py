@@ -23,6 +23,11 @@ if __name__ == "__main__":
     print u'打印df4'
     print df4
 
+    df5 = pd.DataFrame([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+    print u'打印df5'
+    print df5
+    print df5[0]
+
     print u'基本操作'
     print df2.index
     print df2.columns
@@ -113,9 +118,12 @@ if __name__ == "__main__":
     print u'DataFrame 对象的合并'
     df_a = pd.DataFrame(['wang', 'jing', 'hui', 'is', 'a', 'master'], columns=['col6'],
                         index=['a', 'b', 'c', 'd', 'e', 'f'])
+    print '打印df_a'
     print df_a
     # 默认合并,只保留dfb中的全部索引
     df_b = pd.DataFrame([1, 2, 4, 5, 6, 7], columns=['col1'], index=['a', 'b', 'c', 'd', 'f', 'g'])
+    print '打印df_b'
+    print df_b
     print df_b.join(df_a)
 
     # 默认合并之接受索引已经存在的值
