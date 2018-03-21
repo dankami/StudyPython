@@ -32,7 +32,9 @@ if __name__ == "__main__":
     print df2.index
     print df2.columns
 
-    # 访问多行数据，索引参数为一个列表对象
+    ###### 访问数据 #########
+
+    # 访问行
     print u'====== df2 访问多行数据========'
     print df2
     print df2.loc[df2.col1 > 4]
@@ -44,12 +46,8 @@ if __name__ == "__main__":
     print df3
     print df3.loc[df3.index > 1]
     print df3.iloc[0]  # 根据行获取数据
-    print df3.drop(df3.index[[0, 1]])  # 删除行获取数据
 
-
-
-
-    # 访问列数据
+    # 访问列
     print u'df2 访问列数据'
     print df2[['col1', 'col3']]
 
@@ -75,21 +73,17 @@ if __name__ == "__main__":
     # 对每个元素乘以２
     print u'apply 与 lambda结合使用，修改每个元素'
     print df2.apply(lambda x: x * 2)
-
-
     # 对每个元素求平方(支持ndarray一样的向量化操作)
     print u'df2 对每个元素求平方'
     print df2 ** 2
 
-
-    ### 列扩充 ####
-
+    ####### 增加数据 ########
+    # 列扩充
     # 对DataFrame对象进行列扩充
     opeDf = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=['col1', 'col2', 'col3'], index=['a', 'b'])
     opeDf['col4'] = ['cnn', 'rnn']
     print u'opeDf 增加一列'
     print opeDf
-
     # 也可以通过一个新的DataFrame对象来定义一个新列,索引自动对应
     addData = pd.DataFrame(['MachineLearning', 'DeepLearning'], index=['a', 'b'])
     opeDf['col5'] = addData
@@ -97,22 +91,34 @@ if __name__ == "__main__":
     print addData
     print opeDf
 
-    ### 行扩充 ###
-
-    # 行进行扩充
+    # 行扩充
     print u'opeDf 增加一行'
     print opeDf.append(
         pd.DataFrame({'col1': 7, 'col2': 8, 'col3': 9, 'col4': 'rcnn', 'col5': 'ReinforcementLearning'}, index=['c']))
-
     ### 注意！###
     print u'如果在进行　行扩充时候没有，指定 index 的参数，索引会被数字取代'
     print opeDf.append({'col1': 10, 'col2': 11, 'col3': 12, 'col4': 'frnn', 'col5': 'DRL'}, ignore_index=True)
-
     # 以上的行扩充，并没有真正修改，df2这个DataFrame对象，除非
     opeDf = opeDf.append(
         pd.DataFrame({'col1': 7, 'col2': 8, 'col3': 9, 'col4': 'rcnn', 'col5': 'ReinforcementLearning'}, index=['c']))
     print u'扩充后的 opeDf:'
     print opeDf
+
+
+    ######### 删除 #########
+    # 删除行
+    dfLine =  pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]], columns=['a', 'b', 'c'])
+    print '打印dfLine'
+    print dfLine
+    print '打印删除dfLine'
+    print dfLine.drop(dfLine.index[[0, 1]])  # 删除行获取数据
+    # 删除列
+    dfCols = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]], columns=['a', 'b', 'c'])
+    print '打印dfCols'
+    print dfCols
+    print '打印删除dfCols'
+    del dfCols['a']
+    print dfCols
 
     ### DataFrame对象的合并 ###
     print u'DataFrame 对象的合并'
