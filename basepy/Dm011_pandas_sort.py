@@ -21,3 +21,6 @@ if __name__ == "__main__":
     print frame.sort_values(by='a')
     print '通过多个索引进行排序：'
     print frame.sort_values(by=['a', 'c'])
+
+    # 旧版本使用 sort 方法进行值排序
+    print frame.sort_values(['a'])
