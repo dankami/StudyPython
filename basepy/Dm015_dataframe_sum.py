@@ -14,3 +14,9 @@ if __name__ == '__main__':
     print df
     df.loc['Row_sum'] = df.apply(lambda x: x.sum())
     print df
+
+    opeDf = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=['col1', 'col2', 'col3'], index=['a', 'b'])
+    print opeDf
+    print opeDf['col1'].sum()
+
+
