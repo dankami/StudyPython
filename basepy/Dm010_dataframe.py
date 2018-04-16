@@ -120,6 +120,10 @@ if __name__ == "__main__":
     del dfCols['a']
     print dfCols
 
+
+
+
+
     ### DataFrame对象的合并 ###
     print u'DataFrame 对象的合并'
     df_a = pd.DataFrame(['wang', 'jing', 'hui', 'is', 'a', 'master'], columns=['col6'],
